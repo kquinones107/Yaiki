@@ -1,29 +1,31 @@
-import { Image, View, StyleSheet, Dimensions } from 'react-native';
-const imagenFuente = require('./src/resources/assets/images/YaikiLogo.png');
+// src/screens/LoginScreen.tsx
+
+import React from 'react';
+import { Image, View, StyleSheet } from 'react-native';
+const imagenFuente = require('../resources/assets/images/YaikiLogo.png'); // Importa la imagen correctamente
 
 const LoginScreen = () => {
   return (
-      <View style={styles.container}>
-          <Image source={imagenFuente} style={styles.imagen} />
-      </View>
+    <View style={styles.container}>
+      <Image source={imagenFuente} style={styles.imagen} />
+    </View>
   );
 };
 
-const windowWidth = Dimensions.get('window').width;
-const windowHeight = Dimensions.get('window').height;
-
 const styles = StyleSheet.create({
   container: {
-      backgroundColor: 'pink',
-      flex: 1,
-      justifyContent: 'center',
-      alignItems: 'center',
+    backgroundColor: 'pink',
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   imagen: {
-      width: 200, // ajusta el ancho según sea necesario
-      height: 200, // ajusta la altura según sea necesario
+    width: 200,
+    height: 200,
   },
 });
 
 export default LoginScreen;
+
+
 
