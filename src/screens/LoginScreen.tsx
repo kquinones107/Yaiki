@@ -12,7 +12,7 @@ const LoginScreen: React.FC = () => {
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      navigation.navigate('Yaiki Accesorios');
+      navigation.navigate('MiPantalla');
     }, 3000);
 
   }, [navigation]);
