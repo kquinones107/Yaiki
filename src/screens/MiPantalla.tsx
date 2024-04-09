@@ -3,8 +3,8 @@ import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
 
 const MiPantalla = ({ navigation }) => {
   const handleComencemosPress = () => {
-    console.log('Navegando a OtraPantalla...');
-    navigation.navigate('OtraPantalla');
+    console.log('Navegando a Home...');
+    navigation.navigate('Home');
   };
   
   return (
