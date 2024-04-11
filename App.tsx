@@ -11,44 +11,44 @@ const Tab = createBottomTabNavigator();
 
 const HomeStack = () => {
   return (
-    <Stack.Navigator>
-      <Stack.Screen
+    <Tab.Navigator initialRouteName="">
+      <Tab.Screen
         options={{
           headerShown: false,
         }}
-        name="Home"
+        name="Principal"
         component={Home}
       />
-    </Stack.Navigator>
+    </Tab.Navigator>
   );
 };
 
 const App: React.FC = () => {
   return (
     <NavigationContainer>
-      <Tab.Navigator initialRouteName="">
-        <Tab.Screen
+      <Stack.Navigator>
+        <Stack.Screen
           options={{
             headerShown: false,
           }}
           name="Login"
           component={LoginScreen}
         />
-        <Tab.Screen
+        <Stack.Screen
           options={{
             headerShown: false,
           }}
           name="Welcome"
           component={Welcome}
         />
-        <Tab.Screen
+        <Stack.Screen
           options={{
             headerShown: false,
           }}
           name="Home"
           component={HomeStack}
         />
-      </Tab.Navigator>
+      </Stack.Navigator>
     </NavigationContainer>
   );
 };
