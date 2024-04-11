@@ -1,9 +1,10 @@
 import React from 'react';
-import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
+import {NavigationContainer} from '@react-navigation/native';
+import {createStackNavigator} from '@react-navigation/stack';
 import LoginScreen from './src/screens/LoginScreen';
 import Welcome from './src/screens/Welcome';
 import Home from './src/screens/Home';
+import {StatusBar, View} from 'react-native';
 
 const Stack = createStackNavigator();
 
@@ -25,8 +26,4 @@ const App: React.FC = () => {
   );
 };
 
-export default App; 
-
-
-
-
+export default App;
