@@ -7,12 +7,39 @@ import {
   TouchableOpacity, 
   StyleSheet, 
   ImageBackground, 
-  FlatList 
+  FlatList, 
 } from 'react-native';
+import { Ionicons } from '@expo/vector-icons';
+
+const ProductSection = ({title, products}) => {
+  return (
+    <View style={styles.sectionContainer}>
+      <Text style= {styles.sectionTitle}>{title}</Text>
+      <FlatList 
+        data={products}
+        keyExtractor={(item, index) => index.toString()}
+        horizontal
+        pagingEnabled
+        showsHorizontalScrollIndicator={false}
+        renderItem={({ item }) => (
+          <Image source={item} style={styles.productImage}/>
+          //<Text style={styles.productItem}>{item}</Text>
+        )}
+      />  
+    </View>
+  );
+};
 
 const Home = () => {
   const [backgroundIndex, setBackgroundIndex] = useState(0);
   const backgrounds = [require('../resources/assets/photos/Foto_1.jpg'), require('../resources/assets/photos/Foto_2.jpg'), require('../resources/assets/photos/Foto_3.jpg')];
+  const categories = [
+    { title: 'Pulseras', products: [require('../resources/assets/photos/Foto_1.jpg')]},
+    { title: 'Aretes', products: [require('../resources/assets/photos/Foto_1.jpg')]},
+    { title: 'Anillos', products: [require('../resources/assets/photos/Foto_1.jpg')]},
+    { title: 'Collares', products: [require('../resources/assets/photos/Foto_1.jpg')]},
+    { title: 'Pulseras para la playa', products: [require('../resources/assets/photos/Foto_1.jpg')]},
+  ];
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -24,7 +51,7 @@ const Home = () => {
   }, []);
 
   return (
-    <View style={styles.container}>
+    <ScrollView style={styles.container}>
       {/* FlatList para mostrar múltiples imágenes de fondo */}
       <FlatList
         data={backgrounds}
@@ -45,9 +72,16 @@ const Home = () => {
           console.log('Índice actual:', index);
         }}
       />
-    </View>
+      <View style = {styles.productSectionContainer}>
+        {categories.map((category, index) => (
+          <ProductSection key={index} title={category.title} products={category.products} />
+        ))}
+      </View>
+     
+    </ScrollView>
   );
 };
+
 
 const styles = StyleSheet.create({
   container: {
@@ -60,7 +94,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   titleContainer: {
-    backgroundColor: 'rgba(0, 0, 0, 0.5)', // fondo semi-transparente
+    backgroundColor: 'rgba(0, 0, 0, 0.2)', // fondo semi-transparente
     paddingHorizontal: 20,
     paddingVertical: 10,
     borderRadius: 5,
@@ -70,6 +104,44 @@ const styles = StyleSheet.create({
     color: 'white',
     fontWeight: 'bold',
   },
+  sectionContainer: {
+    marginBottom: 20,
+  },
+  sectionTitle: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    marginBottom: 10,
+  },
+  productItem:{
+    fontSize: 16,
+    marginBottom: 5,
+  },
+  productSectionContainer: {
+    flex: 1,
+    paddingTop: 20, // Espacio entre la imagen de fondo y la sección de productos
+    paddingHorizontal: 20,
+  },
+  productImage: {
+    width: 100,
+    height: 100,
+    marginRight: 10,
+  },
+  categoryItem:{
+    marginBottom: 20, // Espacio entre categorías
+  },
+  categoryTitle: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    marginBottom: 10,
+  },
+  bottomBar: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    alignItems: 'center',
+    paddingVertical: 10,
+    backgroundColor: 'lightgray', // Color de fondo de la barra inferior
+  },
+
 });
 
 export default Home;

@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
 
-const MiPantalla = ({ navigation }) => {
+const Welcome = ({ navigation }) => {
   const handleComencemosPress = () => {
     console.log('Navegando a Home...');
     navigation.navigate('Home');
@@ -55,4 +55,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default MiPantalla;
+export default Welcome;

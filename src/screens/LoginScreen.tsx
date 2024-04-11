@@ -12,7 +12,7 @@ const LoginScreen: React.FC = () => {
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      navigation.navigate('MiPantalla');
+      navigation.navigate('Welcome');
     }, 3000);
 
   }, [navigation]);
