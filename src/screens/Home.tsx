@@ -12,18 +12,16 @@ import {
 const ProductSection = ({title, products}) => {
   return (
     <View style={styles.sectionContainer}>
-      <Text style={styles.sectionTitle}>{title}</Text>
-      <FlatList
-        data={products}
-        keyExtractor={(item, index) => index.toString()}
-        horizontal
-        pagingEnabled
-        showsHorizontalScrollIndicator={false}
-        renderItem={({item}) => (
-          <Image source={item} style={styles.productImage} />
-          //<Text style={styles.productItem}>{item}</Text>
-        )}
-      />
+       <Text style={styles.sectionTitle}>{title}</Text>
+       <ScrollView 
+       horizontal
+       showsHorizontalScrollIndicator={false}
+       contentContainerStyle={styles.productScrollView}
+       >
+        {products.map((product, index) => (
+          <Image key={index} source={product} style={styles.productImage} />
+        ))}
+       </ScrollView>
     </View>
   );
 };
@@ -176,6 +174,25 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
     backgroundColor: 'lightgray', // Color de fondo de la barra inferior
   },
+  productScrollView: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingVertical: 10,
+  },
+
 });
 
 export default Home;
+
+{/* <Text style= {styles.sectionTitle}>{title}</Text>
+      <FlatList 
+        data={products}
+        keyExtractor={(item, index) => index.toString()}
+        horizontal
+        pagingEnabled
+        showsHorizontalScrollIndicator={false}
+        renderItem={({ item }) => (
+          <Image source={item} style={styles.productImage}/>
+          //<Text style={styles.productItem}>{item}</Text>
+        )}
+      />  */}
