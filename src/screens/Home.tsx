@@ -1,13 +1,17 @@
 import React, {useState, useEffect} from 'react';
 import {
-  View,
+  View,  
   Text,
   ScrollView,
   Image,
   StyleSheet,
   ImageBackground,
   FlatList,
+  TouchableOpacity,
 } from 'react-native';
+import Video from 'react-native-video';
+
+
 
 const ProductSection = ({title, products}) => {
   return (
@@ -27,6 +31,7 @@ const ProductSection = ({title, products}) => {
 };
 
 const Home = () => {
+  const [isPlaying, setIsPlaying] = useState(false);
   const [backgroundIndex, setBackgroundIndex] = useState(0);
   const backgrounds = [
     require('../resources/assets/photos/Foto_1.jpg'),
@@ -110,6 +115,49 @@ const Home = () => {
           setBackgroundIndex(index);
         }}
       />
+      <View style={styles.videoContainer}> 
+        <Text style={styles.videoTitle}>Combo de pulsera y anillos</Text>
+          <Video
+            source={require('../resources/assets/video/Video_1.mp4')}
+            
+            style={styles.video}
+            controls={true}
+            resizeMode='cover'
+        />
+      </View>
+      <View style={styles.videoContainer}> 
+        <Text style={styles.videoTitle}>Titulo del video</Text>
+          <Video
+            source={require('../resources/assets/video/Video_2.mp4')}
+            // paused={!isPlaying}
+            style={styles.video}
+            controls={true}
+            resizeMode='cover'
+        />
+      </View>
+      <View style={styles.videoContainer}> 
+        <Text style={styles.videoTitle}>Titulo del video</Text>
+          <Video
+            source={require('../resources/assets/video/Video_3.mp4')}
+            
+            style={styles.video2}
+            controls={true}
+            resizeMode='cover'
+        />
+        
+      </View>
+      <View style={styles.videoContainer}> 
+        <Text style={styles.videoTitle}>Titulo del video</Text>
+       
+          <Video
+            source={require('../resources/assets/video/Video_4.mp4')}
+           
+            style={styles.video2}
+            controls={true}
+            resizeMode='cover'
+        />
+       
+      </View>
     </ScrollView>
   );
 };
@@ -143,6 +191,7 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: 'bold',
     marginBottom: 10,
+    paddingTop: 30,
   },
   productItem: {
     fontSize: 16,
@@ -151,8 +200,8 @@ const styles = StyleSheet.create({
   productSectionContainer: {
     flex: 1,
     flexDirection: 'row',
-    paddingTop: 20, // Espacio entre la imagen de fondo y la sección de productos
-    paddingHorizontal: 20,
+    paddingTop: 30, // Espacio entre la imagen de fondo y la sección de productos
+    paddingHorizontal: 30,
   },
   productImage: {
     width: 100,
@@ -179,20 +228,26 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingVertical: 10,
   },
-
+  videoContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  videoTitle: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    marginBottom: 20,
+    paddingTop: 20,
+  },
+  video: {
+    width: '100%',
+    aspectRatio: 16 / 12, // Proporción de aspecto común para videos
+  },
+  video2: {
+    width: '100%',
+    aspectRatio: 16 / 18, // Proporción de aspecto común para videos
+  },
 });
 
 export default Home;
 
-{/* <Text style= {styles.sectionTitle}>{title}</Text>
-      <FlatList 
-        data={products}
-        keyExtractor={(item, index) => index.toString()}
-        horizontal
-        pagingEnabled
-        showsHorizontalScrollIndicator={false}
-        renderItem={({ item }) => (
-          <Image source={item} style={styles.productImage}/>
-          //<Text style={styles.productItem}>{item}</Text>
-        )}
-      />  */}

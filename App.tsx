@@ -1,28 +1,43 @@
 import React from 'react';
-import {NavigationContainer} from '@react-navigation/native';
+import {NavigationContainer, RouteConfig } from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import LoginScreen from './src/screens/LoginScreen';
 import Welcome from './src/screens/Welcome';
 import Home from './src/screens/Home';
-
+import FontAwesomeIcon from 'react-native-vector-icons/FontAwesome';
+import MenuScreen from './src/screens/MenuScreen';
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 
-const HomeStack = () => {
+
+
+
+const HomeStack: React.FC = () => {
   return (
     <Tab.Navigator initialRouteName="">
       <Tab.Screen
-        options={{
-          headerShown: false,
-        }}
-        name="Principal"
+        name="Inicio"
         component={Home}
+        options={{
+          headerShown: false,  
+          tabBarIcon: ({color, size}) => (
+            <FontAwesomeIcon name="rocket" size={30} color="#900" />
+          )
+        }}
+      />
+      <Tab.Screen
+        name="Menu"
+        component={MenuScreen}
+        options={{
+          tabBarIcon: ({color, size}) => (
+            <FontAwesomeIcon name="bars" size={30} color="#900" /> // Ejemplo de otro icono
+          )
+        }}
       />
     </Tab.Navigator>
   );
 };
-
 const App: React.FC = () => {
   return (
     <NavigationContainer>
