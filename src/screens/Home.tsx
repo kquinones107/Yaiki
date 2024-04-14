@@ -8,10 +8,11 @@ import {
   ImageBackground,
   FlatList,
   TouchableOpacity,
+  Linking,
 } from 'react-native';
 import Video from 'react-native-video';
-
-
+import FontAwesomeIcon from 'react-native-vector-icons/FontAwesome';
+import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
 
 const ProductSection = ({title, products}) => {
   return (
@@ -31,7 +32,35 @@ const ProductSection = ({title, products}) => {
 };
 
 const Home = () => {
-  const [isPlaying, setIsPlaying] = useState(false);
+
+  const handleFacebookPress = () => {
+    Linking.openURL('https://www.facebook.com/TuPaginaDeFacebook');
+  };
+
+  const handleInstagramPress = () => {
+    Linking.openURL('https://www.instagram.com/TuUsuarioDeInstagram');
+  };
+
+  const handleWhatsAppPress = () => {
+    Linking.openURL('https://wa.me/1234567890');
+  };
+   
+   // Estado de reproducción para cada video
+   const [videoStates, setVideoStates] = useState({
+    video1: false,
+    video2: false,
+    video3: false,
+    video4: false,
+  });
+
+   // Función para manejar la reproducción de un video específico
+   const handlePlayPause = (videoId) => {
+    setVideoStates(prevStates => ({
+      ...prevStates,
+      [videoId]: !prevStates[videoId],
+    }));
+  };
+
   const [backgroundIndex, setBackgroundIndex] = useState(0);
   const backgrounds = [
     require('../resources/assets/photos/Foto_1.jpg'),
@@ -117,47 +146,70 @@ const Home = () => {
       />
       <View style={styles.videoContainer}> 
         <Text style={styles.videoTitle}>Combo de pulsera y anillos</Text>
+        <Text style={styles.textDesciption}>La unión perfecta entre la delicadeza de la pulsera y el brillo de los anillos.</Text>
+        <TouchableOpacity onPress={() => handlePlayPause('video1')}>
           <Video
             source={require('../resources/assets/video/Video_1.mp4')}
-            
             style={styles.video}
-            controls={true}
             resizeMode='cover'
-        />
+            paused={!videoStates.video1} // Pausar el video si isPlaying es falso
+          />
+        </TouchableOpacity>
       </View>
       <View style={styles.videoContainer}> 
-        <Text style={styles.videoTitle}>Titulo del video</Text>
+        <Text style={styles.videoTitle}>Pulseras Personalizadas</Text>
+        <Text style={styles.textDesciption}>Para tu mejor estilo, en Yaiki Accesorios pulseras personalizadas encontrarás</Text>
+        <TouchableOpacity onPress={() => handlePlayPause('video2')}>
           <Video
             source={require('../resources/assets/video/Video_2.mp4')}
-            // paused={!isPlaying}
             style={styles.video}
-            controls={true}
             resizeMode='cover'
-        />
+            paused={!videoStates.video2}
+          /> 
+        </TouchableOpacity>
       </View>
       <View style={styles.videoContainer}> 
-        <Text style={styles.videoTitle}>Titulo del video</Text>
+        <Text style={styles.videoTitle}>Elegancia en Detalle: Anillos y Belleza</Text>
+        <Text style={styles.textDesciption}> Anillos que Encantan, Belleza que Deslumbra. </Text>
+        <TouchableOpacity onPress={() => handlePlayPause('video3')}>
           <Video
-            source={require('../resources/assets/video/Video_3.mp4')}
-            
-            style={styles.video2}
-            controls={true}
+            source={require('../resources/assets/video/Video_3.mp4')} 
+            style={styles.video2}  
             resizeMode='cover'
-        />
-        
+            paused={!videoStates.video3}
+          />
+        </TouchableOpacity>    
       </View>
       <View style={styles.videoContainer}> 
-        <Text style={styles.videoTitle}>Titulo del video</Text>
-       
+        <Text style={styles.videoTitle}> Pulseras para la playa </Text>
+        <Text style={styles.textDesciption}>Con las olas y energias del mar en tu muñeca, en Yaiki Accesorios encontrarás pulseras que bailan con la brisa playera.</Text>
+        <TouchableOpacity onPress={() => handlePlayPause('video4')}>
           <Video
             source={require('../resources/assets/video/Video_4.mp4')}
-           
             style={styles.video2}
-            controls={true}
             resizeMode='cover'
-        />
-       
+           paused={!videoStates.video4}
+          />
+        </TouchableOpacity> 
       </View>
+      <View>
+        <Text style={styles.textRedesSociales}>
+          Mis redes sociales
+        </Text>
+      </View>
+      <View style={styles.Icon}>
+      <TouchableOpacity onPress={handleFacebookPress}>
+        <MaterialIcon name="facebook" size={30} color="#3b5998" />
+      </TouchableOpacity>
+
+      <TouchableOpacity onPress={handleInstagramPress}>
+        <MaterialIcon name="instagram" size={30} color="#c13584" />
+      </TouchableOpacity>
+
+      <TouchableOpacity onPress={handleWhatsAppPress}>
+        <MaterialIcon name="whatsapp" size={30} color="#25D366" />
+      </TouchableOpacity>
+    </View>
     </ScrollView>
   );
 };
@@ -246,6 +298,24 @@ const styles = StyleSheet.create({
   video2: {
     width: '100%',
     aspectRatio: 16 / 18, // Proporción de aspecto común para videos
+  },
+  textDesciption: {
+    fontSize: 16,
+    marginBottom: 20,
+    color: 'black',
+    fontFamily: '',
+  },
+  textRedesSociales:{
+    fontSize: 20,
+    marginBottom: 20,
+    fontWeight: 'bold',
+    color: 'black',
+    paddingTop: 20,
+  },
+  Icon: {
+    flexDirection: 'row', 
+    justifyContent: 'space-around', 
+    marginVertical: 20, 
   },
 });
 
