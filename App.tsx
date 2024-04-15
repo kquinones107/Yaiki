@@ -9,7 +9,7 @@ import FontAwesomeIcon from 'react-native-vector-icons/FontAwesome';
 import MenuScreen from './src/screens/MenuScreen';
 import { Text, View } from 'react-native';
 import CanastaScreen from './src/screens/CanastaScreen';
-import 'react-native-gesture-handler';
+
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 
