@@ -38,11 +38,11 @@ const Home = () => {
   };
 
   const handleInstagramPress = () => {
-    Linking.openURL('https://www.instagram.com/TuUsuarioDeInstagram');
+    Linking.openURL('https://www.instagram.com/yaiki_accesories?igsh=MThlMzloaTdkNmxlaA==');
   };
 
   const handleWhatsAppPress = () => {
-    Linking.openURL('https://wa.me/1234567890');
+    Linking.openURL('https://wa.me/+573187887223');
   };
    
    // Estado de reproducción para cada video
