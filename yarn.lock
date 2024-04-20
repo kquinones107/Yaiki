@@ -4400,6 +4400,11 @@ expo-font@~11.10.3:
   dependencies:
     fontfaceobserver "^2.1.0"
 
+expo-google-fonts@^0.0.0:
+  version "0.0.0"
+  resolved "https://registry.yarnpkg.com/expo-google-fonts/-/expo-google-fonts-0.0.0.tgz#1e0f91c9858095e707cb69946d9332954e14eb77"
+  integrity sha512-SpY1N5ZHGbNXuvN8s3E2HxjlcxR5NHWn72Uy8wl0uZJ0ueWd+JfTUXwZzfuF638WeTdgJKztRy2MWfuMORQ1yQ==
+
 expo-keep-awake@~12.8.2:
   version "12.8.2"
   resolved "https://registry.npmjs.org/expo-keep-awake/-/expo-keep-awake-12.8.2.tgz"
@@ -7276,6 +7281,13 @@ react-native-gesture-handler@^2.16.0:
     invariant "^2.2.4"
     lodash "^4.17.21"
     prop-types "^15.7.2"
+
+react-native-google-fonts@^0.0.0:
+  version "0.0.0"
+  resolved "https://registry.yarnpkg.com/react-native-google-fonts/-/react-native-google-fonts-0.0.0.tgz#1e2ac37c94d9ba5f3729854689914200ec6e47e6"
+  integrity sha512-ZNVxDiGe5dO8GLTX7hMAUy3iTyivsRswPLMQQwR0hcUI9lVNSB5fBCpw+n4/GQu3U6cg7LL0yEmqqNo6epyWBA==
+  dependencies:
+    expo-google-fonts "^0.0.0"
 
 react-native-pager-view@^6.3.0:
   version "6.3.0"

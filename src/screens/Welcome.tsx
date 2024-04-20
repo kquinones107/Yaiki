@@ -1,12 +1,16 @@
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
+import * as GoogleFonts from 'react-native-google-fonts';
+
+
 
 const Welcome = ({ navigation }) => {
   const handleComencemosPress = () => {
     console.log('Navegando a Home...');
     navigation.navigate('Home');
   };
-  
+
+
   return (
     <View style={styles.container}>
       <Text style={styles.text}>Bienvenido a</Text>

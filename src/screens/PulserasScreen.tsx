@@ -1,5 +1,6 @@
 import { View, Text, Image, Button, StyleSheet, ScrollView } from 'react-native'
-import React from 'react'
+import React, { useState } from 'react'
+import CanastaScreen from './CanastaScreen';
 
 
 const ProductItem = ({ name, price, onPressAddToCart, image }) => {
@@ -22,9 +23,24 @@ const PulserasScreen = () => {
     // Agregar más productos según sea necesario
   ];
 
+  const [cart, setCart] = useState([]);
+  const [showMessage, setShowMessage] = useState(false);
+
+
   const handleAddToCart = (productId) => {
-    // Lógica para agregar el producto al carrito
-    console.log(`Producto ${productId} agregado a la canasta.`);
+    // Encuentra el producto con el ID correspondiente en la lista de productos
+    const productToAdd = products.find((product) => product.id === productId);
+    if (productToAdd) {
+      // Agrega el producto al carrito
+      setCart([...cart, productToAdd]);
+      setShowMessage(true);
+      console.log(`Producto ${productId} agregado a la canasta.`);
+      setTimeout(() => {
+        setShowMessage(false);
+      }, 3000);
+    } else {
+      console.warn(`No se encontró ningún producto con el ID ${productId}`);
+    }
   };
 
   return (
@@ -40,9 +56,13 @@ const PulserasScreen = () => {
         />
       ))}
       </ScrollView>
+      {showMessage && (
+        <Text style={styles.message}>Producto agregado a la canasta exitosamente</Text>
+      )}
+      <CanastaScreen cart={cart} />
     </View>
-  )
-}
+  );
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -71,6 +91,12 @@ const styles = StyleSheet.create({
     marginBottom: 20,
     width: 250,
     alignItems: 'center',
+  },
+  message: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    color: 'green',
+    marginTop: 10,
   },
 });
 

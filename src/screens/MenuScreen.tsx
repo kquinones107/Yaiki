@@ -36,6 +36,7 @@ const styles = StyleSheet.create({
   label: {
     fontSize: 14, // Ajusta el tamaño de la fuente según sea necesario
     color: 'mediumvioletred',
+    fontFamily: 'pacifico',
   },
 });
 
