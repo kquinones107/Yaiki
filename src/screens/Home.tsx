@@ -217,6 +217,7 @@ const Home = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: 'gray',
   },
   background: {
     width: 400,
@@ -244,6 +245,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     marginBottom: 10,
     paddingTop: 30,
+    color: 'pink',
   },
   productItem: {
     fontSize: 16,
@@ -267,6 +269,7 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: 'bold',
     marginBottom: 10,
+    
   },
   bottomBar: {
     flexDirection: 'row',
@@ -290,6 +293,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     marginBottom: 20,
     paddingTop: 20,
+    color: 'pink',
   },
   video: {
     width: '100%',
@@ -302,14 +306,14 @@ const styles = StyleSheet.create({
   textDesciption: {
     fontSize: 16,
     marginBottom: 20,
-    color: 'black',
+    color: 'pink',
     fontFamily: '',
   },
   textRedesSociales:{
     fontSize: 20,
     marginBottom: 20,
     fontWeight: 'bold',
-    color: 'black',
+    color: 'pink',
     paddingTop: 20,
   },
   Icon: {
