@@ -10,6 +10,7 @@ import MenuScreen from './src/screens/MenuScreen';
 import { Text, View } from 'react-native';
 import CanastaScreen from './src/screens/CanastaScreen';
 import { CartProvider } from './CartContext';
+import Toast from 'react-native-toast-message';
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -82,6 +83,7 @@ const App: React.FC = () => {
            component={HomeStack}
          />
         </Stack.Navigator>
+        <Toast />
       </NavigationContainer>
     </CartProvider>
   );

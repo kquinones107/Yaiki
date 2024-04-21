@@ -1,17 +1,31 @@
-import React, { useContext, useState } from 'react';
-import { View, Text, Button, Image, ScrollView, StyleSheet } from 'react-native';
-import { CartContext } from '../../CartContext';
-
+import React, {useContext, useState} from 'react';
+import {View, Text, Button, Image, ScrollView, StyleSheet} from 'react-native';
+import {CartContext} from '../../CartContext';
+import Toast from 'react-native-toast-message';
 
 const products = [
-  { id: 1, name: 'Producto 1', price: 14990, image: require('../resources/assets/photos/Foto_1.jpg') },
-  { id: 2, name: 'Producto 2', price: 11990, image: require('../resources/assets/photos/Foto_2.jpg') },
-  { id: 3, name: 'Producto 3', price: 11990, image: require('../resources/assets/photos/Foto_3.jpg') },
+  {
+    id: 1,
+    name: 'Producto 1',
+    price: 14990,
+    image: require('../resources/assets/photos/Foto_1.jpg'),
+  },
+  {
+    id: 2,
+    name: 'Producto 2',
+    price: 11990,
+    image: require('../resources/assets/photos/Foto_2.jpg'),
+  },
+  {
+    id: 3,
+    name: 'Producto 3',
+    price: 11990,
+    image: require('../resources/assets/photos/Foto_3.jpg'),
+  },
   // Agregar más productos según sea necesario
 ];
 
-
-const ProductItem = ({ product, onPressAddToCart }) => {
+const ProductItem = ({product, onPressAddToCart}) => {
   return (
     <View style={styles.card}>
       <Image source={product.image} style={styles.image} />
@@ -23,25 +37,31 @@ const ProductItem = ({ product, onPressAddToCart }) => {
 };
 
 const PulserasScreen = () => {
-  const { addToCart, showSuccessMessage } = useContext(CartContext);
-  
+  const {addToCart, showSuccessMessage} = useContext(CartContext);
 
-  const handleAddToCart = (product) => {
+  const showToast = () => {
+    Toast.show({
+      type: 'success',
+      text1: 'Agregado exitosamente a la canasta',
+      position: 'bottom',
+    });
+  };
+
+  const handleAddToCart = product => {
+    showToast();
     addToCart(product);
-    
   };
 
   return (
     <View style={styles.container}>
       <ScrollView>
-        {products.map((product) => (
+        {products.map(product => (
           <ProductItem
             key={product.id}
             product={product}
-           onPressAddToCart={() => handleAddToCart(product)}
+            onPressAddToCart={() => handleAddToCart(product)}
           />
         ))}
-      
       </ScrollView>
     </View>
   );
