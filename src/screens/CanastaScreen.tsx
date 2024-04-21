@@ -1,11 +1,18 @@
 import React, {useContext} from 'react';
-import {View, Text, StyleSheet, Image, TouchableOpacity} from 'react-native';
+import {
+  View,
+  Text,
+  StyleSheet,
+  Image,
+  TouchableOpacity,
+  SafeAreaView,
+} from 'react-native';
 import {CartContext} from '../../CartContext';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import {ScrollView} from 'react-native-gesture-handler';
+import {useNavigation} from '@react-navigation/native';
 
 const Product = ({product}) => {
-  console.log('🚀 ~ Product ~ product:', product);
   return (
     <View style={styles.product}>
       <Image source={product.image} style={styles.image} />
@@ -25,9 +32,34 @@ const Product = ({product}) => {
 const CanastaScreen = () => {
   const {cart} = useContext(CartContext);
   const insets = useSafeAreaInsets();
+  const navigation = useNavigation();
 
+  const onDiscoverPress = () => {
+    navigation.navigate('Inicio');
+  };
   if (!cart || cart.length === 0) {
-    return <Text>El carrito está vacío</Text>;
+    return (
+      <SafeAreaView style={styles.container}>
+        <Text style={styles.header}>Cesta</Text>
+        <View style={styles.contentContainer}>
+          <Image
+            source={{uri: 'URL_DE_LA_IMAGEN_DEL_CARRO'}} // Debes reemplazar esto con la URL o recurso local de tu imagen
+            style={styles.cartImage}
+          />
+          <Text style={styles.emptyCartText}>Cesta vacía</Text>
+          <Text style={styles.descriptionText}>
+            Aún no tienes ningún artículo en la cesta, descubre todo lo que
+            tenemos para ti
+          </Text>
+          <TouchableOpacity
+            style={styles.discoverButton}
+            onPress={onDiscoverPress}>
+            <Text style={styles.discoverButtonText}>DESCUBRIR</Text>
+          </TouchableOpacity>
+        </View>
+        {/* Aquí agregarías tu componente de menú o navegación si lo tienes */}
+      </SafeAreaView>
+    );
   }
 
   const total = cart.reduce((acc, product) => {
@@ -69,8 +101,6 @@ export default CanastaScreen;
 
 const styles = StyleSheet.create({
   container: {
-    alignItems: 'center',
-    alignContent: 'center',
     flexGrow: 1,
   },
   imageContainer: {
@@ -149,5 +179,35 @@ const styles = StyleSheet.create({
   addText: {
     fontSize: 16,
     color: 'blue',
+  },
+  contentContainer: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    flex: 1,
+  },
+  cartImage: {
+    width: 150, // Ajusta el tamaño según tu diseño
+    height: 150, // Ajusta el tamaño según tu diseño
+    resizeMode: 'contain',
+  },
+  emptyCartText: {
+    fontSize: 22,
+    fontWeight: 'bold',
+    marginVertical: 20,
+  },
+  descriptionText: {
+    fontSize: 16,
+    textAlign: 'center',
+    paddingHorizontal: 20,
+  },
+  discoverButton: {
+    marginTop: 30,
+    backgroundColor: 'black',
+    padding: 10,
+    borderRadius: 5,
+  },
+  discoverButtonText: {
+    color: 'white',
+    fontSize: 18,
   },
 });
