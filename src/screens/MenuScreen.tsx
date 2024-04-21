@@ -1,31 +1,32 @@
-import { View, Text, StyleSheet } from 'react-native';
+import {View, Text, StyleSheet} from 'react-native';
 import React from 'react';
-import { createDrawerNavigator } from '@react-navigation/drawer';
-import { NavigationContainer } from '@react-navigation/native';
-import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
+import {createDrawerNavigator} from '@react-navigation/drawer';
+import {NavigationContainer} from '@react-navigation/native';
+import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
 import PulserasScreen from './PulserasScreen';
 import AnillosScreen from './AnillosScreen';
 import AretesScreen from './AretesScreen';
 import PersonalizadosScreen from './PersonalizadosScreen';
 import PlayaScreen from './PlayaScreen';
+import {useSafeAreaInsets} from 'react-native-safe-area-context';
 
 const Tab = createMaterialTopTabNavigator();
 
 const MenuScreen = () => {
+  const insets = useSafeAreaInsets();
   return (
-   <Tab.Navigator
-   tabBarOptions={{
-    labelStyle: styles.label,
-    tabStyle: { width: 148 }, // ajusta el ancho de la pestaña según sea necesario
-    scrollEnabled: true, // habilita el desplazamiento vertical
-  }} // Habilita el desplazamiento vertical 
-   >
-    <Tab.Screen name='Pulseras' component={PulserasScreen}/>
-    <Tab.Screen name="Anillos" component={AnillosScreen}/>
-    <Tab.Screen name="Aretes" component={AretesScreen}/>
-    <Tab.Screen name="Personalizados" component={PersonalizadosScreen}/>
-    <Tab.Screen name="Playa" component={PlayaScreen}/>
-   </Tab.Navigator>
+    <Tab.Navigator
+      screenOptions={{
+        tabBarScrollEnabled: true,
+        tabBarLabelStyle: {...styles.label, paddingTop: insets.top},
+      }} // Habilita el desplazamiento vertical
+    >
+      <Tab.Screen name="Pulseras" component={PulserasScreen} />
+      <Tab.Screen name="Anillos" component={AnillosScreen} />
+      <Tab.Screen name="Aretes" component={AretesScreen} />
+      <Tab.Screen name="Personalizados" component={PersonalizadosScreen} />
+      <Tab.Screen name="Playa" component={PlayaScreen} />
+    </Tab.Navigator>
   );
 };
 
@@ -34,8 +35,9 @@ const styles = StyleSheet.create({
     flexGrow: 1, // Para permitir el contenido se expanda verticalmente
   },
   label: {
-    fontSize: 14, // Ajusta el tamaño de la fuente según sea necesario
+    fontSize: 12, // Ajusta el tamaño de la fuente según sea necesario
     color: 'mediumvioletred',
+    width: 110,
     fontFamily: 'pacifico',
   },
 });

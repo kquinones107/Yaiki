@@ -18,7 +18,7 @@ const CanastaScreen = () => {
   }, 0);
 
   return (
-    <View>
+    <View style={{flexGrow: 1, alignItems: 'center' , alignContent: 'center'}}>
       <Text>Total de la Canasta: ${total.toFixed(2)}</Text>
       {cart.map((product) => (
         <View key={product.id}>
