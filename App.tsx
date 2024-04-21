@@ -9,6 +9,7 @@ import FontAwesomeIcon from 'react-native-vector-icons/FontAwesome';
 import MenuScreen from './src/screens/MenuScreen';
 import { Text, View } from 'react-native';
 import CanastaScreen from './src/screens/CanastaScreen';
+import { CartProvider } from './CartContext';
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -56,31 +57,33 @@ const HomeStack: React.FC = () => {
 };
 const App: React.FC = () => {
   return (
-    <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen
-          options={{
-            headerShown: false,
-          }}
-          name="Login"
-          component={LoginScreen}
-        />
-        <Stack.Screen
-          options={{
-            headerShown: false,
-          }}
-          name="Welcome"
-          component={Welcome}
-        />
-        <Stack.Screen
-          options={{
-            headerShown: false,
-          }}
-          name="Home"
-          component={HomeStack}
-        />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <CartProvider>
+      <NavigationContainer>
+        <Stack.Navigator>
+          <Stack.Screen
+            options={{
+             headerShown: false,
+            }}
+           name="Login"
+           component={LoginScreen}
+          />
+          <Stack.Screen
+            options={{
+              headerShown: false,
+            }}
+           name="Welcome"
+            component={Welcome}
+          />
+          <Stack.Screen
+            options={{
+              headerShown: false,
+           }}
+           name="Home"
+           component={HomeStack}
+         />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </CartProvider>
   );
 };
 

@@ -1,16 +1,17 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { View, Text } from 'react-native';
+import { CartContext } from '../../CartContext';
 
-const CanastaScreen = ({ cart }) => {
-  // Verifica si el carrito está definido antes de intentar usar reduce
+const CanastaScreen = () => {
+  const { cart } = useContext(CartContext);
+
   if (!cart || cart.length === 0) {
     return <Text>El carrito está vacío</Text>;
   }
 
-  // Calcula el total sumando los precios de los productos en el carrito
   const total = cart.reduce((acc, product) => {
-    // Verifica si el precio del producto está definido
-    if (typeof product.price === 'number') {
+    // Verificar si el precio del producto está definido y es un número
+    if (product.price !== undefined && typeof product.price === 'number') {
       return acc + product.price;
     }
     return acc;
@@ -19,14 +20,13 @@ const CanastaScreen = ({ cart }) => {
   return (
     <View>
       <Text>Total de la Canasta: ${total.toFixed(2)}</Text>
-      {/* Renderiza los productos en el carrito */}
       {cart.map((product) => (
         <View key={product.id}>
-          <Text>{product.name} - ${product.price ? product.price.toFixed(2) : 'Precio no disponible'}</Text>
+          <Text>{product.name} - ${product.price.toFixed(2)}</Text>
         </View>
       ))}
     </View>
   );
-}
+};
 
 export default CanastaScreen;
