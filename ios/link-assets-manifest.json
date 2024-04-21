@@ -1,0 +1,49 @@
+{
+  "migIndex": 1,
+  "data": [
+    {
+      "path": "src/resources/assets/fonts/Caveat-Bold.ttf",
+      "sha1": "e71feaec30e28858890521f4116b468c44efec08"
+    },
+    {
+      "path": "src/resources/assets/fonts/Caveat-Medium.ttf",
+      "sha1": "87a6e053561e2e4fe46ec1a5bde939c7852bb279"
+    },
+    {
+      "path": "src/resources/assets/fonts/Caveat-Regular.ttf",
+      "sha1": "c3c969c44a97760dd2dfd01c452976c725307b42"
+    },
+    {
+      "path": "src/resources/assets/fonts/Caveat-SemiBold.ttf",
+      "sha1": "42b0a68e442e972219b83c8329e83d5c27f6a1a0"
+    },
+    {
+      "path": "src/resources/assets/fonts/Caveat-VariableFont_wght.ttf",
+      "sha1": "82b10abbb30f9644797aada1802e9da7784e464e"
+    },
+    {
+      "path": "src/resources/assets/fonts/Exo2-Bold.ttf",
+      "sha1": "bdf8845fb7a6d1f4fb458a416674002669b82637"
+    },
+    {
+      "path": "src/resources/assets/fonts/Exo2-Italic-VariableFont_wght.ttf",
+      "sha1": "cdb3a5ef15a9ea5a5f3f0373ce836dd3e54d9b31"
+    },
+    {
+      "path": "src/resources/assets/fonts/Exo2-Regular.ttf",
+      "sha1": "c40495e9f8fbad2377fe2b5be22c444586c1f8f8"
+    },
+    {
+      "path": "src/resources/assets/fonts/Exo2-VariableFont_wght.ttf",
+      "sha1": "31c5aa6a71cac4e1b03c4bf278bf2e0b73d12a65"
+    },
+    {
+      "path": "src/resources/assets/fonts/IndieFlower-Regular.ttf",
+      "sha1": "dab8ff786dd1c6a3e8fa8a54d4d59cf9a703efe1"
+    },
+    {
+      "path": "src/resources/assets/fonts/Pacifico-Regular.ttf",
+      "sha1": "baca1fca7fe74b61cb33aa0da48ec1a3a77bcf49"
+    }
+  ]
+}

@@ -14,6 +14,17 @@
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		7699B88040F8A987B510C191 /* libPods-Yaiki-YaikiTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-Yaiki-YaikiTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		7207AFC02D5842EA8D2A54EA /* Caveat-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 83B4E8F28C9648FFAB162517 /* Caveat-Bold.ttf */; };
+		9CAAE34E152D4CA0B94920B6 /* Caveat-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BE79DF8BBCD74ED3977D0A14 /* Caveat-Medium.ttf */; };
+		80138AA281034FD8AFF148B4 /* Caveat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17ECCA5E3CFE4387AD4C48E4 /* Caveat-Regular.ttf */; };
+		7426D57355544D08ACCA8516 /* Caveat-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 20D44F216B714F62A713AB29 /* Caveat-SemiBold.ttf */; };
+		B607DB06E37549309ED4C960 /* Caveat-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B74D37E232534B97B4F85D1D /* Caveat-VariableFont_wght.ttf */; };
+		F5EE7216491747408CADB67B /* Exo2-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D8BD3984D4094DFD8EAD4359 /* Exo2-Bold.ttf */; };
+		C91F5822BCB64C8B81A7908F /* Exo2-Italic-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6A687EF6410242E8AF25ACD3 /* Exo2-Italic-VariableFont_wght.ttf */; };
+		9EEAF67F5B194EA582EB5EB0 /* Exo2-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F3AE229F205F46CE86ADF859 /* Exo2-Regular.ttf */; };
+		15AD7BA294A3450DBE3A28A9 /* Exo2-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 63000C480EB749DE806A404E /* Exo2-VariableFont_wght.ttf */; };
+		5F03F104457E4078B2BABA6C /* IndieFlower-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DECBFD8FD1C94809A72CA72D /* IndieFlower-Regular.ttf */; };
+		CF49F711BEFF48DE92BB06AA /* Pacifico-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F2B98106A1F247C2B9E6EB51 /* Pacifico-Regular.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +74,17 @@
 		EF04DBA82BD5848A0087E368 /* AntDesign.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = AntDesign.ttf; path = "../node_modules/react-native-vector-icons/Fonts/AntDesign.ttf"; sourceTree = "<group>"; };
 		EF04DBA92BD5848A0087E368 /* Octicons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Octicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Octicons.ttf"; sourceTree = "<group>"; };
 		EF04DBAA2BD5848A0087E368 /* FontAwesome5_Brands.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = FontAwesome5_Brands.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Brands.ttf"; sourceTree = "<group>"; };
+		83B4E8F28C9648FFAB162517 /* Caveat-Bold.ttf */ = {isa = PBXFileReference; name = "Caveat-Bold.ttf"; path = "../src/resources/assets/fonts/Caveat-Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		BE79DF8BBCD74ED3977D0A14 /* Caveat-Medium.ttf */ = {isa = PBXFileReference; name = "Caveat-Medium.ttf"; path = "../src/resources/assets/fonts/Caveat-Medium.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		17ECCA5E3CFE4387AD4C48E4 /* Caveat-Regular.ttf */ = {isa = PBXFileReference; name = "Caveat-Regular.ttf"; path = "../src/resources/assets/fonts/Caveat-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		20D44F216B714F62A713AB29 /* Caveat-SemiBold.ttf */ = {isa = PBXFileReference; name = "Caveat-SemiBold.ttf"; path = "../src/resources/assets/fonts/Caveat-SemiBold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		B74D37E232534B97B4F85D1D /* Caveat-VariableFont_wght.ttf */ = {isa = PBXFileReference; name = "Caveat-VariableFont_wght.ttf"; path = "../src/resources/assets/fonts/Caveat-VariableFont_wght.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		D8BD3984D4094DFD8EAD4359 /* Exo2-Bold.ttf */ = {isa = PBXFileReference; name = "Exo2-Bold.ttf"; path = "../src/resources/assets/fonts/Exo2-Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		6A687EF6410242E8AF25ACD3 /* Exo2-Italic-VariableFont_wght.ttf */ = {isa = PBXFileReference; name = "Exo2-Italic-VariableFont_wght.ttf"; path = "../src/resources/assets/fonts/Exo2-Italic-VariableFont_wght.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		F3AE229F205F46CE86ADF859 /* Exo2-Regular.ttf */ = {isa = PBXFileReference; name = "Exo2-Regular.ttf"; path = "../src/resources/assets/fonts/Exo2-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		63000C480EB749DE806A404E /* Exo2-VariableFont_wght.ttf */ = {isa = PBXFileReference; name = "Exo2-VariableFont_wght.ttf"; path = "../src/resources/assets/fonts/Exo2-VariableFont_wght.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		DECBFD8FD1C94809A72CA72D /* IndieFlower-Regular.ttf */ = {isa = PBXFileReference; name = "IndieFlower-Regular.ttf"; path = "../src/resources/assets/fonts/IndieFlower-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		F2B98106A1F247C2B9E6EB51 /* Pacifico-Regular.ttf */ = {isa = PBXFileReference; name = "Pacifico-Regular.ttf"; path = "../src/resources/assets/fonts/Pacifico-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +164,7 @@
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				BBD78D7AC51CEA395F1C20DB /* Pods */,
+				5D5815CACD6645A580B8E3C3 /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -193,6 +216,25 @@
 			);
 			name = Fonts;
 			sourceTree = "<group>";
+		};
+		5D5815CACD6645A580B8E3C3 /* Resources */ = {
+			isa = "PBXGroup";
+			children = (
+				83B4E8F28C9648FFAB162517 /* Caveat-Bold.ttf */,
+				BE79DF8BBCD74ED3977D0A14 /* Caveat-Medium.ttf */,
+				17ECCA5E3CFE4387AD4C48E4 /* Caveat-Regular.ttf */,
+				20D44F216B714F62A713AB29 /* Caveat-SemiBold.ttf */,
+				B74D37E232534B97B4F85D1D /* Caveat-VariableFont_wght.ttf */,
+				D8BD3984D4094DFD8EAD4359 /* Exo2-Bold.ttf */,
+				6A687EF6410242E8AF25ACD3 /* Exo2-Italic-VariableFont_wght.ttf */,
+				F3AE229F205F46CE86ADF859 /* Exo2-Regular.ttf */,
+				63000C480EB749DE806A404E /* Exo2-VariableFont_wght.ttf */,
+				DECBFD8FD1C94809A72CA72D /* IndieFlower-Regular.ttf */,
+				F2B98106A1F247C2B9E6EB51 /* Pacifico-Regular.ttf */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+			path = "";
 		};
 /* End PBXGroup section */
 
@@ -289,6 +331,17 @@
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				7207AFC02D5842EA8D2A54EA /* Caveat-Bold.ttf in Resources */,
+				9CAAE34E152D4CA0B94920B6 /* Caveat-Medium.ttf in Resources */,
+				80138AA281034FD8AFF148B4 /* Caveat-Regular.ttf in Resources */,
+				7426D57355544D08ACCA8516 /* Caveat-SemiBold.ttf in Resources */,
+				B607DB06E37549309ED4C960 /* Caveat-VariableFont_wght.ttf in Resources */,
+				F5EE7216491747408CADB67B /* Exo2-Bold.ttf in Resources */,
+				C91F5822BCB64C8B81A7908F /* Exo2-Italic-VariableFont_wght.ttf in Resources */,
+				9EEAF67F5B194EA582EB5EB0 /* Exo2-Regular.ttf in Resources */,
+				15AD7BA294A3450DBE3A28A9 /* Exo2-VariableFont_wght.ttf in Resources */,
+				5F03F104457E4078B2BABA6C /* IndieFlower-Regular.ttf in Resources */,
+				CF49F711BEFF48DE92BB06AA /* Pacifico-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

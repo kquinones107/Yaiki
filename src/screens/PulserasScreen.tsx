@@ -54,7 +54,7 @@ const PulserasScreen = () => {
 
   return (
     <View style={styles.container}>
-      <ScrollView>
+      <ScrollView showsVerticalScrollIndicator={false}>
         {products.map(product => (
           <ProductItem
             key={product.id}
