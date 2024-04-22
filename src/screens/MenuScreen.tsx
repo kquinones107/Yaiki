@@ -35,10 +35,10 @@ const styles = StyleSheet.create({
     flexGrow: 1, // Para permitir el contenido se expanda verticalmente
   },
   label: {
-    fontSize: 12, // Ajusta el tamaño de la fuente según sea necesario
+    fontSize: 14, // Ajusta el tamaño de la fuente según sea necesario
     color: 'mediumvioletred',
     width: 110,
-    fontFamily: 'pacifico',
+    fontFamily: 'Caveat-Bold',
   },
 });
 

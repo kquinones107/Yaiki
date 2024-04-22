@@ -13,6 +13,8 @@ import {
 import Video from 'react-native-video';
 import FontAwesomeIcon from 'react-native-vector-icons/FontAwesome';
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
+import Entypo from 'react-native-vector-icons/Entypo';
+import * as GoogleFonts from 'react-native-google-fonts';
 
 const ProductSection = ({title, products}) => {
   return (
@@ -34,7 +36,7 @@ const ProductSection = ({title, products}) => {
 const Home = () => {
 
   const handleFacebookPress = () => {
-    Linking.openURL('https://www.facebook.com/TuPaginaDeFacebook');
+    Linking.openURL('https://www.facebook.com/profile.php?id=100091678115327');
   };
 
   const handleInstagramPress = () => {
@@ -192,7 +194,7 @@ const Home = () => {
           />
         </TouchableOpacity> 
       </View>
-      <View>
+      <View style={styles.redesContainer}>
         <Text style={styles.textRedesSociales}>
           Mis redes sociales
         </Text>
@@ -203,11 +205,11 @@ const Home = () => {
       </TouchableOpacity>
 
       <TouchableOpacity onPress={handleInstagramPress}>
-        <MaterialIcon name="instagram" size={30} color="#c13584" />
+        <Entypo name="instagram" size={30} color="#c13584" />
       </TouchableOpacity>
 
       <TouchableOpacity onPress={handleWhatsAppPress}>
-        <MaterialIcon name="whatsapp" size={30} color="#25D366" />
+        <FontAwesomeIcon name="whatsapp" size={30} color="#25D366" />
       </TouchableOpacity>
     </View>
     </ScrollView>
@@ -233,16 +235,17 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 24,
-    color: 'white',
-    fontWeight: 'bold',
+    color: 'black',
+    
+    fontFamily: 'Caveat-Bold',
   },
   sectionContainer: {
     marginBottom: 20,
     marginRight: 20,
   },
   sectionTitle: {
-    fontSize: 18,
-    fontWeight: 'bold',
+    fontSize: 24,
+    fontFamily: 'Caveat-Bold',
     marginBottom: 10,
     paddingTop: 30,
     color: 'pink',
@@ -256,6 +259,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     paddingTop: 30, // Espacio entre la imagen de fondo y la sección de productos
     paddingHorizontal: 30,
+    
   },
   productImage: {
     width: 100,
@@ -267,8 +271,8 @@ const styles = StyleSheet.create({
   },
   categoryTitle: {
     fontSize: 18,
-    fontWeight: 'bold',
     marginBottom: 10,
+    fontFamily: 'Caveat-Regular',
     
   },
   bottomBar: {
@@ -289,11 +293,11 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   videoTitle: {
-    fontSize: 20,
-    fontWeight: 'bold',
+    fontSize: 24,
     marginBottom: 20,
     paddingTop: 20,
     color: 'pink',
+    fontFamily: 'Caveat-Bold'
   },
   video: {
     width: '100%',
@@ -304,17 +308,22 @@ const styles = StyleSheet.create({
     aspectRatio: 16 / 18, // Proporción de aspecto común para videos
   },
   textDesciption: {
-    fontSize: 16,
+    fontSize: 20,
     marginBottom: 20,
     color: 'pink',
-    fontFamily: '',
+    fontFamily: 'IndieFlower-Regular',
+  },
+  redesContainer:{
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   textRedesSociales:{
     fontSize: 20,
     marginBottom: 20,
-    fontWeight: 'bold',
     color: 'pink',
     paddingTop: 20,
+    fontFamily: 'Exo2-Regular',
   },
   Icon: {
     flexDirection: 'row', 

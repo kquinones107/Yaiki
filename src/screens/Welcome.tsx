@@ -33,9 +33,9 @@ const styles = StyleSheet.create({
   },
   text: {
     marginTop: 20,
-    fontFamily: 'serif',
+    fontFamily: 'Caveat-Regular',
     color: 'pink',
-    fontSize: 26,
+    fontSize: 30,
   },
   logo: {
     width: 200,
@@ -43,9 +43,10 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   subtittle: {
-    fontSize: 18,
+    fontSize: 22,
     textAlign: 'center',
     marginBottom: 20,
+    fontFamily: 'IndieFlower-Regular'
   },
   button: {
     backgroundColor: 'pink',
@@ -54,8 +55,9 @@ const styles = StyleSheet.create({
     borderRadius: 5,
   },
   buttonText: {
-    fontSize: 16,
+    fontSize: 24,
     color: 'white',
+    fontFamily: 'Caveat-Bold',
   },
 });
 

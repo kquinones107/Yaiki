@@ -6,6 +6,7 @@ import LoginScreen from './src/screens/LoginScreen';
 import Welcome from './src/screens/Welcome';
 import Home from './src/screens/Home';
 import FontAwesomeIcon from 'react-native-vector-icons/FontAwesome';
+import Entypo from 'react-native-vector-icons/Entypo';
 import MenuScreen from './src/screens/MenuScreen';
 import {Text, View} from 'react-native';
 import CanastaScreen from './src/screens/CanastaScreen';
@@ -17,26 +18,28 @@ const Tab = createBottomTabNavigator();
 
 const HomeStack: React.FC = () => {
   return (
-    <Tab.Navigator initialRouteName="">
+    <Tab.Navigator initialRouteName="" screenOptions={({ route }) => ({
+      tabBarActiveTintColor: 'pink',
+      tabBarInactiveTintColor: 'gray',
+    })}>
       <Tab.Screen
         name="Inicio"
         component={Home}
         options={{
-          headerShown: false,
+          tabBarShowLabel: false,
           tabBarIcon: ({color, size}) => (
-            <FontAwesomeIcon name="rocket" size={30} color="#900" />
+            <FontAwesomeIcon name="home" size={30} color={color} />
           ),
+          
         }}
       />
       <Tab.Screen
         name="Menu"
         component={MenuScreen}
         options={{
-          headerShown: false,
+          tabBarShowLabel: false,
           tabBarIcon: ({color, size}) => (
-            <View>
-              <Text>Menu</Text>
-            </View>
+            <Entypo  name="menu" size={30} color={color} /> 
           ),
         }}
       />
@@ -44,9 +47,9 @@ const HomeStack: React.FC = () => {
         name="Canasta"
         component={CanastaScreen}
         options={{
-          headerShown: false,
+          tabBarShowLabel: false,
           tabBarIcon: ({color, size}) => (
-            <FontAwesomeIcon name="rocket" size={30} color="#900" />
+            <Entypo name="shopping-cart" size={30} color={color} />
           ),
         }}
       />

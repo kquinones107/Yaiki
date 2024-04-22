@@ -91,17 +91,19 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   name: {
-    fontSize: 16,
+    fontSize: 18,
     marginBottom: 5,
+    fontFamily: 'IndieFlower-Regular',
   },
   price: {
     fontSize: 14,
     marginBottom: 10,
+    fontFamily: 'Exo2-Regular',
   },
   message: {
     fontSize: 16,
     fontWeight: 'bold',
-    color: 'green',
+    color: 'pink',
     marginTop: 10,
   },
 });
