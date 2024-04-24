@@ -43,7 +43,7 @@ const CanastaScreen = () => {
         <Text style={styles.header}>Cesta</Text>
         <View style={styles.contentContainer}>
           <Image
-            source={{uri: 'URL_DE_LA_IMAGEN_DEL_CARRO'}} // Debes reemplazar esto con la URL o recurso local de tu imagen
+            source={require('../resources/assets/images/CarritoVacio.png')} // Debes reemplazar esto con la URL o recurso local de tu imagen
             style={styles.cartImage}
           />
           <Text style={styles.emptyCartText}>Cesta vacía</Text>
@@ -64,8 +64,13 @@ const CanastaScreen = () => {
 
   const total = cart.reduce((acc, product) => {
     // Verificar si el precio del producto está definido y es un número
-    if (product.price !== undefined && typeof product.price === 'number') {
-      return acc + product.price;
+    if (
+      product.price !== undefined &&
+      product.quantity !== undefined &&
+      typeof product.price === 'number' &&
+      typeof product.quantity === 'number'
+    ) {
+      return acc + product.price * product.quantity;
     }
     return acc;
   }, 0);
@@ -83,7 +88,7 @@ const CanastaScreen = () => {
       ))}
       <View style={styles.divider} />
       <View style={styles.totalContainer}>
-        <Text style={styles.totalLabel}>Total (Antes de impuestos)</Text>
+        <Text style={styles.totalLabel}>Total</Text>
         <Text style={styles.totalPrice}>${total.toFixed(2)}</Text>
       </View>
       <Text style={styles.importText}>
@@ -119,13 +124,14 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   price: {
-    fontWeight: 'bold',
+    fontFamily: 'Exo2-Bold',
     fontSize: 20,
   },
   productTitle: {
-    fontSize: 16,
+    fontSize: 18,
     flexWrap: 'wrap',
     flex: 1,
+    fontFamily: 'IndieFlower-Regular',
   },
   totalContainer: {
     flexGrow: 1,
@@ -137,17 +143,19 @@ const styles = StyleSheet.create({
   },
   header: {
     fontSize: 22,
-    fontWeight: 'bold',
     marginVertical: 10,
     marginLeft: 20,
+    fontFamily: 'Caveat-Bold',
   },
   totalLabel: {
-    fontSize: 16,
+    fontSize: 20,
     fontWeight: '300',
+    fontFamily: 'IndieFlower-Regular',
   },
   totalPrice: {
     fontSize: 18,
     fontWeight: '600',
+    fontFamily: 'Exo2-Bold',
   },
   importText: {
     fontSize: 12,
