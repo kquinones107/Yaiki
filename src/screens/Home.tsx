@@ -67,7 +67,8 @@ const Home = () => {
   const backgrounds = [
     require('../resources/assets/photos/Foto_1.jpg'),
     require('../resources/assets/photos/Foto_2.jpg'),
-    require('../resources/assets/photos/Foto_3.jpg'),
+    require('../resources/assets/photos/Anillos_0.jpg'),
+    require('../resources/assets/photos/CollarCategory.jpeg'),
   ];
   const categories = [
     {
@@ -80,11 +81,11 @@ const Home = () => {
     },
     {
       title: 'Anillos',
-      products: [require('../resources/assets/photos/Foto_1.jpg')],
+      products: [require('../resources/assets/photos/AnillosCategory.jpeg')],
     },
     {
       title: 'Collares',
-      products: [require('../resources/assets/photos/Foto_1.jpg')],
+      products: [require('../resources/assets/photos/Collar_1.jpeg')],
     },
     {
       title: 'Pulseras para la playa',

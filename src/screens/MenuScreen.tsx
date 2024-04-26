@@ -9,6 +9,7 @@ import AretesScreen from './AretesScreen';
 import PersonalizadosScreen from './PersonalizadosScreen';
 import PlayaScreen from './PlayaScreen';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
+import CollaresScreen from './CollaresScreen';
 
 const Tab = createMaterialTopTabNavigator();
 
@@ -23,6 +24,7 @@ const MenuScreen = () => {
     >
       <Tab.Screen name="Pulseras" component={PulserasScreen} />
       <Tab.Screen name="Anillos" component={AnillosScreen} />
+      <Tab.Screen name="Collares" component={CollaresScreen} />
       <Tab.Screen name="Aretes" component={AretesScreen} />
       <Tab.Screen name="Personalizados" component={PersonalizadosScreen} />
       <Tab.Screen name="Playa" component={PlayaScreen} />
