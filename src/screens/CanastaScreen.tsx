@@ -13,6 +13,14 @@ import {ScrollView} from 'react-native-gesture-handler';
 import {useNavigation} from '@react-navigation/native';
 
 const Product = ({product}) => {
+
+  const Añadirmaspress = useNavigation();
+
+  const onAñadirMasPress = () => {
+    
+    Añadirmaspress.navigate('Menu');
+  };
+
   return (
     <View style={styles.product}>
       <Image source={product.image} style={styles.image} />
@@ -21,7 +29,8 @@ const Product = ({product}) => {
         <Text style={styles.productTitle}>{product.name}</Text>
         <Text
           style={styles.productTitle}>{`Cantidad: ${product.quantity}`}</Text>
-        <TouchableOpacity>
+        <TouchableOpacity
+          onPress={onAñadirMasPress}>
           <Text style={styles.addText}>Añadir Mas</Text>
         </TouchableOpacity>
       </View>
@@ -33,10 +42,13 @@ const CanastaScreen = () => {
   const {cart} = useContext(CartContext);
   const insets = useSafeAreaInsets();
   const navigation = useNavigation();
+  
 
   const onDiscoverPress = () => {
     navigation.navigate('Inicio');
+    Añadirmaspress.navigate('Menu');
   };
+  
   if (!cart || cart.length === 0) {
     return (
       <SafeAreaView style={styles.container}>
