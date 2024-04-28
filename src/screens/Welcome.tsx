@@ -56,7 +56,7 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     fontSize: 24,
-    color: 'white',
+    color: 'gray',
     fontFamily: 'Caveat-Bold',
   },
 });

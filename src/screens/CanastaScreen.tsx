@@ -46,7 +46,7 @@ const CanastaScreen = () => {
 
   const onDiscoverPress = () => {
     navigation.navigate('Inicio');
-    Añadirmaspress.navigate('Menu');
+    
   };
   
   if (!cart || cart.length === 0) {
@@ -176,17 +176,18 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   checkoutButton: {
-    backgroundColor: 'green',
+    backgroundColor: 'pink',
     paddingVertical: 15,
     marginHorizontal: 20,
     borderRadius: 5,
     marginBottom: 10,
   },
   checkoutButtonText: {
-    color: 'white',
+    color: 'gray',
     textAlign: 'center',
     fontSize: 16,
     fontWeight: '600',
+    fontFamily: 'Caveat-Bold',
   },
   divider: {
     height: 1,
@@ -211,23 +212,26 @@ const styles = StyleSheet.create({
     resizeMode: 'contain',
   },
   emptyCartText: {
-    fontSize: 22,
-    fontWeight: 'bold',
+    fontSize: 26,
+    fontFamily: 'Caveat-Bold',
     marginVertical: 20,
   },
   descriptionText: {
     fontSize: 16,
     textAlign: 'center',
     paddingHorizontal: 20,
+    fontFamily: 'Exo2-Regular',
+    color: 'grey',
   },
   discoverButton: {
     marginTop: 30,
-    backgroundColor: 'black',
+    backgroundColor: 'pink',
     padding: 10,
     borderRadius: 5,
   },
   discoverButtonText: {
-    color: 'white',
-    fontSize: 18,
+    color: 'gray',
+    fontSize: 22,
+    fontFamily: 'Caveat-Bold',
   },
 });

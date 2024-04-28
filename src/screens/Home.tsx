@@ -65,19 +65,20 @@ const Home = () => {
 
   const [backgroundIndex, setBackgroundIndex] = useState(0);
   const backgrounds = [
-    require('../resources/assets/photos/Foto_1.jpg'),
-    require('../resources/assets/photos/Foto_2.jpg'),
+    require('../resources/assets/photos/Playa_1.jpg'),
+    require('../resources/assets/photos/Pulsera_2.jpg'),
     require('../resources/assets/photos/Anillos_0.jpg'),
     require('../resources/assets/photos/CollarCategory.jpeg'),
+    require('../resources/assets/photos/PersonalizadoCategory.jpg'),
   ];
   const categories = [
     {
       title: 'Pulseras',
-      products: [require('../resources/assets/photos/Foto_1.jpg')],
+      products: [require('../resources/assets/photos/PulserasCategory.jpg')],
     },
     {
       title: 'Aretes',
-      products: [require('../resources/assets/photos/Foto_1.jpg')],
+      products: [require('../resources/assets/photos/Aretes_1.jpeg')],
     },
     {
       title: 'Anillos',
@@ -89,7 +90,7 @@ const Home = () => {
     },
     {
       title: 'Pulseras para la playa',
-      products: [require('../resources/assets/photos/Foto_1.jpg')],
+      products: [require('../resources/assets/photos/Playa_1.jpg')],
     },
   ];
 

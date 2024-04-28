@@ -33,7 +33,13 @@ const products = [
     name: 'Producto 5',
     price: 5990,
     image: require('../resources/assets/photos/Anillos_5.jpeg'),
+  },{
+    id: 26,
+    name: 'Producto 6',
+    price: 5990,
+    image: require('../resources/assets/photos/Anillos_6.jpg'),
   },
+
 
   // Agregar más productos según sea necesario
 ];

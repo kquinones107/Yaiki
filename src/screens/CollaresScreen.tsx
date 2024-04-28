@@ -40,7 +40,49 @@ const products = [
     price: 13990,
     image: require('../resources/assets/photos/Collar_6.jpeg'),
   },
-
+  {
+    id: 37,
+    name: 'Collar 7',
+    price: 13990,
+    image: require('../resources/assets/photos/Collar_7.jpg'),
+  },
+  {
+    id: 38,
+    name: 'Collar 8',
+    price: 13990,
+    image: require('../resources/assets/photos/Collar_8.jpg'),
+  },
+  {
+    id: 39,
+    name: 'Collar 9',
+    price: 13990,
+    image: require('../resources/assets/photos/Collar_9.jpg'),
+  },
+  {
+    id: 400,
+    name: 'Collar 10',
+    price: 13990,
+    image: require('../resources/assets/photos/Collar_10.jpg'),
+  },
+  {
+    id: 401,
+    name: 'Collar 11',
+    price: 13990,
+    image: require('../resources/assets/photos/Collar_11.jpg'),
+  },
+  {
+    id: 402,
+    name: 'Collar 12',
+    price: 13990,
+    image: require('../resources/assets/photos/Collar_12.jpg'),
+  },
+  {
+    id: 403,
+    name: 'Collar 13',
+    price: 13990,
+    image: require('../resources/assets/photos/Collar_13.jpg'),
+  },
+  
   // Agregar más productos según sea necesario
 ];
 
