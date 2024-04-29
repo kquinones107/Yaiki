@@ -6,25 +6,25 @@ import Toast from 'react-native-toast-message';
 const products = [
   {
     id: 71,
-    name: 'Producto 1',
+    name: 'Pulsera con una estrella de mar',
     price: 14990,
     image: require('../resources/assets/photos/Playa_1.jpg'),
   },
   {
     id: 72,
-    name: 'Producto 2',
+    name: 'Pulsera colorida con estrella de mar',
     price: 14990,
     image: require('../resources/assets/photos/Playa_2.jpg'),
   },
   {
     id: 73,
-    name: 'Producto 3',
+    name: 'Combo de pulsera y collar con estrella y conchas de mar',
     price: 14990,
     image: require('../resources/assets/photos/Playa_3.jpg'),
   },
   {
     id: 74,
-    name: 'Producto 4',
+    name: 'Pulsera de estrellitas de mar',
     price: 14990,
     image: require('../resources/assets/photos/Playa_4.jpg'),
   },

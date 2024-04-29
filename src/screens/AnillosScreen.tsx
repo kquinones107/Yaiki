@@ -6,36 +6,36 @@ import Toast from 'react-native-toast-message';
 const products = [
   {
     id: 20,
-    name: 'Producto 1',
+    name: 'Combo de 4 Anillos',
     price: 19990,
     image: require('../resources/assets/photos/Anillos_1.jpeg'),
   },
   {
     id: 21,
-    name: 'Producto 2',
+    name: 'Anillos felices :)',
     price: 11990,
     image: require('../resources/assets/photos/Anillos_2.jpeg'),
   },
   {
     id: 23,
-    name: 'Producto 3',
+    name: 'Anillos de flores',
     price: 14990,
     image: require('../resources/assets/photos/Anillos_3.jpeg'),
   },
   {
     id: 24,
-    name: 'Producto 4',
+    name: 'Anillos de media luna',
     price: 11990,
     image: require('../resources/assets/photos/Anillos_4.jpeg'),
   },
   {
     id: 25,
-    name: 'Producto 5',
+    name: 'Anillo blanco',
     price: 5990,
     image: require('../resources/assets/photos/Anillos_5.jpeg'),
   },{
     id: 26,
-    name: 'Producto 6',
+    name: 'Anillo de flor',
     price: 5990,
     image: require('../resources/assets/photos/Anillos_6.jpg'),
   },

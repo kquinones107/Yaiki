@@ -27,6 +27,7 @@ const HomeStack: React.FC = () => {
         component={Home}
         options={{
           tabBarShowLabel: false,
+          headerShown: false,
           tabBarIcon: ({color, size}) => (
             <FontAwesomeIcon name="home" size={30} color={color} />
           ),
@@ -38,6 +39,7 @@ const HomeStack: React.FC = () => {
         component={MenuScreen}
         options={{
           tabBarShowLabel: false,
+          headerShown: false,
           tabBarIcon: ({color, size}) => (
             <Entypo  name="menu" size={30} color={color} /> 
           ),
@@ -48,6 +50,7 @@ const HomeStack: React.FC = () => {
         component={CanastaScreen}
         options={{
           tabBarShowLabel: false,
+          headerShown: false,
           tabBarIcon: ({color, size}) => (
             <Entypo name="shopping-cart" size={30} color={color} />
           ),

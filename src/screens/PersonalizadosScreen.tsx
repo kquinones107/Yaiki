@@ -6,26 +6,26 @@ import Toast from 'react-native-toast-message';
 const products = [
   {
     id: 81,
-    name: 'Producto 1',
-    price: 14990,
+    name: 'Pulseras con nombre',
+    price: 44990,
     image: require('../resources/assets/photos/Personalizada_1.jpg'),
   },
   {
     id: 82,
-    name: 'Producto 2',
+    name: 'Pulsera con inicial ',
     price: 14990,
     image: require('../resources/assets/photos/Personalizada_2.jpg'),
   },
   {
     id: 83,
-    name: 'Producto 3',
+    name: 'Pulsera con nombre',
     price: 14990,
     image: require('../resources/assets/photos/Personalizada_3.jpg'),
   },
   {
     id: 84,
-    name: 'Producto 4',
-    price: 14990,
+    name: 'Pulseras para parejas',
+    price: 29990,
     image: require('../resources/assets/photos/Personalizada_4.jpeg'),
   },
   // Agregar más productos según sea necesario
@@ -68,6 +68,9 @@ const PersonalizadosScreen = () => {
             onPressAddToCart={() => handleAddToCart(product)}
           />
         ))}
+        <View>
+          <Text style={styles.message}>¡Personaliza tu Accesorio!</Text>
+        </View>
       </ScrollView>
     </View>
   );
@@ -107,8 +110,8 @@ const styles = StyleSheet.create({
     fontFamily: 'Exo2-Regular',
   },
   message: {
-    fontSize: 16,
-    fontWeight: 'bold',
+    fontSize: 26,
+    fontFamily: 'IndieFlower-Regular',
     color: 'pink',
     marginTop: 10,
   },
