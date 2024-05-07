@@ -12,19 +12,19 @@
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
-		7699B88040F8A987B510C191 /* libPods-Yaiki-YaikiTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-Yaiki-YaikiTests.a */; };
-		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
-		7207AFC02D5842EA8D2A54EA /* Caveat-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 83B4E8F28C9648FFAB162517 /* Caveat-Bold.ttf */; };
-		9CAAE34E152D4CA0B94920B6 /* Caveat-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BE79DF8BBCD74ED3977D0A14 /* Caveat-Medium.ttf */; };
-		80138AA281034FD8AFF148B4 /* Caveat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17ECCA5E3CFE4387AD4C48E4 /* Caveat-Regular.ttf */; };
-		7426D57355544D08ACCA8516 /* Caveat-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 20D44F216B714F62A713AB29 /* Caveat-SemiBold.ttf */; };
-		B607DB06E37549309ED4C960 /* Caveat-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B74D37E232534B97B4F85D1D /* Caveat-VariableFont_wght.ttf */; };
-		F5EE7216491747408CADB67B /* Exo2-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D8BD3984D4094DFD8EAD4359 /* Exo2-Bold.ttf */; };
-		C91F5822BCB64C8B81A7908F /* Exo2-Italic-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6A687EF6410242E8AF25ACD3 /* Exo2-Italic-VariableFont_wght.ttf */; };
-		9EEAF67F5B194EA582EB5EB0 /* Exo2-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F3AE229F205F46CE86ADF859 /* Exo2-Regular.ttf */; };
 		15AD7BA294A3450DBE3A28A9 /* Exo2-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 63000C480EB749DE806A404E /* Exo2-VariableFont_wght.ttf */; };
 		5F03F104457E4078B2BABA6C /* IndieFlower-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DECBFD8FD1C94809A72CA72D /* IndieFlower-Regular.ttf */; };
+		7207AFC02D5842EA8D2A54EA /* Caveat-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 83B4E8F28C9648FFAB162517 /* Caveat-Bold.ttf */; };
+		7426D57355544D08ACCA8516 /* Caveat-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 20D44F216B714F62A713AB29 /* Caveat-SemiBold.ttf */; };
+		7699B88040F8A987B510C191 /* libPods-Yaiki-YaikiTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-Yaiki-YaikiTests.a */; };
+		80138AA281034FD8AFF148B4 /* Caveat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17ECCA5E3CFE4387AD4C48E4 /* Caveat-Regular.ttf */; };
+		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		9CAAE34E152D4CA0B94920B6 /* Caveat-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BE79DF8BBCD74ED3977D0A14 /* Caveat-Medium.ttf */; };
+		9EEAF67F5B194EA582EB5EB0 /* Exo2-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F3AE229F205F46CE86ADF859 /* Exo2-Regular.ttf */; };
+		B607DB06E37549309ED4C960 /* Caveat-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B74D37E232534B97B4F85D1D /* Caveat-VariableFont_wght.ttf */; };
+		C91F5822BCB64C8B81A7908F /* Exo2-Italic-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6A687EF6410242E8AF25ACD3 /* Exo2-Italic-VariableFont_wght.ttf */; };
 		CF49F711BEFF48DE92BB06AA /* Pacifico-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F2B98106A1F247C2B9E6EB51 /* Pacifico-Regular.ttf */; };
+		F5EE7216491747408CADB67B /* Exo2-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D8BD3984D4094DFD8EAD4359 /* Exo2-Bold.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,13 +47,22 @@
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = Yaiki/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Yaiki/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = Yaiki/main.m; sourceTree = "<group>"; };
+		17ECCA5E3CFE4387AD4C48E4 /* Caveat-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Caveat-Regular.ttf"; path = "../src/resources/assets/fonts/Caveat-Regular.ttf"; sourceTree = "<group>"; };
 		19F6CBCC0A4E27FBF8BF4A61 /* libPods-Yaiki-YaikiTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Yaiki-YaikiTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		20D44F216B714F62A713AB29 /* Caveat-SemiBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Caveat-SemiBold.ttf"; path = "../src/resources/assets/fonts/Caveat-SemiBold.ttf"; sourceTree = "<group>"; };
 		3B4392A12AC88292D35C810B /* Pods-Yaiki.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Yaiki.debug.xcconfig"; path = "Target Support Files/Pods-Yaiki/Pods-Yaiki.debug.xcconfig"; sourceTree = "<group>"; };
 		5709B34CF0A7D63546082F79 /* Pods-Yaiki.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Yaiki.release.xcconfig"; path = "Target Support Files/Pods-Yaiki/Pods-Yaiki.release.xcconfig"; sourceTree = "<group>"; };
 		5B7EB9410499542E8C5724F5 /* Pods-Yaiki-YaikiTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Yaiki-YaikiTests.debug.xcconfig"; path = "Target Support Files/Pods-Yaiki-YaikiTests/Pods-Yaiki-YaikiTests.debug.xcconfig"; sourceTree = "<group>"; };
 		5DCACB8F33CDC322A6C60F78 /* libPods-Yaiki.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Yaiki.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		63000C480EB749DE806A404E /* Exo2-VariableFont_wght.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Exo2-VariableFont_wght.ttf"; path = "../src/resources/assets/fonts/Exo2-VariableFont_wght.ttf"; sourceTree = "<group>"; };
+		6A687EF6410242E8AF25ACD3 /* Exo2-Italic-VariableFont_wght.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Exo2-Italic-VariableFont_wght.ttf"; path = "../src/resources/assets/fonts/Exo2-Italic-VariableFont_wght.ttf"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = Yaiki/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		83B4E8F28C9648FFAB162517 /* Caveat-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Caveat-Bold.ttf"; path = "../src/resources/assets/fonts/Caveat-Bold.ttf"; sourceTree = "<group>"; };
 		89C6BE57DB24E9ADA2F236DE /* Pods-Yaiki-YaikiTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Yaiki-YaikiTests.release.xcconfig"; path = "Target Support Files/Pods-Yaiki-YaikiTests/Pods-Yaiki-YaikiTests.release.xcconfig"; sourceTree = "<group>"; };
+		B74D37E232534B97B4F85D1D /* Caveat-VariableFont_wght.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Caveat-VariableFont_wght.ttf"; path = "../src/resources/assets/fonts/Caveat-VariableFont_wght.ttf"; sourceTree = "<group>"; };
+		BE79DF8BBCD74ED3977D0A14 /* Caveat-Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Caveat-Medium.ttf"; path = "../src/resources/assets/fonts/Caveat-Medium.ttf"; sourceTree = "<group>"; };
+		D8BD3984D4094DFD8EAD4359 /* Exo2-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Exo2-Bold.ttf"; path = "../src/resources/assets/fonts/Exo2-Bold.ttf"; sourceTree = "<group>"; };
+		DECBFD8FD1C94809A72CA72D /* IndieFlower-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "IndieFlower-Regular.ttf"; path = "../src/resources/assets/fonts/IndieFlower-Regular.ttf"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		EF04DB982BD5848A0087E368 /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = SimpleLineIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/SimpleLineIcons.ttf"; sourceTree = "<group>"; };
 		EF04DB992BD5848A0087E368 /* FontAwesome5_Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = FontAwesome5_Regular.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Regular.ttf"; sourceTree = "<group>"; };
@@ -74,17 +83,8 @@
 		EF04DBA82BD5848A0087E368 /* AntDesign.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = AntDesign.ttf; path = "../node_modules/react-native-vector-icons/Fonts/AntDesign.ttf"; sourceTree = "<group>"; };
 		EF04DBA92BD5848A0087E368 /* Octicons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Octicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Octicons.ttf"; sourceTree = "<group>"; };
 		EF04DBAA2BD5848A0087E368 /* FontAwesome5_Brands.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = FontAwesome5_Brands.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Brands.ttf"; sourceTree = "<group>"; };
-		83B4E8F28C9648FFAB162517 /* Caveat-Bold.ttf */ = {isa = PBXFileReference; name = "Caveat-Bold.ttf"; path = "../src/resources/assets/fonts/Caveat-Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		BE79DF8BBCD74ED3977D0A14 /* Caveat-Medium.ttf */ = {isa = PBXFileReference; name = "Caveat-Medium.ttf"; path = "../src/resources/assets/fonts/Caveat-Medium.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		17ECCA5E3CFE4387AD4C48E4 /* Caveat-Regular.ttf */ = {isa = PBXFileReference; name = "Caveat-Regular.ttf"; path = "../src/resources/assets/fonts/Caveat-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		20D44F216B714F62A713AB29 /* Caveat-SemiBold.ttf */ = {isa = PBXFileReference; name = "Caveat-SemiBold.ttf"; path = "../src/resources/assets/fonts/Caveat-SemiBold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		B74D37E232534B97B4F85D1D /* Caveat-VariableFont_wght.ttf */ = {isa = PBXFileReference; name = "Caveat-VariableFont_wght.ttf"; path = "../src/resources/assets/fonts/Caveat-VariableFont_wght.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		D8BD3984D4094DFD8EAD4359 /* Exo2-Bold.ttf */ = {isa = PBXFileReference; name = "Exo2-Bold.ttf"; path = "../src/resources/assets/fonts/Exo2-Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		6A687EF6410242E8AF25ACD3 /* Exo2-Italic-VariableFont_wght.ttf */ = {isa = PBXFileReference; name = "Exo2-Italic-VariableFont_wght.ttf"; path = "../src/resources/assets/fonts/Exo2-Italic-VariableFont_wght.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		F3AE229F205F46CE86ADF859 /* Exo2-Regular.ttf */ = {isa = PBXFileReference; name = "Exo2-Regular.ttf"; path = "../src/resources/assets/fonts/Exo2-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		63000C480EB749DE806A404E /* Exo2-VariableFont_wght.ttf */ = {isa = PBXFileReference; name = "Exo2-VariableFont_wght.ttf"; path = "../src/resources/assets/fonts/Exo2-VariableFont_wght.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		DECBFD8FD1C94809A72CA72D /* IndieFlower-Regular.ttf */ = {isa = PBXFileReference; name = "IndieFlower-Regular.ttf"; path = "../src/resources/assets/fonts/IndieFlower-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		F2B98106A1F247C2B9E6EB51 /* Pacifico-Regular.ttf */ = {isa = PBXFileReference; name = "Pacifico-Regular.ttf"; path = "../src/resources/assets/fonts/Pacifico-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		F2B98106A1F247C2B9E6EB51 /* Pacifico-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Pacifico-Regular.ttf"; path = "../src/resources/assets/fonts/Pacifico-Regular.ttf"; sourceTree = "<group>"; };
+		F3AE229F205F46CE86ADF859 /* Exo2-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Exo2-Regular.ttf"; path = "../src/resources/assets/fonts/Exo2-Regular.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +146,25 @@
 				19F6CBCC0A4E27FBF8BF4A61 /* libPods-Yaiki-YaikiTests.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5D5815CACD6645A580B8E3C3 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				83B4E8F28C9648FFAB162517 /* Caveat-Bold.ttf */,
+				BE79DF8BBCD74ED3977D0A14 /* Caveat-Medium.ttf */,
+				17ECCA5E3CFE4387AD4C48E4 /* Caveat-Regular.ttf */,
+				20D44F216B714F62A713AB29 /* Caveat-SemiBold.ttf */,
+				B74D37E232534B97B4F85D1D /* Caveat-VariableFont_wght.ttf */,
+				D8BD3984D4094DFD8EAD4359 /* Exo2-Bold.ttf */,
+				6A687EF6410242E8AF25ACD3 /* Exo2-Italic-VariableFont_wght.ttf */,
+				F3AE229F205F46CE86ADF859 /* Exo2-Regular.ttf */,
+				63000C480EB749DE806A404E /* Exo2-VariableFont_wght.ttf */,
+				DECBFD8FD1C94809A72CA72D /* IndieFlower-Regular.ttf */,
+				F2B98106A1F247C2B9E6EB51 /* Pacifico-Regular.ttf */,
+			);
+			name = Resources;
+			path = "";
 			sourceTree = "<group>";
 		};
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
@@ -216,25 +235,6 @@
 			);
 			name = Fonts;
 			sourceTree = "<group>";
-		};
-		5D5815CACD6645A580B8E3C3 /* Resources */ = {
-			isa = "PBXGroup";
-			children = (
-				83B4E8F28C9648FFAB162517 /* Caveat-Bold.ttf */,
-				BE79DF8BBCD74ED3977D0A14 /* Caveat-Medium.ttf */,
-				17ECCA5E3CFE4387AD4C48E4 /* Caveat-Regular.ttf */,
-				20D44F216B714F62A713AB29 /* Caveat-SemiBold.ttf */,
-				B74D37E232534B97B4F85D1D /* Caveat-VariableFont_wght.ttf */,
-				D8BD3984D4094DFD8EAD4359 /* Exo2-Bold.ttf */,
-				6A687EF6410242E8AF25ACD3 /* Exo2-Italic-VariableFont_wght.ttf */,
-				F3AE229F205F46CE86ADF859 /* Exo2-Regular.ttf */,
-				63000C480EB749DE806A404E /* Exo2-VariableFont_wght.ttf */,
-				DECBFD8FD1C94809A72CA72D /* IndieFlower-Regular.ttf */,
-				F2B98106A1F247C2B9E6EB51 /* Pacifico-Regular.ttf */,
-			);
-			name = Resources;
-			sourceTree = "<group>";
-			path = "";
 		};
 /* End PBXGroup section */
 
@@ -679,7 +679,10 @@
 					"-DFOLLY_USE_LIBCPP=1",
 					"-DFOLLY_CFG_NO_COROUTINES=1",
 				);
-				OTHER_LDFLAGS = "$(inherited)  ";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					" ",
+				);
 				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
 				USE_HERMES = true;
@@ -747,7 +750,10 @@
 					"-DFOLLY_USE_LIBCPP=1",
 					"-DFOLLY_CFG_NO_COROUTINES=1",
 				);
-				OTHER_LDFLAGS = "$(inherited)  ";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					" ",
+				);
 				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
 				USE_HERMES = true;
