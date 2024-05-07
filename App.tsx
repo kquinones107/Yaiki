@@ -12,7 +12,12 @@ import {Text, View} from 'react-native';
 import CanastaScreen from './src/screens/CanastaScreen';
 import {CartProvider} from './CartContext';
 import Toast from 'react-native-toast-message';
+import WhatsappScreen from './src/screens/WhatsappScreen';
 
+<WhatsappScreen 
+  phoneNumber="+573187887223" 
+  message="Hola, me gustaría hacer un pedido."
+/>;
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 
@@ -84,6 +89,13 @@ const App: React.FC = () => {
             }}
             name="Home"
             component={HomeStack}
+          />
+          <Stack.Screen
+            options={{
+              headerShown: false,
+            }}
+            name="Whatsapp"
+            component={WhatsappScreen}
           />
         </Stack.Navigator>
         <Toast />

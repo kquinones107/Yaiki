@@ -19,7 +19,7 @@ const products = [
   {
     id: 73,
     name: 'Combo de pulsera y collar con estrella y conchas de mar',
-    price: 14990,
+    price: 29990,
     image: require('../resources/assets/photos/Playa_3.jpg'),
   },
   {

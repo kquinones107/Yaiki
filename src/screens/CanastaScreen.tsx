@@ -42,11 +42,15 @@ const CanastaScreen = () => {
   const {cart} = useContext(CartContext);
   const insets = useSafeAreaInsets();
   const navigation = useNavigation();
-  
+  const CheckoutPress = useNavigation();
 
   const onDiscoverPress = () => {
     navigation.navigate('Inicio');
     
+  };
+
+  const onCheckoutPress = () => {
+    CheckoutPress.navigate('Whatsapp', {products: cart});
   };
   
   if (!cart || cart.length === 0) {
@@ -107,7 +111,9 @@ const CanastaScreen = () => {
         Recuerde que los costes de importación corresponden a los derechos,
         aranceles e impuestos establecidos por cada gobierno local. Más Info.
       </Text>
-      <TouchableOpacity style={styles.checkoutButton}>
+      <TouchableOpacity 
+        style={styles.checkoutButton}
+        onPress={onCheckoutPress}>
         <Text style={styles.checkoutButtonText}>TRAMITAR PEDIDO</Text>
       </TouchableOpacity>
     </ScrollView>
