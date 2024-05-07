@@ -13,7 +13,7 @@ const products = [
   {
     id: 92,
     name: 'Aretes 2',
-    price: 14990,
+    price: 16990,
     image: require('../resources/assets/photos/Aretes_2.jpeg'),
   },
   {
