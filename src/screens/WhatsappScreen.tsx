@@ -4,9 +4,11 @@ import { CartContext } from '../../CartContext';
 
 
 
-const WhatsappScreen = ({ phoneNumber, message, route }) => {
+const WhatsappScreen = ({ route }) => {
     const { cart } = useContext(CartContext); 
     const products = route.params.products; 
+    const phoneNumber = '+573187887223';
+    const message = '¡Hola! Me gustaría comprar los siguientes productos:';
   
     const sendMessage = async () => {
       try {
