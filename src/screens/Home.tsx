@@ -115,7 +115,7 @@ const Home = () => {
   }, [backgroundIndex, backgrounds.length]);
   
   return (
-    <ScrollView style={styles.container}>
+    <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
       {/* FlatList para mostrar múltiples imágenes de fondo */}
       <FlatList
         ref={flatListRef}
@@ -353,7 +353,7 @@ const getStyles = () => {
       fontSize: 20,
       marginBottom: 20,
       color: theme.text,
-      fontFamily: 'IndieFlower-Regular',
+      fontFamily: 'IndieFlower',
     },
     redesContainer: {
       flex: 1,
@@ -371,6 +371,7 @@ const getStyles = () => {
       flexDirection: 'row',
       justifyContent: 'space-around',
       marginVertical: 20,
+      marginBottom: 200,
     },
   });
 }

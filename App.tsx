@@ -12,17 +12,18 @@ import { Text, View } from 'react-native';
 import CanastaScreen from './src/screens/CanastaScreen';
 import { CartProvider } from './CartContext';
 import Toast from 'react-native-toast-message';
-import { ThemeProvider } from './src/resources/assets/colors/ThemeContext';
+import { ThemeProvider, useTheme } from './src/resources/assets/colors/ThemeContext';
 
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 
 const HomeStack: React.FC = () => {
+  const {theme} = useTheme();
   return (
     <Tab.Navigator initialRouteName="" screenOptions={({ route }) => ({
-      tabBarActiveTintColor: 'pink',
-      tabBarInactiveTintColor: 'gray',
+      tabBarActiveTintColor: theme.accent,
+      tabBarInactiveTintColor: theme.primary,
       tabBarStyle: {
         height: 90,
         paddingHorizontal: 5,

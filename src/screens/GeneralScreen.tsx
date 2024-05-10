@@ -13,7 +13,7 @@ const ProductItem = ({ product, onPressAddToCart }) => {
         <Image source={product.image} style={styles.image} />
         <Text style={styles.name}>{product.name}</Text>
         <Text style={styles.price}>${product.price}</Text>
-        <Button title="Comprar" onPress={onPressAddToCart} color={theme.logo}/>
+        <Button title="Agregar al carrito" onPress={onPressAddToCart} color={theme.logo}/>
       </View>
     );
   };
@@ -45,6 +45,7 @@ const ProductItem = ({ product, onPressAddToCart }) => {
               onPressAddToCart={() => handleAddToCart(product)}
             />
           ))}
+          <View style={{ height: 100 }} />
         </ScrollView>
       </View>
     );
@@ -69,6 +70,7 @@ const ProductItem = ({ product, onPressAddToCart }) => {
         minWidth: '90%',
         backgroundColor: theme.primary,
         marginHorizontal: 20,
+        paddingBottom: 15,
       },
       image: {
         maxWidth: '100%',

@@ -14,9 +14,12 @@ import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { ScrollView } from 'react-native-gesture-handler';
 import { useNavigation } from '@react-navigation/native';
+import { useTheme } from '../resources/assets/colors/ThemeContext';
+import { Button } from 'react-native';
 
 const Product = ({ product }) => {
   const { removeFromCart } = useContext(CartContext);
+  const styles = getStyles();
 
   const Añadirmaspress = useNavigation();
 
@@ -42,7 +45,7 @@ const Product = ({ product }) => {
           <Text style={styles.addText}>Añadir Mas</Text>
         </TouchableOpacity>
       </View>
-      <View>
+      <View style={styles.delete}>
         <TouchableOpacity
           onPress={deletePress}>
           <MaterialIcon name="delete" size={23} color="#3b5998" />
@@ -54,6 +57,8 @@ const Product = ({ product }) => {
 
 const CanastaScreen = () => {
   const { cart } = useContext(CartContext);
+  const {toggleTheme} = useTheme();
+  const styles = getStyles();
   const insets = useSafeAreaInsets();
   const navigation = useNavigation();
   const CheckoutPress = useNavigation();
@@ -72,7 +77,7 @@ const CanastaScreen = () => {
         const encodedMessage = encodeURIComponent(
           `${message}\n\nProductos:\n${cart
             .map(
-              (product: {name: any; price: any}) =>
+              (product: { name: any; price: any }) =>
                 `${product.name} - ${product.price}`,
             )
             .join('\n')}`,
@@ -99,13 +104,12 @@ const CanastaScreen = () => {
   if (!cart || cart.length === 0) {
     return (
       <SafeAreaView style={styles.container}>
-        <Text style={styles.header}>Cesta</Text>
+        <Text style={styles.header}>Carrito</Text>
         <View style={styles.contentContainer}>
           <Image
             source={require('../resources/assets/images/CarritoVacio.png')} // Debes reemplazar esto con la URL o recurso local de tu imagen
             style={styles.cartImage}
           />
-          <Text style={styles.emptyCartText}>Cesta vacía</Text>
           <Text style={styles.descriptionText}>
             Aún no tienes ningún artículo en la cesta, descubre todo lo que
             tenemos para ti
@@ -115,8 +119,8 @@ const CanastaScreen = () => {
             onPress={onDiscoverPress}>
             <Text style={styles.discoverButtonText}>DESCUBRIR</Text>
           </TouchableOpacity>
+        <Button title="Toggle Theme" onPress={toggleTheme} />
         </View>
-        {/* Aquí agregarías tu componente de menú o navegación si lo tienes */}
       </SafeAreaView>
     );
   }
@@ -136,15 +140,17 @@ const CanastaScreen = () => {
 
   return (
     <ScrollView
-      style={{ marginTop: insets.top }}
+      style={[styles.container, { paddingTop: insets.top },]}
       showsVerticalScrollIndicator={false}>
-      <Text style={styles.header}>{`Cesta(${cart.length})`}</Text>
+      <View>
+        <Text style={styles.header}>{`Carrito(${cart.length})`}</Text>
 
-      {cart.map((product, index) => (
-        <View key={`${product.id}${index}`}>
-          <Product product={product} />
-        </View>
-      ))}
+        {cart.map((product, index) => (
+          <View key={`${product.id}${index}`}>
+            <Product product={product} />
+          </View>
+        ))}
+      </View>
       <View style={styles.divider} />
       <View style={styles.totalContainer}>
         <Text style={styles.totalLabel}>Total</Text>
@@ -159,128 +165,147 @@ const CanastaScreen = () => {
         onPress={sendMessage}>
         <Text style={styles.checkoutButtonText}>TRAMITAR PEDIDO</Text>
       </TouchableOpacity>
+      <View style={{ height: 200 }}/>
     </ScrollView>
   );
 };
 
 export default CanastaScreen;
 
-const styles = StyleSheet.create({
-  container: {
-    flexGrow: 1,
-  },
-  imageContainer: {
-    padding: 10,
-    flex: 1,
-  },
-  image: {
-    maxHeight: 150,
-    maxWidth: 150,
-  },
-  body: { flexDirection: 'column', flex: 1, marginLeft: 20 },
-  product: {
-    marginLeft: 20,
-    marginRight: 20,
-    flexDirection: 'row',
-    marginBottom: 10,
-  },
-  price: {
-    fontFamily: 'Exo2-Bold',
-    fontSize: 20,
-  },
-  productTitle: {
-    fontSize: 18,
-    flexWrap: 'wrap',
-    flex: 1,
-    fontFamily: 'IndieFlower-Regular',
-  },
-  totalContainer: {
-    flexGrow: 1,
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    padding: 20,
-    borderTopWidth: 1,
-    borderTopColor: '#e1e1e1',
-  },
-  header: {
-    fontSize: 22,
-    marginVertical: 10,
-    marginLeft: 20,
-    fontFamily: 'Caveat-Bold',
-  },
-  totalLabel: {
-    fontSize: 20,
-    fontWeight: '300',
-    fontFamily: 'IndieFlower-Regular',
-  },
-  totalPrice: {
-    fontSize: 18,
-    fontWeight: '600',
-    fontFamily: 'Exo2-Bold',
-  },
-  importText: {
-    fontSize: 12,
-    color: 'grey',
-    paddingHorizontal: 20,
-    marginBottom: 20,
-  },
-  checkoutButton: {
-    backgroundColor: 'pink',
-    paddingVertical: 15,
-    marginHorizontal: 20,
-    borderRadius: 5,
-    marginBottom: 10,
-  },
-  checkoutButtonText: {
-    color: 'gray',
-    textAlign: 'center',
-    fontSize: 16,
-    fontWeight: '600',
-    fontFamily: 'Caveat-Bold',
-  },
-  divider: {
-    height: 1,
-    backgroundColor: '#e1e1e1',
-    marginVertical: 20,
-  },
-  promoCodeText: {
-    fontSize: 16,
-  },
-  addText: {
-    fontSize: 16,
-    color: 'blue',
-  },
-  contentContainer: {
-    alignItems: 'center',
-    justifyContent: 'center',
-    flex: 1,
-  },
-  cartImage: {
-    width: 150, // Ajusta el tamaño según tu diseño
-    height: 150, // Ajusta el tamaño según tu diseño
-    resizeMode: 'contain',
-  },
-  emptyCartText: {
-    fontSize: 26,
-    fontFamily: 'Caveat-Bold',
-    marginVertical: 20,
-  },
-  descriptionText: {
-    fontSize: 16,
-    textAlign: 'center',
-    paddingHorizontal: 20,
-    fontFamily: 'Exo2-Regular',
-    color: 'grey',
-  },
-  discoverButton: {
-    marginTop: 30,
-    backgroundColor: 'pink',
-    padding: 10,
-    borderRadius: 5,
-  },
-  discoverButtonText: {
-    color: 'gray',
-    fontSize: 22,
-    fontFamily: 'Caveat-Bold',
-  },
-});
+const getStyles = () => {
+  const { theme } = useTheme();
+  return StyleSheet.create({
+    content: {
+      backgroundColor: theme.background,
+    },
+    container: {
+      flex: 1,
+      backgroundColor: theme.background,
+    },
+    imageContainer: {
+      padding: 10,
+      flex: 1,
+      borderRadius: 20,
+    },
+    image: {
+      height: '100%',
+      maxWidth: 150,
+      borderEndStartRadius: 20,
+      borderTopStartRadius: 20,
+    },
+    body: { flexDirection: 'column', flex: 1, marginLeft: 20, paddingVertical:20 },
+    delete: {paddingVertical: 20},
+    product: {
+      marginLeft: 20,
+      marginRight: 20,
+      flexDirection: 'row',
+      marginBottom: 10,
+      backgroundColor: theme.white,
+      borderRadius: 20,
+      paddingRight: 10,
+    },
+    price: {
+      fontFamily: 'Exo2-Bold',
+      fontSize: 20,
+      color: theme.text,
+    },
+    productTitle: {
+      fontSize: 18,
+      flexWrap: 'wrap',
+      flex: 1,
+      fontFamily: 'IndieFlower',
+      color: theme.accent,
+    },
+    totalContainer: {
+      flexGrow: 1,
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+      padding: 20,
+      borderTopWidth: 1,
+      color: theme.accent,
+    },
+    header: {
+      fontSize: 22,
+      marginVertical: 10,
+      marginLeft: 20,
+      fontFamily: 'Caveat-Bold',
+      color: theme.primary,
+    },
+    totalLabel: {
+      fontSize: 20,
+      fontWeight: '300',
+      fontFamily: 'IndieFlower',
+      color: theme.primary,
+    },
+    totalPrice: {
+      fontSize: 18,
+      fontWeight: '600',
+      fontFamily: 'Exo2-Bold',
+      color: theme.text,
+    },
+    importText: {
+      fontSize: 12,
+      color: theme.accent,
+      paddingHorizontal: 20,
+      marginBottom: 20,
+    },
+    checkoutButton: {
+      backgroundColor: theme.primary,
+      paddingVertical: 15,
+      marginHorizontal: 20,
+      borderRadius: 5,
+      marginBottom: 10,
+    },
+    checkoutButtonText: {
+      color: theme.logo,
+      textAlign: 'center',
+      fontSize: 16,
+      fontWeight: '600',
+      fontFamily: 'Caveat-Bold',
+    },
+    divider: {
+      height: 1,
+      backgroundColor: '#e1e1e1',
+      marginVertical: 20,
+    },
+    addText: {
+      fontSize: 16,
+      color: theme.link,
+    },
+    contentContainer: {
+      alignItems: 'center',
+      justifyContent: 'center',
+      flex: 1,
+    },
+    cartImage: {
+      width: 150, // Ajusta el tamaño según tu diseño
+      height: 150, // Ajusta el tamaño según tu diseño
+      resizeMode: 'contain',
+    },
+    emptyCartText: {
+      fontSize: 26,
+      fontFamily: 'Caveat-Bold',
+      marginVertical: 20,
+    },
+    descriptionText: {
+      fontSize: 16,
+      textAlign: 'center',
+      paddingHorizontal: 20,
+      fontFamily: 'Exo2-Regular',
+      color: 'grey',
+    },
+    discoverButton: {
+      marginTop: 30,
+      backgroundColor: theme.logo,
+      padding: 10,
+      borderRadius: 5,
+      width: '90%',
+    },
+    discoverButtonText: {
+      color: theme.accent,
+      fontSize: 22,
+      fontFamily: 'Caveat-Bold',
+      textAlign: 'center',
+    },
+  });
+};
