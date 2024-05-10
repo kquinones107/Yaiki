@@ -1,6 +1,6 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import {
-  View,  
+  View,
   Text,
   ScrollView,
   Image,
@@ -16,19 +16,19 @@ import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
 import Entypo from 'react-native-vector-icons/Entypo';
 import * as GoogleFonts from 'react-native-google-fonts';
 
-const ProductSection = ({title, products}) => {
+const ProductSection = ({ title, products }) => {
   return (
     <View style={styles.sectionContainer}>
-       <Text style={styles.sectionTitle}>{title}</Text>
-       <ScrollView 
-       horizontal
-       showsHorizontalScrollIndicator={false}
-       contentContainerStyle={styles.productScrollView}
-       >
+      <Text style={styles.sectionTitle}>{title}</Text>
+      <ScrollView
+        horizontal
+        showsHorizontalScrollIndicator={false}
+        contentContainerStyle={styles.productScrollView}
+      >
         {products.map((product, index) => (
           <Image key={index} source={product} style={styles.productImage} />
         ))}
-       </ScrollView>
+      </ScrollView>
     </View>
   );
 };
@@ -46,17 +46,17 @@ const Home = () => {
   const handleWhatsAppPress = () => {
     Linking.openURL('https://wa.me/+573187887223');
   };
-   
-   // Estado de reproducción para cada video
-   const [videoStates, setVideoStates] = useState({
+
+  // Estado de reproducción para cada video
+  const [videoStates, setVideoStates] = useState({
     video1: false,
     video2: false,
     video3: false,
     video4: false,
   });
 
-   // Función para manejar la reproducción de un video específico
-   const handlePlayPause = (videoId) => {
+  // Función para manejar la reproducción de un video específico
+  const handlePlayPause = (videoId) => {
     setVideoStates(prevStates => ({
       ...prevStates,
       [videoId]: !prevStates[videoId],
@@ -111,7 +111,7 @@ const Home = () => {
         horizontal
         pagingEnabled
         showsHorizontalScrollIndicator={false}
-        renderItem={({item}) => (
+        renderItem={({ item }) => (
           <ImageBackground source={item} style={styles.background}>
             <View style={styles.titleContainer}>
               <Text style={styles.title}>YAIKI ACESORIOS</Text>
@@ -121,7 +121,7 @@ const Home = () => {
         onMomentumScrollEnd={event => {
           const index = Math.floor(
             event.nativeEvent.contentOffset.x /
-              event.nativeEvent.layoutMeasurement.width,
+            event.nativeEvent.layoutMeasurement.width,
           );
           setBackgroundIndex(index);
           console.log('Índice actual:', index);
@@ -133,7 +133,7 @@ const Home = () => {
         horizontal
         pagingEnabled
         showsHorizontalScrollIndicator={false}
-        renderItem={({item, index}) => (
+        renderItem={({ item, index }) => (
           <ProductSection
             key={index}
             title={item.title}
@@ -143,58 +143,78 @@ const Home = () => {
         onMomentumScrollEnd={event => {
           const index = Math.floor(
             event.nativeEvent.contentOffset.x /
-              event.nativeEvent.layoutMeasurement.width,
+            event.nativeEvent.layoutMeasurement.width,
           );
           setBackgroundIndex(index);
         }}
       />
-      <View style={styles.videoContainer}> 
+      <View style={styles.videoContainer}>
         <Text style={styles.videoTitle}>Combo de pulsera y anillos</Text>
         <Text style={styles.textDesciption}>La unión perfecta entre la delicadeza de la pulsera y el brillo de los anillos.</Text>
         <TouchableOpacity onPress={() => handlePlayPause('video1')}>
-          <Video
-            source={require('../resources/assets/video/Video_1.mp4')}
+          <ImageBackground
+            source={require('../resources/assets/photos/Anillos_0.jpg')} // Placeholder image
             style={styles.video}
-            resizeMode='cover'
-            paused={!videoStates.video1} // Pausar el video si isPlaying es falso
-          />
+            resizeMode='cover'>
+            <Video
+              source={require('../resources/assets/video/Video_1.mp4')}
+              style={StyleSheet.absoluteFill} // This makes the video fill the space of the container
+              resizeMode='cover'
+              paused={!videoStates.video1}
+            />
+          </ImageBackground>
         </TouchableOpacity>
       </View>
-      <View style={styles.videoContainer}> 
+      <View style={styles.videoContainer}>
         <Text style={styles.videoTitle}>Pulseras Personalizadas</Text>
         <Text style={styles.textDesciption}>Para tu mejor estilo, en Yaiki Accesorios pulseras personalizadas encontrarás</Text>
         <TouchableOpacity onPress={() => handlePlayPause('video2')}>
-          <Video
-            source={require('../resources/assets/video/Video_2.mp4')}
+          <ImageBackground
+            source={require('../resources/assets/photos/Anillos_0.jpg')} // Placeholder image
             style={styles.video}
-            resizeMode='cover'
-            paused={!videoStates.video2}
-          /> 
+            resizeMode='cover'>
+            <Video
+              source={require('../resources/assets/video/Video_2.mp4')}
+              style={styles.video}
+              resizeMode='cover'
+              paused={!videoStates.video2}
+            />
+          </ImageBackground>
         </TouchableOpacity>
       </View>
-      <View style={styles.videoContainer}> 
+      <View style={styles.videoContainer}>
         <Text style={styles.videoTitle}>Elegancia en Detalle: Anillos y Belleza</Text>
         <Text style={styles.textDesciption}> Anillos que Encantan, Belleza que Deslumbra. </Text>
         <TouchableOpacity onPress={() => handlePlayPause('video3')}>
-          <Video
-            source={require('../resources/assets/video/Video_3.mp4')} 
-            style={styles.video2}  
-            resizeMode='cover'
-            paused={!videoStates.video3}
-          />
-        </TouchableOpacity>    
+          <ImageBackground
+            source={require('../resources/assets/photos/Anillos_0.jpg')} // Placeholder image
+            style={styles.video}
+            resizeMode='cover'>
+            <Video
+              source={require('../resources/assets/video/Video_3.mp4')}
+              style={styles.video2}
+              resizeMode='cover'
+              paused={!videoStates.video3}
+            />
+          </ImageBackground>
+        </TouchableOpacity>
       </View>
-      <View style={styles.videoContainer}> 
+      <View style={styles.videoContainer}>
         <Text style={styles.videoTitle}> Pulseras para la playa </Text>
         <Text style={styles.textDesciption}>Con las olas y energias del mar en tu muñeca, en Yaiki Accesorios encontrarás pulseras que bailan con la brisa playera.</Text>
         <TouchableOpacity onPress={() => handlePlayPause('video4')}>
-          <Video
-            source={require('../resources/assets/video/Video_4.mp4')}
-            style={styles.video2}
-            resizeMode='cover'
-           paused={!videoStates.video4}
-          />
-        </TouchableOpacity> 
+          <ImageBackground
+            source={require('../resources/assets/photos/Anillos_0.jpg')} // Placeholder image
+            style={styles.video}
+            resizeMode='cover'>
+            <Video
+              source={require('../resources/assets/video/Video_4.mp4')}
+              style={styles.video2}
+              resizeMode='cover'
+              paused={!videoStates.video4}
+            />
+          </ImageBackground>
+        </TouchableOpacity>
       </View>
       <View style={styles.redesContainer}>
         <Text style={styles.textRedesSociales}>
@@ -202,18 +222,18 @@ const Home = () => {
         </Text>
       </View>
       <View style={styles.Icon}>
-      <TouchableOpacity onPress={handleFacebookPress}>
-        <MaterialIcon name="facebook" size={30} color="#3b5998" />
-      </TouchableOpacity>
+        <TouchableOpacity onPress={handleFacebookPress}>
+          <MaterialIcon name="facebook" size={30} color="#3b5998" />
+        </TouchableOpacity>
 
-      <TouchableOpacity onPress={handleInstagramPress}>
-        <Entypo name="instagram" size={30} color="#c13584" />
-      </TouchableOpacity>
+        <TouchableOpacity onPress={handleInstagramPress}>
+          <Entypo name="instagram" size={30} color="#c13584" />
+        </TouchableOpacity>
 
-      <TouchableOpacity onPress={handleWhatsAppPress}>
-        <FontAwesomeIcon name="whatsapp" size={30} color="#25D366" />
-      </TouchableOpacity>
-    </View>
+        <TouchableOpacity onPress={handleWhatsAppPress}>
+          <FontAwesomeIcon name="whatsapp" size={30} color="#25D366" />
+        </TouchableOpacity>
+      </View>
     </ScrollView>
   );
 };
@@ -238,7 +258,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 24,
     color: 'black',
-    
+
     fontFamily: 'Caveat-Bold',
   },
   sectionContainer: {
@@ -261,7 +281,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     paddingTop: 30, // Espacio entre la imagen de fondo y la sección de productos
     paddingHorizontal: 30,
-    
+
   },
   productImage: {
     width: 100,
@@ -275,7 +295,7 @@ const styles = StyleSheet.create({
     fontSize: 18,
     marginBottom: 10,
     fontFamily: 'Caveat-Regular',
-    
+
   },
   bottomBar: {
     flexDirection: 'row',
@@ -315,12 +335,12 @@ const styles = StyleSheet.create({
     color: 'pink',
     fontFamily: 'IndieFlower-Regular',
   },
-  redesContainer:{
+  redesContainer: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
   },
-  textRedesSociales:{
+  textRedesSociales: {
     fontSize: 20,
     marginBottom: 20,
     color: 'pink',
@@ -328,9 +348,9 @@ const styles = StyleSheet.create({
     fontFamily: 'Exo2-Regular',
   },
   Icon: {
-    flexDirection: 'row', 
-    justifyContent: 'space-around', 
-    marginVertical: 20, 
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    marginVertical: 20,
   },
 });
 
