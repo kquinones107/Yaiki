@@ -1,18 +1,18 @@
 import React from 'react';
-import {NavigationContainer, RouteConfig} from '@react-navigation/native';
-import {createStackNavigator} from '@react-navigation/stack';
-import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import { NavigationContainer, RouteConfig } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import LoginScreen from './src/screens/LoginScreen';
 import Welcome from './src/screens/Welcome';
 import Home from './src/screens/Home';
 import FontAwesomeIcon from 'react-native-vector-icons/FontAwesome';
 import Entypo from 'react-native-vector-icons/Entypo';
 import MenuScreen from './src/screens/MenuScreen';
-import {Text, View} from 'react-native';
+import { Text, View } from 'react-native';
 import CanastaScreen from './src/screens/CanastaScreen';
-import {CartProvider} from './CartContext';
+import { CartProvider } from './CartContext';
 import Toast from 'react-native-toast-message';
-import WhatsappScreen from './src/screens/WhatsappScreen';
+import { ThemeProvider } from './src/resources/assets/colors/ThemeContext';
 
 
 const Stack = createStackNavigator();
@@ -30,10 +30,10 @@ const HomeStack: React.FC = () => {
         options={{
           tabBarShowLabel: false,
           headerShown: false,
-          tabBarIcon: ({color, size}) => (
+          tabBarIcon: ({ color, size }) => (
             <FontAwesomeIcon name="home" size={30} color={color} />
           ),
-          
+
         }}
       />
       <Tab.Screen
@@ -42,8 +42,8 @@ const HomeStack: React.FC = () => {
         options={{
           tabBarShowLabel: false,
           headerShown: false,
-          tabBarIcon: ({color, size}) => (
-            <Entypo  name="menu" size={30} color={color} /> 
+          tabBarIcon: ({ color, size }) => (
+            <Entypo name="menu" size={30} color={color} />
           ),
         }}
       />
@@ -53,7 +53,7 @@ const HomeStack: React.FC = () => {
         options={{
           tabBarShowLabel: false,
           headerShown: false,
-          tabBarIcon: ({color, size}) => (
+          tabBarIcon: ({ color, size }) => (
             <Entypo name="shopping-cart" size={30} color={color} />
           ),
         }}
@@ -63,41 +63,36 @@ const HomeStack: React.FC = () => {
 };
 const App: React.FC = () => {
   return (
-    <CartProvider>
-      <NavigationContainer>
-        <Stack.Navigator>
-          <Stack.Screen
-            options={{
-              headerShown: false,
-            }}
-            name="Login"
-            component={LoginScreen}
-          />
-          <Stack.Screen
-            options={{
-              headerShown: false,
-            }}
-            name="Welcome"
-            component={Welcome}
-          />
-          <Stack.Screen
-            options={{
-              headerShown: false,
-            }}
-            name="Home"
-            component={HomeStack}
-          />
-          <Stack.Screen
-            options={{
-              headerShown: false,
-            }}
-            name="Whatsapp"
-            component={WhatsappScreen}
-          />
-        </Stack.Navigator>
-        <Toast />
-      </NavigationContainer>
-    </CartProvider>
+    <ThemeProvider>
+      <CartProvider>
+        <NavigationContainer>
+          <Stack.Navigator>
+            <Stack.Screen
+              options={{
+                headerShown: false,
+              }}
+              name="Login"
+              component={LoginScreen}
+            />
+            <Stack.Screen
+              options={{
+                headerShown: false,
+              }}
+              name="Welcome"
+              component={Welcome}
+            />
+            <Stack.Screen
+              options={{
+                headerShown: false,
+              }}
+              name="Home"
+              component={HomeStack}
+            />
+          </Stack.Navigator>
+          <Toast />
+        </NavigationContainer>
+      </CartProvider>
+    </ThemeProvider>
   );
 };
 

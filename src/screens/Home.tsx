@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import {
   View,
   Text,
@@ -16,8 +16,10 @@ import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
 import Entypo from 'react-native-vector-icons/Entypo';
 import * as GoogleFonts from 'react-native-google-fonts';
 import { useNavigation } from '@react-navigation/native';
+import { useTheme } from '../resources/assets/colors/ThemeContext';
 
 const ProductSection = ({ title, products }) => {
+  const styles= getStyles();
   return (
     <View style={styles.sectionContainer}>
       <Text style={styles.sectionTitle}>{title}</Text>
@@ -36,6 +38,7 @@ const ProductSection = ({ title, products }) => {
 
 const Home = () => {
   const navigation = useNavigation();
+  const styles= getStyles();
 
   const handleFacebookPress = () => {
     Linking.openURL('https://www.facebook.com/profile.php?id=100091678115327');
@@ -96,18 +99,26 @@ const Home = () => {
     },
   ];
 
+  const flatListRef = useRef(null);
   useEffect(() => {
-    const timer = setInterval(() => {
-      setBackgroundIndex(prevIndex => (prevIndex + 1) % backgrounds.length);
-    }, 2000); // Cambia la imagen cada 5 segundos (5000 ms)
-
-    return () => clearInterval(timer); // Limpia el temporizador al desmontar el componente
-  }, []);
-
+    const interval = setInterval(() => {
+      if (flatListRef.current) {
+        flatListRef.current.scrollToIndex({
+          index: (backgroundIndex + 1) % backgrounds.length,
+          animated: true,
+        });
+        setBackgroundIndex((backgroundIndex + 1) % backgrounds.length); // Update the background index state
+      }
+    }, 1500);
+  
+    return () => clearInterval(interval); // Clear interval on component unmount
+  }, [backgroundIndex, backgrounds.length]);
+  
   return (
     <ScrollView style={styles.container}>
       {/* FlatList para mostrar múltiples imágenes de fondo */}
       <FlatList
+        ref={flatListRef}
         data={backgrounds}
         keyExtractor={(item, index) => index.toString()}
         horizontal
@@ -179,7 +190,7 @@ const Home = () => {
             resizeMode='cover'>
             <Video
               source={require('../resources/assets/video/Video_2.mp4')}
-              style={styles.video}
+              style={StyleSheet.absoluteFill}
               resizeMode='cover'
               paused={!videoStates.video2}
             />
@@ -196,7 +207,7 @@ const Home = () => {
             resizeMode='cover'>
             <Video
               source={require('../resources/assets/video/Video_3.mp4')}
-              style={styles.video2}
+              style={StyleSheet.absoluteFill}
               resizeMode='cover'
               paused={!videoStates.video3}
             />
@@ -213,7 +224,7 @@ const Home = () => {
             resizeMode='cover'>
             <Video
               source={require('../resources/assets/video/Video_4.mp4')}
-              style={styles.video2}
+              style={StyleSheet.absoluteFill}
               resizeMode='cover'
               paused={!videoStates.video4}
             />
@@ -242,121 +253,127 @@ const Home = () => {
   );
 };
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: 'gray',
-  },
-  background: {
-    width: 400,
-    height: 300,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  titleContainer: {
-    backgroundColor: 'rgba(0, 0, 0, 0.2)', // fondo semi-transparente
-    paddingHorizontal: 20,
-    paddingVertical: 10,
-    borderRadius: 5,
-  },
-  title: {
-    fontSize: 24,
-    color: 'black',
+const getStyles = () => {
+  const {theme} = useTheme();
+  return StyleSheet.create({
+    container: {
+      flex: 1,
+      backgroundColor: theme.background,
+    },
+    background: {
+      width: 400,
+      height: 300,
+      justifyContent: 'center',
+      alignItems: 'center',
+    },
+    titleContainer: {
+      backgroundColor: 'rgba(0, 0, 0, 0.8)', // fondo semi-transparente
+      paddingHorizontal: 20,
+      paddingVertical: 10,
+      borderRadius: 24,
+    },
+    title: {
+      fontSize: 40,
+      color: theme.white,
+      textAlign: 'center',
+      fontFamily: 'Caveat-Bold',
+    },
+    sectionContainer: {
+      alignContent: 'center',
+      justifyContent: 'center',
+      marginBottom: 20,
+      marginLeft: 20,
+    },
+    sectionTitle: {
+      fontSize: 24,
+      fontFamily: 'Caveat-Bold',
+      paddingTop: 30,
+      color: theme.text,
+      alignSelf: 'center',
+      backgroundColor: theme.background,
+    },
+    productItem: {
+      fontSize: 16,
+      marginBottom: 5,
+    },
+    productSectionContainer: {
+      flex: 1,
+      flexDirection: 'row',
+      paddingTop: 30, // Espacio entre la imagen de fondo y la sección de productos
+      paddingHorizontal: 30,
 
-    fontFamily: 'Caveat-Bold',
-  },
-  sectionContainer: {
-    marginBottom: 20,
-    marginRight: 20,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontFamily: 'Caveat-Bold',
-    marginBottom: 10,
-    paddingTop: 30,
-    color: 'pink',
-  },
-  productItem: {
-    fontSize: 16,
-    marginBottom: 5,
-  },
-  productSectionContainer: {
-    flex: 1,
-    flexDirection: 'row',
-    paddingTop: 30, // Espacio entre la imagen de fondo y la sección de productos
-    paddingHorizontal: 30,
+    },
+    productImage: {
+      width: 100,
+      height: 100,
+      marginRight: 10,
+      borderRadius: 10,
+    },
+    categoryItem: {
+      marginBottom: 20, // Espacio entre categorías
+    },
+    categoryTitle: {
+      fontSize: 18,
+      marginBottom: 10,
+      fontFamily: 'Caveat-Regular',
 
-  },
-  productImage: {
-    width: 100,
-    height: 100,
-    marginRight: 10,
-  },
-  categoryItem: {
-    marginBottom: 20, // Espacio entre categorías
-  },
-  categoryTitle: {
-    fontSize: 18,
-    marginBottom: 10,
-    fontFamily: 'Caveat-Regular',
-
-  },
-  bottomBar: {
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-    alignItems: 'center',
-    paddingVertical: 10,
-    backgroundColor: 'lightgray', // Color de fondo de la barra inferior
-  },
-  productScrollView: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    paddingVertical: 10,
-  },
-  videoContainer: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  videoTitle: {
-    fontSize: 24,
-    marginBottom: 20,
-    paddingTop: 20,
-    color: 'pink',
-    fontFamily: 'Caveat-Bold'
-  },
-  video: {
-    width: '100%',
-    aspectRatio: 16 / 12, // Proporción de aspecto común para videos
-  },
-  video2: {
-    width: '100%',
-    aspectRatio: 16 / 18, // Proporción de aspecto común para videos
-  },
-  textDesciption: {
-    fontSize: 20,
-    marginBottom: 20,
-    color: 'pink',
-    fontFamily: 'IndieFlower-Regular',
-  },
-  redesContainer: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  textRedesSociales: {
-    fontSize: 20,
-    marginBottom: 20,
-    color: 'pink',
-    paddingTop: 20,
-    fontFamily: 'Exo2-Regular',
-  },
-  Icon: {
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-    marginVertical: 20,
-  },
-});
+    },
+    bottomBar: {
+      flexDirection: 'row',
+      justifyContent: 'space-around',
+      alignItems: 'center',
+      paddingVertical: 10,
+      backgroundColor: theme.background, // Color de fondo de la barra inferior
+    },
+    productScrollView: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      paddingVertical: 10,
+    },
+    videoContainer: {
+      flex: 1,
+      justifyContent: 'center',
+      alignItems: 'center',
+    },
+    videoTitle: {
+      fontSize: 24,
+      marginBottom: 20,
+      paddingTop: 20,
+      color: theme.text,
+      fontFamily: 'Caveat-Bold'
+    },
+    video: {
+      width: '100%',
+      aspectRatio: 16 / 12, // Proporción de aspecto común para videos
+    },
+    video2: {
+      width: '100%',
+      aspectRatio: 16 / 18, // Proporción de aspecto común para videos
+    },
+    textDesciption: {
+      fontSize: 20,
+      marginBottom: 20,
+      color: theme.text,
+      fontFamily: 'IndieFlower-Regular',
+    },
+    redesContainer: {
+      flex: 1,
+      justifyContent: 'center',
+      alignItems: 'center',
+    },
+    textRedesSociales: {
+      fontSize: 20,
+      marginBottom: 20,
+      color: theme.text,
+      paddingTop: 20,
+      fontFamily: 'Exo2-Regular',
+    },
+    Icon: {
+      flexDirection: 'row',
+      justifyContent: 'space-around',
+      marginVertical: 20,
+    },
+  });
+}
 
 export default Home;
-

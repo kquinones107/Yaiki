@@ -6,8 +6,11 @@ import {
   Image,
   TouchableOpacity,
   SafeAreaView,
+  Alert,
+  Linking,
 } from 'react-native';
 import { CartContext } from '../../CartContext';
+import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { ScrollView } from 'react-native-gesture-handler';
 import { useNavigation } from '@react-navigation/native';
@@ -42,7 +45,7 @@ const Product = ({ product }) => {
       <View>
         <TouchableOpacity
           onPress={deletePress}>
-          <Text style={styles.addText}>Borrar</Text>
+          <MaterialIcon name="delete" size={23} color="#3b5998" />
         </TouchableOpacity>
       </View>
     </View>
@@ -57,7 +60,36 @@ const CanastaScreen = () => {
 
   const onDiscoverPress = () => {
     navigation.navigate('Inicio');
+  };
+  const phoneNumber = '+573187887223';
+  const message = '¡Hola! Me gustaría comprar los siguientes productos:';
 
+  const sendMessage = async () => {
+    try {
+      // Verificar si products está definido
+      if (cart) {
+        // Encode the message to ensure that spaces and special characters are handled correctly
+        const encodedMessage = encodeURIComponent(
+          `${message}\n\nProductos:\n${cart
+            .map(
+              (product: {name: any; price: any}) =>
+                `${product.name} - ${product.price}`,
+            )
+            .join('\n')}`,
+        );
+
+        // Create the WhatsApp link
+        const url = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+
+        Linking.openURL(url);
+      } else {
+        console.error('Error: Products is undefined');
+        Alert.alert('Error', 'No products available for sending message.');
+      }
+    } catch (error) {
+      console.error('Error sending message:', error);
+      Alert.alert('Error', 'An error occurred while sending the message.');
+    }
   };
 
   const onCheckoutPress = () => {
@@ -124,7 +156,7 @@ const CanastaScreen = () => {
       </Text>
       <TouchableOpacity
         style={styles.checkoutButton}
-        onPress={onCheckoutPress}>
+        onPress={sendMessage}>
         <Text style={styles.checkoutButtonText}>TRAMITAR PEDIDO</Text>
       </TouchableOpacity>
     </ScrollView>
