@@ -1,10 +1,14 @@
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
-import * as GoogleFonts from 'react-native-google-fonts';
+import { useTheme } from '../resources/assets/colors/ThemeContext';
+import { useNavigation } from '@react-navigation/native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 
 
-const Welcome = ({ navigation }) => {
+const Welcome = () => {
+  const styles = getStyles();
+  const navigation = useNavigation();
   const handleComencemosPress = () => {
     console.log('Navegando a Home...');
     navigation.navigate('Home');
@@ -14,51 +18,77 @@ const Welcome = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <Text style={styles.text}>Bienvenido a</Text>
-      <Image source={require('../resources/assets/images/Logo_1.png')} style={styles.logo} />
+      <View style={styles.logoContainer}>
+        <Text style={styles.logo}>YAIKI</Text>
+        <Text style={styles.logo2}>accesorios</Text>
+      </View>
       <Text style={styles.subtittle}> Dale un toque extra a tu oufit con estos espectaculares accesorios</Text>
       <TouchableOpacity style={styles.button} onPress={handleComencemosPress}>
-        <Text style={styles.buttonText}>Comencemos</Text>
+        <Text style={styles.buttonText}>COMENCEMOS</Text>
       </TouchableOpacity>
     </View>
   );
 };
 
-const styles = StyleSheet.create({
-  container: {
-    backgroundColor: 'white',
-    flex: 1,
-    justifyContent: 'flex-start',
-    alignItems: 'center',
-    paddingTop:50,
-  },
-  text: {
-    marginTop: 20,
-    fontFamily: 'Caveat-Regular',
-    color: 'pink',
-    fontSize: 30,
-  },
-  logo: {
-    width: 200,
-    height: 200,
-    marginBottom: 20,
-  },
-  subtittle: {
-    fontSize: 22,
-    textAlign: 'center',
-    marginBottom: 20,
-    fontFamily: 'IndieFlower-Regular'
-  },
-  button: {
-    backgroundColor: 'pink',
-    paddingVertical: 10,
-    paddingHorizontal: 20,
-    borderRadius: 5,
-  },
-  buttonText: {
-    fontSize: 24,
-    color: 'gray',
-    fontFamily: 'Caveat-Bold',
-  },
-});
+const getStyles = () => {
+  const { theme } = useTheme();
+  const insets = useSafeAreaInsets();
+  return StyleSheet.create({
+    container: {
+      backgroundColor: theme.background,
+      flex: 1,
+      justifyContent: 'flex-start',
+      alignItems: 'center',
+      paddingTop: insets.top,
+    },
+    text: {
+      flex: 1,
+      marginTop: 20,
+      fontFamily: 'Caveat-Regular',
+      color: theme.text,
+      fontSize: 60,
+    },
+    logoContainer:
+    {
+      flex: 1,
+      flexDirection: 'column',
+      justifyContent: 'center',
+      alignItems: 'center',
+    },
+    logo: {
+      fontFamily: 'Honk-Regular',
+      color: theme.text,
+      fontSize: 120,
+      marginBottom: -60,
+    },
+    logo2: {
+      fontFamily: 'Honk-Regular',
+      color: theme.text,
+      fontSize: 45,
+    },
+    subtittle: {
+      flex: 1,
+      fontSize: 32,
+      textAlign: 'center',
+      fontFamily: 'Caveat-Regular',
+    },
+    button: {
+      flex: 1,
+      backgroundColor: theme.primary,
+      paddingVertical: 10,
+      paddingHorizontal: 20,
+      borderRadius: 5,
+      width: '80%',
+      maxHeight: 50,
+      marginBottom: insets.bottom,
+    },
+    buttonText: {
+      color: theme.secondary,
+      fontSize: 24,
+      fontFamily: 'Caveat-Bold',
+      textAlign: 'center',
+    },
+  });
+}
 
 export default Welcome;

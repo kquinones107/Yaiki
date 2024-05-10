@@ -44,6 +44,7 @@
 		EF4AFF682BEEC6410045A488 /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EF4AFF542BEEC6410045A488 /* SimpleLineIcons.ttf */; };
 		EF4AFF692BEEC6410045A488 /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EF4AFF552BEEC6410045A488 /* Zocial.ttf */; };
 		F5EE7216491747408CADB67B /* Exo2-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D8BD3984D4094DFD8EAD4359 /* Exo2-Bold.ttf */; };
+		AC39780255AD4FE8AD968E25 /* Honk-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 71631488FCDF46848333E98C /* Honk-Regular.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -104,6 +105,7 @@
 		EF4AFF552BEEC6410045A488 /* Zocial.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Zocial.ttf; sourceTree = "<group>"; };
 		F2B98106A1F247C2B9E6EB51 /* Pacifico-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Pacifico-Regular.ttf"; path = "../src/resources/assets/fonts/Pacifico-Regular.ttf"; sourceTree = "<group>"; };
 		F3AE229F205F46CE86ADF859 /* Exo2-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Exo2-Regular.ttf"; path = "../src/resources/assets/fonts/Exo2-Regular.ttf"; sourceTree = "<group>"; };
+		71631488FCDF46848333E98C /* Honk-Regular.ttf */ = {isa = PBXFileReference; name = "Honk-Regular.ttf"; path = "../src/resources/assets/fonts/Honk-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,6 +183,7 @@
 				63000C480EB749DE806A404E /* Exo2-VariableFont_wght.ttf */,
 				DECBFD8FD1C94809A72CA72D /* IndieFlower-Regular.ttf */,
 				F2B98106A1F247C2B9E6EB51 /* Pacifico-Regular.ttf */,
+				71631488FCDF46848333E98C /* Honk-Regular.ttf */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -380,6 +383,7 @@
 				EF4AFF582BEEC6410045A488 /* Entypo.ttf in Resources */,
 				EF4AFF5F2BEEC6410045A488 /* FontAwesome6_Brands.ttf in Resources */,
 				CF49F711BEFF48DE92BB06AA /* Pacifico-Regular.ttf in Resources */,
+				AC39780255AD4FE8AD968E25 /* Honk-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
