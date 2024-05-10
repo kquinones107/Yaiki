@@ -23,6 +23,14 @@ const HomeStack: React.FC = () => {
     <Tab.Navigator initialRouteName="" screenOptions={({ route }) => ({
       tabBarActiveTintColor: 'pink',
       tabBarInactiveTintColor: 'gray',
+      tabBarStyle: {
+        height: 90,
+        paddingHorizontal: 5,
+        paddingTop: 0,
+        backgroundColor: 'rgba(34,36,40,1)',
+        position: 'absolute',
+        borderTopWidth: 0,
+      },
     })}>
       <Tab.Screen
         name="Inicio"
