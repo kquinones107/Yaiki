@@ -15,6 +15,7 @@ import FontAwesomeIcon from 'react-native-vector-icons/FontAwesome';
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
 import Entypo from 'react-native-vector-icons/Entypo';
 import * as GoogleFonts from 'react-native-google-fonts';
+import { useNavigation } from '@react-navigation/native';
 
 const ProductSection = ({ title, products }) => {
   return (
@@ -34,6 +35,7 @@ const ProductSection = ({ title, products }) => {
 };
 
 const Home = () => {
+  const navigation = useNavigation();
 
   const handleFacebookPress = () => {
     Linking.openURL('https://www.facebook.com/profile.php?id=100091678115327');
@@ -89,7 +91,7 @@ const Home = () => {
       products: [require('../resources/assets/photos/Collar_1.jpeg')],
     },
     {
-      title: 'Pulseras para la playa',
+      title: 'Playa',
       products: [require('../resources/assets/photos/Playa_1.jpg')],
     },
   ];
@@ -134,11 +136,13 @@ const Home = () => {
         pagingEnabled
         showsHorizontalScrollIndicator={false}
         renderItem={({ item, index }) => (
-          <ProductSection
-            key={index}
-            title={item.title}
-            products={item.products}
-          />
+          <TouchableOpacity onPress={() => navigation.navigate(item.title)}>
+            <ProductSection
+              key={index}
+              title={item.title}
+              products={item.products}
+            />
+          </TouchableOpacity>
         )}
         onMomentumScrollEnd={event => {
           const index = Math.floor(
