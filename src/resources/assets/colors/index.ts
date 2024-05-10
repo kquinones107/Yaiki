@@ -5,7 +5,8 @@ export const themes = {
         text: '#A96DA3',
         primary: '#4F6D7A',
         secondary: '#E8FCC2',
-        accent: '#7A5980'
+        accent: '#7A5980',
+        logo: '#d78cab'
     },
     dark: {
         white: '#fff',
@@ -13,6 +14,7 @@ export const themes = {
         text: '#A96DA3',
         primary: '#4F6D7A',
         secondary: '#E8FCC2',
-        accent: '#7A5980'
+        accent: '#7A5980',
+        logo: '#d78cab'
     }
 };

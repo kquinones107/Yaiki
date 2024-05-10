@@ -137,7 +137,6 @@ const Home = () => {
             event.nativeEvent.layoutMeasurement.width,
           );
           setBackgroundIndex(index);
-          console.log('Índice actual:', index);
         }}
       />
       <FlatList
