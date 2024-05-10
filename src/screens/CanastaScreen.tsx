@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import React, { useContext } from 'react';
 import {
   View,
   Text,
@@ -7,19 +7,24 @@ import {
   TouchableOpacity,
   SafeAreaView,
 } from 'react-native';
-import {CartContext} from '../../CartContext';
-import {useSafeAreaInsets} from 'react-native-safe-area-context';
-import {ScrollView} from 'react-native-gesture-handler';
-import {useNavigation} from '@react-navigation/native';
+import { CartContext } from '../../CartContext';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { ScrollView } from 'react-native-gesture-handler';
+import { useNavigation } from '@react-navigation/native';
 
-const Product = ({product}) => {
+const Product = ({ product }) => {
+  const { removeFromCart } = useContext(CartContext);
 
   const Añadirmaspress = useNavigation();
 
   const onAñadirMasPress = () => {
-    
+
     Añadirmaspress.navigate('Menu');
   };
+
+  const deletePress = () => {
+    removeFromCart(product.id);
+  }
 
   return (
     <View style={styles.product}>
@@ -34,25 +39,31 @@ const Product = ({product}) => {
           <Text style={styles.addText}>Añadir Mas</Text>
         </TouchableOpacity>
       </View>
+      <View>
+        <TouchableOpacity
+          onPress={deletePress}>
+          <Text style={styles.addText}>Borrar</Text>
+        </TouchableOpacity>
+      </View>
     </View>
   );
 };
 
 const CanastaScreen = () => {
-  const {cart} = useContext(CartContext);
+  const { cart } = useContext(CartContext);
   const insets = useSafeAreaInsets();
   const navigation = useNavigation();
   const CheckoutPress = useNavigation();
 
   const onDiscoverPress = () => {
     navigation.navigate('Inicio');
-    
+
   };
 
   const onCheckoutPress = () => {
-    CheckoutPress.navigate('Whatsapp', {products: cart});
+    CheckoutPress.navigate('Whatsapp', { products: cart });
   };
-  
+
   if (!cart || cart.length === 0) {
     return (
       <SafeAreaView style={styles.container}>
@@ -93,7 +104,7 @@ const CanastaScreen = () => {
 
   return (
     <ScrollView
-      style={{marginTop: insets.top}}
+      style={{ marginTop: insets.top }}
       showsVerticalScrollIndicator={false}>
       <Text style={styles.header}>{`Cesta(${cart.length})`}</Text>
 
@@ -111,7 +122,7 @@ const CanastaScreen = () => {
         Recuerde que los costes de importación corresponden a los derechos,
         aranceles e impuestos establecidos por cada gobierno local. Más Info.
       </Text>
-      <TouchableOpacity 
+      <TouchableOpacity
         style={styles.checkoutButton}
         onPress={onCheckoutPress}>
         <Text style={styles.checkoutButtonText}>TRAMITAR PEDIDO</Text>
@@ -134,7 +145,7 @@ const styles = StyleSheet.create({
     maxHeight: 150,
     maxWidth: 150,
   },
-  body: {flexDirection: 'column', flex: 1, marginLeft: 20},
+  body: { flexDirection: 'column', flex: 1, marginLeft: 20 },
   product: {
     marginLeft: 20,
     marginRight: 20,
