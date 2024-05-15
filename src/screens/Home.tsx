@@ -167,7 +167,7 @@ const Home = () => {
         <Text style={styles.textDesciption}>La unión perfecta entre la delicadeza de la pulsera y el brillo de los anillos.</Text>
         <TouchableOpacity onPress={() => handlePlayPause('video1')}>
           <ImageBackground
-            source={require('../resources/assets/photos/Anillos_0.jpg')} // Placeholder image
+            source={require('../resources/assets/photos/Pulsera_12.jpg')} // Placeholder image
             style={styles.video}
             resizeMode='cover'>
             <Video
@@ -184,7 +184,7 @@ const Home = () => {
         <Text style={styles.textDesciption}>Para tu mejor estilo, en Yaiki Accesorios pulseras personalizadas encontrarás</Text>
         <TouchableOpacity onPress={() => handlePlayPause('video2')}>
           <ImageBackground
-            source={require('../resources/assets/photos/Anillos_0.jpg')} // Placeholder image
+            source={require('../resources/assets/photos/Pulsera_13.jpg')} // Placeholder image
             style={styles.video}
             resizeMode='cover'>
             <Video
@@ -218,7 +218,7 @@ const Home = () => {
         <Text style={styles.textDesciption}>Con las olas y energias del mar en tu muñeca, en Yaiki Accesorios encontrarás pulseras que bailan con la brisa playera.</Text>
         <TouchableOpacity onPress={() => handlePlayPause('video4')}>
           <ImageBackground
-            source={require('../resources/assets/photos/Anillos_0.jpg')} // Placeholder image
+            source={require('../resources/assets/photos/Playa_2.jpg')} // Placeholder image
             style={styles.video}
             resizeMode='cover'>
             <Video
