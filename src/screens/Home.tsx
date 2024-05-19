@@ -176,6 +176,12 @@ const Home = () => {
               resizeMode='cover'
               paused={!videoStates.video1}
             />
+            <TouchableOpacity
+              style={styles.playButton}
+              onPress={() => handlePlayPause('video1')}
+            >
+              <FontAwesomeIcon name={videoStates.video1 ? 'pause' : 'play'} size={50} color="#FFFFFF" />
+            </TouchableOpacity>
           </ImageBackground>
         </TouchableOpacity>
       </View>
@@ -193,6 +199,12 @@ const Home = () => {
               resizeMode='cover'
               paused={!videoStates.video2}
             />
+            <TouchableOpacity
+              style={styles.playButton}
+              onPress={() => handlePlayPause('video2')}
+            >
+              <FontAwesomeIcon name={videoStates.video2 ? 'pause' : 'play'} size={50} color="#FFFFFF" />
+            </TouchableOpacity>
           </ImageBackground>
         </TouchableOpacity>
       </View>
@@ -210,6 +222,12 @@ const Home = () => {
               resizeMode='cover'
               paused={!videoStates.video3}
             />
+            <TouchableOpacity
+              style={styles.playButton}
+              onPress={() => handlePlayPause('video3')}
+            >
+              <FontAwesomeIcon name={videoStates.video3 ? 'pause' : 'play'} size={50} color="#FFFFFF" />
+            </TouchableOpacity>
           </ImageBackground>
         </TouchableOpacity>
       </View>
@@ -227,6 +245,12 @@ const Home = () => {
               resizeMode='cover'
               paused={!videoStates.video4}
             />
+            <TouchableOpacity
+              style={styles.playButton}
+              onPress={() => handlePlayPause('video4')}
+            >
+              <FontAwesomeIcon name={videoStates.video4 ? 'pause' : 'play'} size={50} color="#FFFFFF" />
+            </TouchableOpacity>
           </ImageBackground>
         </TouchableOpacity>
       </View>
@@ -372,6 +396,13 @@ const getStyles = () => {
       justifyContent: 'space-around',
       marginVertical: 20,
       marginBottom: 200,
+    },
+    playButton: {
+      position: 'absolute',
+      top: '50%',
+      left: '50%',
+      transform: [{ translateX: -25 }, { translateY: -25 }],
+      zIndex: 1,
     },
   });
 }

@@ -13,6 +13,7 @@ const Welcome = () => {
     console.log('Navegando a Home...');
     navigation.navigate('Home');
   };
+  const { theme } = useTheme();
 
 
   return (
@@ -23,6 +24,9 @@ const Welcome = () => {
         <Text style={styles.logo2}>accesorios</Text>
       </View>
       <Text style={styles.subtittle}> Dale un toque extra a tu oufit con estos espectaculares accesorios</Text>
+      {/* <TouchableOpacity style={styles.buttonTheme} onPress={toggleTheme}>
+        <Text style={styles.buttonText}>Cambiar Tema</Text>
+      </TouchableOpacity> */}
       <TouchableOpacity style={styles.button} onPress={handleComencemosPress}>
         <Text style={styles.buttonText}>COMENCEMOS</Text>
       </TouchableOpacity>
@@ -88,6 +92,16 @@ const getStyles = () => {
       fontFamily: 'Caveat-Bold',
       textAlign: 'center',
     },
+    // buttonTheme: {
+    //   flex: 1,
+    //   backgroundColor: theme.primary,
+    //   paddingVertical: 10,
+    //   paddingHorizontal: 20,
+    //   borderRadius: 5,
+    //   width: '40%',
+    //   maxHeight: 50,
+    //   marginBottom: 10,
+    // },
   });
 }
 

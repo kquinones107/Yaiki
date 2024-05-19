@@ -57,7 +57,6 @@ const Product = ({ product }) => {
 
 const CanastaScreen = () => {
   const { cart } = useContext(CartContext);
-  const {toggleTheme} = useTheme();
   const styles = getStyles();
   const insets = useSafeAreaInsets();
   const navigation = useNavigation();
@@ -119,7 +118,6 @@ const CanastaScreen = () => {
             onPress={onDiscoverPress}>
             <Text style={styles.discoverButtonText}>DESCUBRIR</Text>
           </TouchableOpacity>
-        <Button title="Toggle Theme" onPress={toggleTheme} />
         </View>
       </SafeAreaView>
     );
