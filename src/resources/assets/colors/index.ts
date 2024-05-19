@@ -16,7 +16,7 @@ export const themes = {
         primary: '#455A64', // Darker shade of the original primary
         secondary: '#78909C', // Muted secondary color
         accent: '#8D6E63', // A warm brown as the accent
-        logo: '#FFAB91', // A lighter pink to stand out on dark background
+        logo: '#d78cab', // A lighter pink to stand out on dark background
         link: '#80DEEA', // A lighter blue for links
     }
 };
