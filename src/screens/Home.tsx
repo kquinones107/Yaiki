@@ -290,7 +290,7 @@ const getStyles = () => {
       alignItems: 'center',
     },
     titleContainer: {
-      backgroundColor: 'rgba(0, 0, 0, 0.8)', // fondo semi-transparente
+      backgroundColor: 'rgba(0, 0, 0, 0.5)', // fondo semi-transparente
       paddingHorizontal: 20,
       paddingVertical: 10,
       borderRadius: 24,
