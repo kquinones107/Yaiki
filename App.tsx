@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { NavigationContainer, RouteConfig } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
@@ -13,6 +13,7 @@ import CanastaScreen from './src/screens/CanastaScreen';
 import { CartProvider } from './CartContext';
 import Toast from 'react-native-toast-message';
 import { ThemeProvider, useTheme } from './src/resources/assets/colors/ThemeContext';
+import analytics from '@react-native-firebase/analytics';
 
 
 const Stack = createStackNavigator();
@@ -71,6 +72,14 @@ const HomeStack: React.FC = () => {
   );
 };
 const App: React.FC = () => {
+
+  useEffect(() => {
+    const logAppOpen = async () => {
+      await analytics().logAppOpen();
+    };
+    logAppOpen();
+  }, []);
+
   return (
     <ThemeProvider>
       <CartProvider>

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "170363891491",
+    "project_id": "yaikiapp",
+    "storage_bucket": "yaikiapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:170363891491:android:659de9b421c88e6667a696",
+        "android_client_info": {
+          "package_name": "com.yaiki"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCeNa6FCCPGKDO5Zz4dSkGtQ08VU3ke-ns"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
