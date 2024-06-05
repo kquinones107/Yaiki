@@ -14,6 +14,12 @@ import { CartProvider } from './CartContext';
 import Toast from 'react-native-toast-message';
 import { ThemeProvider, useTheme } from './src/resources/assets/colors/ThemeContext';
 import analytics from '@react-native-firebase/analytics';
+import GamificationScreen from './src/screens/GamificationScreen';
+import QuizScreen from './src/screens/QuizScreen';
+import FindAccessoryScreen from './src/screens/FindAccessoryScreen';
+import CustomizationScreen from './src/screens/CustomizationScreen';
+import DailyChallengesScreen from './src/screens/DailyChallengesScreen';
+import SurveyScreen from './src/screens/SurveyScreen';
 
 
 const Stack = createStackNavigator();
@@ -42,6 +48,18 @@ const HomeStack: React.FC = () => {
           headerShown: false,
           tabBarIcon: ({ color, size }) => (
             <FontAwesomeIcon name="home" size={30} color={color} />
+          ),
+
+        }}
+      />
+      <Tab.Screen
+        name="Gamificacion"
+        component={GamificationScreen}
+        options={{
+          tabBarShowLabel: false,
+          headerShown: false,
+          tabBarIcon: ({ color, size }) => (
+            <FontAwesomeIcon name="gamepad" size={30} color={color} />
           ),
 
         }}
@@ -106,6 +124,40 @@ const App: React.FC = () => {
               name="Home"
               component={HomeStack}
             />
+            <Stack.Screen
+              options={{
+                headerShown: false,
+              }}
+              name="Quiz"
+              component={QuizScreen}
+            />
+            <Stack.Screen
+            options={{
+              headerShown: false,
+            }} 
+            name="FindAccessory" 
+            component={FindAccessoryScreen} 
+            />
+            <Stack.Screen
+            options={{
+              headerShown: false,
+            }}   
+            name="Customization" 
+            component={CustomizationScreen} 
+            />
+            <Stack.Screen 
+            options={{
+              headerShown: false,
+            }}
+            name="DailyChallenges" 
+            component={DailyChallengesScreen} 
+            />
+            <Stack.Screen
+            options={{
+              headerShown: false,
+            }} 
+            name="Survey" 
+            component={SurveyScreen} />
           </Stack.Navigator>
           <Toast />
         </NavigationContainer>
