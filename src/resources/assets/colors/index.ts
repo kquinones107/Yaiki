@@ -20,3 +20,24 @@ export const themes = {
         link: '#80DEEA', // A lighter blue for links
     }
 };
+
+// light: {
+//     white: '#FFFFFF',        // Blanco puro
+//     background: '#FFFFFF',   // Blanco puro
+//     text: '#000000',         // Negro puro
+//     primary: '#333333',      // Gris oscuro
+//     secondary: '#666666',    // Gris medio
+//     accent: '#000000',       // Negro puro
+//     logo: '#333333',         // Gris oscuro (logo contrastante)
+//     link: '#0000FF',         // Azul puro para los enlaces
+// },
+// dark: {
+//     white: '#FFFFFF',        // Blanco puro
+//     background: '#000000',   // Negro puro
+//     text: '#FFFFFF',         // Blanco puro
+//     primary: '#CCCCCC',      // Gris claro
+//     secondary: '#999999',    // Gris medio
+//     accent: '#FFFFFF',       // Blanco puro
+//     logo: '#CCCCCC',         // Gris claro (logo contrastante)
+//     link: '#00BFFF',         // Azul claro para los enlaces
+// }
