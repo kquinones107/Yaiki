@@ -9,7 +9,7 @@ const FindAccessoryScreen = () => {
   const accessories = [
     // Coordenadas x, y de los accesorios en la imagen
     { id: 1, x: 50, y: 100, found: false },
-    { id: 2, x: 150, y: 200, found: false },
+    { id: 2, x: 120, y: 120, found: false },
     // Añadir más accesorios aquí
   ];
 

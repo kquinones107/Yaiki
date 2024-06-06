@@ -1,0 +1,21 @@
+[
+  {
+    "question": "Pregunta 1: ¿Cuál es tu color favorito?",
+    "answers": [
+      { "text": "Rojo", "correct": false },
+      { "text": "Azul", "correct": true },
+      { "text": "Verde", "correct": false },
+      { "text": "Amarillo", "correct": false }
+    ]
+  },
+  {
+    "question": "Pregunta 2: ¿Cuál es tu animal favorito?",
+    "answers": [
+      { "text": "Perro", "correct": true },
+      { "text": "Gato", "correct": false },
+      { "text": "Pájaro", "correct": false },
+      { "text": "Pez", "correct": false }
+    ]
+  }
+
+]

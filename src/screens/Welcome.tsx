@@ -63,12 +63,13 @@ const getStyles = () => {
       fontFamily: 'Honk-Regular',
       color: theme.text,
       fontSize: 120,
-      marginBottom: -60,
+      marginBottom: -30,
     },
     logo2: {
       fontFamily: 'Honk-Regular',
       color: theme.text,
       fontSize: 45,
+      
     },
     subtittle: {
       flex: 1,
@@ -84,7 +85,7 @@ const getStyles = () => {
       borderRadius: 5,
       width: '80%',
       maxHeight: 50,
-      marginBottom: insets.bottom,
+      marginBottom: 20,
     },
     buttonText: {
       color: theme.secondary,

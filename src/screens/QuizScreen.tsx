@@ -1,71 +1,118 @@
 import React, { useState } from 'react';
-import { View, Text, Button, StyleSheet } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet, ActivityIndicator } from 'react-native';
 import { useTheme } from '../resources/assets/colors/ThemeContext';
-
-const questions = [
-  {
-    question: "¿Cuál es el material más utilizado en nuestras pulseras?",
-    options: ["Oro", "Plata", "Cuero"],
-    correctOption: "Cuero",
-  },
-  // Añade más preguntas aquí
-];
+import questions from '../resources/assets/basesdatos/questions.json';
 
 const QuizScreen = () => {
-  const { theme } = useTheme();
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
-  const [points, setPoints] = useState(0);
-  const [showResult, setShowResult] = useState(false);
+  const [showResults, setShowResults] = useState(false);
+  const [score, setScore] = useState(0);
+  const [isLoading, setIsLoading] = useState(false); // No necesitas cargar, ya tienes las preguntas
+  const { theme } = useTheme();
+  const styles = getStyles(theme);
 
-  const handleAnswer = (selectedOption) => {
-    if (selectedOption === questions[currentQuestionIndex].correctOption) {
-      setPoints(points + 10);
+  const handleAnswerPress = (answer) => {
+    if (answer.correct) {
+      setScore(score + 10);
     }
+
     if (currentQuestionIndex < questions.length - 1) {
       setCurrentQuestionIndex(currentQuestionIndex + 1);
     } else {
-      setShowResult(true);
+      setShowResults(true);
     }
   };
 
+  const handleRetryPress = () => {
+    setCurrentQuestionIndex(0);
+    setShowResults(false);
+    setScore(0);
+  };
+
+  if (isLoading) {
+    return (
+      <View style={styles.container}>
+        <ActivityIndicator size="large" color={theme.text} />
+      </View>
+    );
+  }
+
   return (
-    <View style={[styles.container, { backgroundColor: theme.background }]}>
-      {showResult ? (
-        <Text style={[styles.result, { color: theme.text }]}>
-          ¡Has terminado el quiz! Puntos totales: {points}
-        </Text>
-      ) : (
+    <View style={styles.container}>
+      {!showResults ? (
         <View>
-          <Text style={[styles.question, { color: theme.text }]}>
+          <Text style={styles.question}>
             {questions[currentQuestionIndex].question}
           </Text>
-          {questions[currentQuestionIndex].options.map((option, index) => (
-            <Button
+          {questions[currentQuestionIndex].answers.map((answer, index) => (
+            <TouchableOpacity
               key={index}
-              title={option}
-              onPress={() => handleAnswer(option)}
-            />
+              style={styles.answerButton}
+              onPress={() => handleAnswerPress(answer)}
+            >
+              <Text style={styles.answerButtonText}>{answer.text}</Text>
+            </TouchableOpacity>
           ))}
+        </View>
+      ) : (
+        <View>
+          <Text style={styles.resultText}>¡Quiz completado!</Text>
+          <Text style={styles.scoreText}>Puntuación Total: {score}</Text>
+          <TouchableOpacity style={styles.retryButton} onPress={handleRetryPress}>
+            <Text style={styles.retryButtonText}>Volver a Intentarlo</Text>
+          </TouchableOpacity>
         </View>
       )}
     </View>
   );
 };
 
-const styles = StyleSheet.create({
+const getStyles = (theme) => StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    padding: 20,
+    backgroundColor: theme.background,
   },
   question: {
     fontSize: 24,
+    fontWeight: 'bold',
+    color: theme.text,
     marginBottom: 20,
   },
-  result: {
+  answerButton: {
+    backgroundColor: theme.accent,
+    padding: 10,
+    margin: 10,
+    borderRadius: 5,
+    width: '80%',
+  },
+  answerButtonText: {
+    color: theme.white,
+    textAlign: 'center',
+    fontSize: 18,
+  },
+  resultText: {
     fontSize: 24,
-    marginTop: 20,
+    fontWeight: 'bold',
+    color: theme.text,
+    marginBottom: 20,
+  },
+  scoreText: {
+    fontSize: 20,
+    color: theme.text,
+    marginBottom: 20,
+  },
+  retryButton: {
+    backgroundColor: theme.primary,
+    padding: 10,
+    borderRadius: 5,
+    width: '80%',
+  },
+  retryButtonText: {
+    color: theme.secondary,
+    textAlign: 'center',
+    fontSize: 18,
   },
 });
 
