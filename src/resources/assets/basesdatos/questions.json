@@ -1,6 +1,6 @@
 [
   {
-    "question": "Pregunta 1: ¿Cuál es tu color favorito?",
+    "question": "¿Cuál es tu color favorito?",
     "answers": [
       { "text": "Rojo", "correct": false },
       { "text": "Azul", "correct": true },
@@ -9,12 +9,167 @@
     ]
   },
   {
-    "question": "Pregunta 2: ¿Cuál es tu animal favorito?",
+    "question": "¿Cuál es tu animal favorito?",
     "answers": [
       { "text": "Perro", "correct": true },
       { "text": "Gato", "correct": false },
       { "text": "Pájaro", "correct": false },
       { "text": "Pez", "correct": false }
+    ]
+  },
+  {
+    "question": "Vivo sin respirar, y bebo sin tomar; vivo sin luz, y muero si me expones al aire. ¿Qué soy?",
+    "answers": [
+      { "text": "El fuego", "correct": false },
+      { "text": "El pes", "correct": false },
+      { "text": "El hielo", "correct": false },
+      { "text": "El pez", "correct": true },
+    ]
+
+  },
+  {
+    "question": "¿Cuál es el país más grande del mundo?",
+    "answers": [
+      { "text": "Rusia", "correct": true },
+      { "text": "China", "correct": false },
+      { "text": "Estados Unidos", "correct": false },
+      { "text": "Canadá", "correct": false }
+    ]
+  },
+  {
+    "question": "¿Cuál es el río más largo del mundo?",
+    "answers": [
+      { "text": "Amazonas", "correct": true },
+      { "text": "Nilo", "correct": false },
+      { "text": "Yangtsé", "correct": false },
+      { "text": "Misisipi", "correct": false }
+    ]
+  },
+  {
+    "question": "¿Cuál es el océano más grande del mundo?",
+    "answers": [
+      { "text": "Atlántico", "correct": false },
+      { "text": "Índico", "correct": false },
+      { "text": "Pacífico", "correct": true },
+      { "text": "Ártico", "correct": false }
+    ]
+  },
+  {
+    "question": "¿Cuál es el país más poblado del mundo?",
+    "answers": [
+      { "text": "China", "correct": true },
+      { "text": "India", "correct": false },
+      { "text": "Estados Unidos", "correct": false },
+      { "text": "Indonesia", "correct": false }
+    ]
+  },
+  {
+    "question": "¿Cuál es el país más pequeño del mundo?",
+    "answers": [
+      { "text": "Mónaco", "correct": false },
+      { "text": "Vaticano", "correct": true },
+      { "text": "San Marino", "correct": false },
+      { "text": "Tuvalu", "correct": false }
+    ]
+  },
+  {
+    "question": "¿Cuál es el país más alto del mundo?",
+    "answers": [
+      { "text": "Nepal", "correct": true },
+      { "text": "Suiza", "correct": false },
+      { "text": "Bolivia", "correct": false },
+      { "text": "Perú", "correct": false }
+    ]
+  },
+  {
+    "question": " ¿Cuál es el país más bajo del mundo?",
+    "answers": [
+      { "text": "Holanda", "correct": false },
+      { "text": "Mónaco", "correct": false },
+      { "text": "Maldivas", "correct": true },
+      { "text": "Tuvalu", "correct": false }
+    ]
+  },
+
+  { 
+    "question": "Me tiras cuando me necesitas y me recoges cuando ya no me necesitas. ¿Qué soy?",
+    "answers":[ 
+      {"text": "La cuerda", "correct": false},
+      {"text": "El ancla", "correct": true},
+      {"text": "El lazo", "correct": false},
+      {"text": "La red", "correct": false}
+  ]
+  },
+  { 
+    "question": "Puede girar, ser volteado, roto, jugado y tocado, pero no puede ser visto. ¿Qué es?",
+    "answers": [
+      {"text": "El pensamiento", "correct": false},
+      {"text": "El sueño", "correct": false},
+      {"text": "La imaginación", "correct": true},
+      {"text": "La sombra", "correct": false}
+    ]
+  },
+  { 
+    "question": "Cuanto más grande soy, menos se ve. ¿Qué soy?",
+    "answers": [
+      {"text": "La sombra", "correct": false},
+      {"text": "El humo", "correct": false},
+      {"text": "El silencio", "correct": false},
+      {"text": "La oscuridad", "correct": true}
+  ]
+  },
+  { 
+    "question": "Si me nombras, desaparezco. ¿Qué soy?",
+    "answers":[
+      {"text": "El eco", "correct": false},
+      {"text": "El susurro", "correct": false},
+      {"text": "El silencio", "correct": true},
+      {"text": "El secreto", "correct": false}
+    ]
+},
+  {
+    "question": "Puede correr, pero no caminar. Tiene boca, pero no habla. Tiene cabeza, pero no llora. ¿Qué es?",
+    "answers":[
+      {"text": "El río", "correct": true},
+      {"text": "El tren", "correct": false},
+      {"text": "El reloj", "correct": false},
+      {"text": "El viento", "correct": false}
+    ]
+  },
+  {
+    "question": "Sin alzarme del suelo, te puedo alcanzar en cualquier lugar del mundo. ¿Qué soy?",
+    "answers":[
+      {"text": "La sombra", "correct": true},
+      {"text": "La voz", "correct": false},
+      {"text": "El viento", "correct": false},
+      {"text": "El eco", "correct": false}
+    ]
+  },
+  {
+    "question": "Cuanto más seco, más mojado. ¿Qué es?",
+    "answers":[
+      {"text": "La esponja", "correct": false},
+      {"text": "La toalla", "correct": true},
+      {"text": "La arena", "correct": false},
+      {"text": "El fuego", "correct": false}
+    ]
+  },
+  {
+    "question": "Blanco por dentro, verde por fuera. Si quieres que te lo diga, espera. ¿Qué es?",
+    "answers":[
+      {"text": "El pepino", "correct": false},
+      {"text": "El coco", "correct": false},
+      {"text": "La Pera", "correct": true},
+      {"text": "La sandía", "correct": false}
+    ]
+  },
+  {
+    "question": "Te lo puedo contar, pero no lo puedes ver. No tengo voz, pero resueno en tus oídos. ¿Qué soy?",
+    "answers":[
+      {"text": "El viento", "correct": false},
+      {"text": "El eco", "correct": true},
+      {"text": "La sombra", "correct": false},
+      {"text": "El susurro", "correct": false}
     ]
   }
 

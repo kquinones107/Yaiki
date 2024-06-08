@@ -1,32 +1,107 @@
-import React, { useState } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, ActivityIndicator } from 'react-native';
+import React, { useState, useEffect } from 'react';
+import { View, Text, TouchableOpacity, StyleSheet, ActivityIndicator, Alert } from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useTheme } from '../resources/assets/colors/ThemeContext';
 import questions from '../resources/assets/basesdatos/questions.json';
+import { useNavigation } from '@react-navigation/native';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 const QuizScreen = () => {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [showResults, setShowResults] = useState(false);
   const [score, setScore] = useState(0);
-  const [isLoading, setIsLoading] = useState(false); // No necesitas cargar, ya tienes las preguntas
+  const [timeLeft, setTimeLeft] = useState(5);
+  const [isLoading, setIsLoading] = useState(true);
+  const [selectedQuestions, setSelectedQuestions] = useState([]);
+  const [attemptsLeft, setAttemptsLeft] = useState(2);
   const { theme } = useTheme();
   const styles = getStyles(theme);
+  const navigation = useNavigation();
+
+  const totalQuestions = 7;
+
+  useEffect(() => {
+    const initializeQuiz = async () => {
+      const storedAttempts = await AsyncStorage.getItem('quizAttempts');
+      const lastAttemptTime = await AsyncStorage.getItem('lastAttemptTime');
+      const currentTime = new Date().getTime();
+
+      if (lastAttemptTime && currentTime - parseInt(lastAttemptTime) < 24 * 60 * 60 * 1000) {
+        setAttemptsLeft(2 - parseInt(storedAttempts));
+      } else {
+        await AsyncStorage.setItem('quizAttempts', '0');
+        await AsyncStorage.setItem('lastAttemptTime', currentTime.toString());
+        setAttemptsLeft(2);
+      }
+
+      const shuffledQuestions = shuffleArray(questions).slice(0, totalQuestions);
+      setSelectedQuestions(shuffledQuestions);
+      setIsLoading(false);
+    };
+
+    initializeQuiz();
+  }, []);
+
+  useEffect(() => {
+    if (timeLeft === 0) {
+      handleNextQuestion();
+    }
+    const timer = setTimeout(() => {
+      setTimeLeft(timeLeft - 1);
+    }, 1000);
+
+    return () => clearTimeout(timer);
+  }, [timeLeft]);
+
+  const shuffleArray = (array) => {
+    return array.sort(() => Math.random() - 0.5);
+  };
+
+  const handleNextQuestion = () => {
+    if (currentQuestionIndex < totalQuestions - 1) {
+      setCurrentQuestionIndex(currentQuestionIndex + 1);
+      setTimeLeft(5);
+    } else {
+      setShowResults(true);
+      updateAttempts();
+    }
+  };
 
   const handleAnswerPress = (answer) => {
     if (answer.correct) {
       setScore(score + 10);
     }
+    handleNextQuestion();
+  };
 
-    if (currentQuestionIndex < questions.length - 1) {
-      setCurrentQuestionIndex(currentQuestionIndex + 1);
-    } else {
-      setShowResults(true);
+  const updateAttempts = async () => {
+    const storedAttempts = await AsyncStorage.getItem('quizAttempts');
+    const newAttempts = parseInt(storedAttempts) + 1;
+    await AsyncStorage.setItem('quizAttempts', newAttempts.toString());
+
+    if (newAttempts >= 2) {
+      Alert.alert('Límite alcanzado', 'Has alcanzado el límite de intentos para las próximas 24 horas.');
     }
   };
 
-  const handleRetryPress = () => {
-    setCurrentQuestionIndex(0);
-    setShowResults(false);
-    setScore(0);
+  const handleRetryPress = async () => {
+    const storedAttempts = await AsyncStorage.getItem('quizAttempts');
+    const newAttempts = parseInt(storedAttempts) + 1;
+
+    if (newAttempts > 2) {
+      Alert.alert('Límite alcanzado', 'Has alcanzado el límite de intentos para las próximas 24 horas.');
+    } else {
+      setCurrentQuestionIndex(0);
+      setShowResults(false);
+      setScore(0);
+      setTimeLeft(5);
+      const shuffledQuestions = shuffleArray(questions).slice(0, totalQuestions);
+      setSelectedQuestions(shuffledQuestions);
+      await AsyncStorage.setItem('quizAttempts', newAttempts.toString());
+      const currentTime = new Date().getTime();
+      await AsyncStorage.setItem('lastAttemptTime', currentTime.toString());
+      setAttemptsLeft(2 - newAttempts);
+    }
   };
 
   if (isLoading) {
@@ -39,12 +114,16 @@ const QuizScreen = () => {
 
   return (
     <View style={styles.container}>
+      <TouchableOpacity style={styles.backButton} onPress={() => navigation.goBack()}>
+      <Icon name="arrow-back" size={30} color={theme.secondary} />
+      </TouchableOpacity>
       {!showResults ? (
         <View>
           <Text style={styles.question}>
-            {questions[currentQuestionIndex].question}
+            {selectedQuestions[currentQuestionIndex].question}
           </Text>
-          {questions[currentQuestionIndex].answers.map((answer, index) => (
+          <Text style={styles.timer}>Tiempo restante: {timeLeft}s</Text>
+          {selectedQuestions[currentQuestionIndex].answers.map((answer, index) => (
             <TouchableOpacity
               key={index}
               style={styles.answerButton}
@@ -76,6 +155,12 @@ const getStyles = (theme) => StyleSheet.create({
   },
   question: {
     fontSize: 24,
+    fontWeight: 'bold',
+    color: theme.text,
+    marginBottom: 20,
+  },
+  timer: {
+    fontSize: 20,
     fontWeight: 'bold',
     color: theme.text,
     marginBottom: 20,
@@ -113,6 +198,13 @@ const getStyles = (theme) => StyleSheet.create({
     color: theme.secondary,
     textAlign: 'center',
     fontSize: 18,
+  },
+  backButton: {
+    position: 'absolute',
+    top: 40,
+    left: 20,
+    backgroundColor: 'transparent', // No background color
+    padding: 10,
   },
 });
 

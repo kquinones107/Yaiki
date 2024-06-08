@@ -12,7 +12,7 @@ const GamificationScreen = () => {
     <View style={styles.container}>
       <Text style={styles.title}>Yaiki Game</Text>
       <Text style={styles.text}> 
-        Juega, diviértete y gana puntos y obtendrás descuentos en el valor total de tus compras. ¿Qué esperas para jugar?</Text>
+        Juega, diviértete, gana puntos y obtendrás descuentos en el valor total de tus compras. ¿Qué esperas para jugar?</Text>
       <Text> </Text>
       <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Quiz')}>
         <Text style={styles.buttonText}>Realizar Quiz</Text>
