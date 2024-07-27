@@ -17,9 +17,9 @@ const GamificationScreen = () => {
       <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Quiz')}>
         <Text style={styles.buttonText}>Realizar Quiz</Text>
       </TouchableOpacity>
-      <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('FindAccessory')}>
+      {/* <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('FindAccessory')}>
         <Text style={styles.buttonText}>Encuentra los Accesorios</Text>
-      </TouchableOpacity>
+      </TouchableOpacity> */}
       <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Customization')}>
         <Text style={styles.buttonText}>Personaliza tu Accesorio</Text>
       </TouchableOpacity>

@@ -15,14 +15,14 @@ const QuizScreen = () => {
   const [selectedQuestions, setSelectedQuestions] = useState([]);
   const [attemptsLeft, setAttemptsLeft] = useState(2);
   const { theme } = useTheme();
-  const styles = getStyles(theme);
+  const styles: any = getStyles(theme);
   const navigation = useNavigation();
 
   const totalQuestions = 7;
 
   useEffect(() => {
     const initializeQuiz = async () => {
-      const storedAttempts = await AsyncStorage.getItem('quizAttempts');
+      const storedAttempts = (await AsyncStorage.getItem('quizAttempts')) ?? '0';
       const lastAttemptTime = await AsyncStorage.getItem('lastAttemptTime');
       const currentTime = new Date().getTime();
 
@@ -115,7 +115,7 @@ const QuizScreen = () => {
   return (
     <View style={styles.container}>
       <TouchableOpacity style={styles.backButton} onPress={() => navigation.goBack()}>
-      <Icon name="arrow-back" size={30} color={theme.secondary} />
+      <Icon name="arrow-back" size={30} color={theme.text} />
       </TouchableOpacity>
       {!showResults ? (
         <View>

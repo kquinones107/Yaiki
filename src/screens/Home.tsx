@@ -377,7 +377,7 @@ const getStyles = () => {
       fontSize: 20,
       marginBottom: 20,
       color: theme.text,
-      fontFamily: 'IndieFlower',
+      fontFamily: 'Exo2-Regular',
     },
     redesContainer: {
       flex: 1,

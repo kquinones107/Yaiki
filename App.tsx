@@ -131,13 +131,13 @@ const App: React.FC = () => {
               name="Quiz"
               component={QuizScreen}
             />
-            <Stack.Screen
+            {/* <Stack.Screen
             options={{
               headerShown: false,
             }} 
             name="FindAccessory" 
             component={FindAccessoryScreen} 
-            />
+            /> */}
             <Stack.Screen
             options={{
               headerShown: false,
