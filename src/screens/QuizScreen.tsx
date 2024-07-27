@@ -1,9 +1,16 @@
-import React, { useState, useEffect } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, ActivityIndicator, Alert } from 'react-native';
+import React, {useState, useEffect} from 'react';
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  StyleSheet,
+  ActivityIndicator,
+  Alert,
+} from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { useTheme } from '../resources/assets/colors/ThemeContext';
+import {useTheme} from '../resources/assets/colors/ThemeContext';
 import questions from '../resources/assets/basesdatos/questions.json';
-import { useNavigation } from '@react-navigation/native';
+import {useNavigation} from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 const QuizScreen = () => {
@@ -14,7 +21,7 @@ const QuizScreen = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [selectedQuestions, setSelectedQuestions] = useState([]);
   const [attemptsLeft, setAttemptsLeft] = useState(2);
-  const { theme } = useTheme();
+  const {theme} = useTheme();
   const styles: any = getStyles(theme);
   const navigation = useNavigation();
 
@@ -22,11 +29,15 @@ const QuizScreen = () => {
 
   useEffect(() => {
     const initializeQuiz = async () => {
-      const storedAttempts = (await AsyncStorage.getItem('quizAttempts')) ?? '0';
+      const storedAttempts =
+        (await AsyncStorage.getItem('quizAttempts')) ?? '0';
       const lastAttemptTime = await AsyncStorage.getItem('lastAttemptTime');
       const currentTime = new Date().getTime();
-
-      if (lastAttemptTime && currentTime - parseInt(lastAttemptTime) < 24 * 60 * 60 * 1000) {
+      console.log(currentTime - parseInt(lastAttemptTime));
+      if (
+        lastAttemptTime &&
+        currentTime - parseInt(lastAttemptTime) < 86400000
+      ) {
         setAttemptsLeft(2 - parseInt(storedAttempts));
       } else {
         await AsyncStorage.setItem('quizAttempts', '0');
@@ -34,7 +45,10 @@ const QuizScreen = () => {
         setAttemptsLeft(2);
       }
 
-      const shuffledQuestions = shuffleArray(questions).slice(0, totalQuestions);
+      const shuffledQuestions = shuffleArray(questions).slice(
+        0,
+        totalQuestions,
+      );
       setSelectedQuestions(shuffledQuestions);
       setIsLoading(false);
     };
@@ -53,7 +67,17 @@ const QuizScreen = () => {
     return () => clearTimeout(timer);
   }, [timeLeft]);
 
-  const shuffleArray = (array) => {
+  useEffect(() => {
+    console.log("🚀 ~ useEffect ~ attemptsLeft:", attemptsLeft)
+    if (attemptsLeft <= 0) {
+      Alert.alert(
+        'Límite alcanzado',
+        'Has alcanzado el límite de intentos para las próximas 24 horas.',
+      );
+    }
+  }, [attemptsLeft]);
+
+  const shuffleArray = array => {
     return array.sort(() => Math.random() - 0.5);
   };
 
@@ -67,7 +91,7 @@ const QuizScreen = () => {
     }
   };
 
-  const handleAnswerPress = (answer) => {
+  const handleAnswerPress = answer => {
     if (answer.correct) {
       setScore(score + 10);
     }
@@ -80,22 +104,32 @@ const QuizScreen = () => {
     await AsyncStorage.setItem('quizAttempts', newAttempts.toString());
 
     if (newAttempts >= 2) {
-      Alert.alert('Límite alcanzado', 'Has alcanzado el límite de intentos para las próximas 24 horas.');
+      Alert.alert(
+        'Límite alcanzado',
+        'Has alcanzado el límite de intentos para las próximas 24 horas.',
+      );
     }
   };
 
   const handleRetryPress = async () => {
     const storedAttempts = await AsyncStorage.getItem('quizAttempts');
     const newAttempts = parseInt(storedAttempts) + 1;
+    console.log('🚀 ~ handleRetryPress ~ newAttempts:', newAttempts);
 
     if (newAttempts > 2) {
-      Alert.alert('Límite alcanzado', 'Has alcanzado el límite de intentos para las próximas 24 horas.');
+      Alert.alert(
+        'Límite alcanzado',
+        'Has alcanzado el límite de intentos para las próximas 24 horas.',
+      );
     } else {
       setCurrentQuestionIndex(0);
       setShowResults(false);
       setScore(0);
       setTimeLeft(5);
-      const shuffledQuestions = shuffleArray(questions).slice(0, totalQuestions);
+      const shuffledQuestions = shuffleArray(questions).slice(
+        0,
+        totalQuestions,
+      );
       setSelectedQuestions(shuffledQuestions);
       await AsyncStorage.setItem('quizAttempts', newAttempts.toString());
       const currentTime = new Date().getTime();
@@ -114,8 +148,10 @@ const QuizScreen = () => {
 
   return (
     <View style={styles.container}>
-      <TouchableOpacity style={styles.backButton} onPress={() => navigation.goBack()}>
-      <Icon name="arrow-back" size={30} color={theme.text} />
+      <TouchableOpacity
+        style={styles.backButton}
+        onPress={() => navigation.goBack()}>
+        <Icon name="arrow-back" size={30} color={theme.text} />
       </TouchableOpacity>
       {!showResults ? (
         <View>
@@ -123,21 +159,24 @@ const QuizScreen = () => {
             {selectedQuestions[currentQuestionIndex].question}
           </Text>
           <Text style={styles.timer}>Tiempo restante: {timeLeft}s</Text>
-          {selectedQuestions[currentQuestionIndex].answers.map((answer, index) => (
-            <TouchableOpacity
-              key={index}
-              style={styles.answerButton}
-              onPress={() => handleAnswerPress(answer)}
-            >
-              <Text style={styles.answerButtonText}>{answer.text}</Text>
-            </TouchableOpacity>
-          ))}
+          {selectedQuestions[currentQuestionIndex].answers.map(
+            (answer, index) => (
+              <TouchableOpacity
+                key={index}
+                style={styles.answerButton}
+                onPress={() => handleAnswerPress(answer)}>
+                <Text style={styles.answerButtonText}>{answer.text}</Text>
+              </TouchableOpacity>
+            ),
+          )}
         </View>
       ) : (
         <View>
           <Text style={styles.resultText}>¡Quiz completado!</Text>
           <Text style={styles.scoreText}>Puntuación Total: {score}</Text>
-          <TouchableOpacity style={styles.retryButton} onPress={handleRetryPress}>
+          <TouchableOpacity
+            style={styles.retryButton}
+            onPress={handleRetryPress}>
             <Text style={styles.retryButtonText}>Volver a Intentarlo</Text>
           </TouchableOpacity>
         </View>
@@ -146,66 +185,67 @@ const QuizScreen = () => {
   );
 };
 
-const getStyles = (theme) => StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: theme.background,
-  },
-  question: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    color: theme.text,
-    marginBottom: 20,
-  },
-  timer: {
-    fontSize: 20,
-    fontWeight: 'bold',
-    color: theme.text,
-    marginBottom: 20,
-  },
-  answerButton: {
-    backgroundColor: theme.accent,
-    padding: 10,
-    margin: 10,
-    borderRadius: 5,
-    width: '80%',
-  },
-  answerButtonText: {
-    color: theme.white,
-    textAlign: 'center',
-    fontSize: 18,
-  },
-  resultText: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    color: theme.text,
-    marginBottom: 20,
-  },
-  scoreText: {
-    fontSize: 20,
-    color: theme.text,
-    marginBottom: 20,
-  },
-  retryButton: {
-    backgroundColor: theme.primary,
-    padding: 10,
-    borderRadius: 5,
-    width: '80%',
-  },
-  retryButtonText: {
-    color: theme.secondary,
-    textAlign: 'center',
-    fontSize: 18,
-  },
-  backButton: {
-    position: 'absolute',
-    top: 40,
-    left: 20,
-    backgroundColor: 'transparent', // No background color
-    padding: 10,
-  },
-});
+const getStyles = theme =>
+  StyleSheet.create({
+    container: {
+      flex: 1,
+      justifyContent: 'center',
+      alignItems: 'center',
+      backgroundColor: theme.background,
+    },
+    question: {
+      fontSize: 24,
+      fontWeight: 'bold',
+      color: theme.text,
+      marginBottom: 20,
+    },
+    timer: {
+      fontSize: 20,
+      fontWeight: 'bold',
+      color: theme.text,
+      marginBottom: 20,
+    },
+    answerButton: {
+      backgroundColor: theme.accent,
+      padding: 10,
+      margin: 10,
+      borderRadius: 5,
+      width: '80%',
+    },
+    answerButtonText: {
+      color: theme.white,
+      textAlign: 'center',
+      fontSize: 18,
+    },
+    resultText: {
+      fontSize: 24,
+      fontWeight: 'bold',
+      color: theme.text,
+      marginBottom: 20,
+    },
+    scoreText: {
+      fontSize: 20,
+      color: theme.text,
+      marginBottom: 20,
+    },
+    retryButton: {
+      backgroundColor: theme.primary,
+      padding: 10,
+      borderRadius: 5,
+      width: '80%',
+    },
+    retryButtonText: {
+      color: theme.secondary,
+      textAlign: 'center',
+      fontSize: 18,
+    },
+    backButton: {
+      position: 'absolute',
+      top: 40,
+      left: 20,
+      backgroundColor: 'transparent', // No background color
+      padding: 10,
+    },
+  });
 
 export default QuizScreen;
