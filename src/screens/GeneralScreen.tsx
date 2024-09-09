@@ -13,7 +13,7 @@ const ProductItem = ({ product, onPressAddToCart }) => {
         <Image source={product.image} style={styles.image} />
         <Text style={styles.name}>{product.name}</Text>
         <Text style={styles.price}>${product.price}</Text>
-        <Button title="Agregar al carrito" onPress={onPressAddToCart} color={theme.logo}/>
+        <Button title="Agregar al carrito" onPress={onPressAddToCart} color={theme.button}/>
       </View>
     );
   };

@@ -24,8 +24,8 @@
     "@react-navigation/stack": "^6.3.29",
     "@types/type-name": "^1.0.32",
     "expo": "^50.0.14",
-    "react": "18.2.0",
-    "react-native": "0.73.6",
+    "react": "18.3.1",
+    "react-native": "0.75.2",
     "react-native-gesture-handler": "^2.16.0",
     "react-native-google-fonts": "^0.0.0",
     "react-native-pager-view": "^6.3.0",
@@ -42,10 +42,10 @@
     "@babel/core": "^7.20.0",
     "@babel/preset-env": "^7.20.0",
     "@babel/runtime": "^7.20.0",
-    "@react-native/babel-preset": "0.73.21",
-    "@react-native/eslint-config": "0.73.2",
-    "@react-native/metro-config": "0.73.5",
-    "@react-native/typescript-config": "0.73.1",
+    "@react-native/babel-preset": "0.75.2",
+    "@react-native/eslint-config": "0.75.2",
+    "@react-native/metro-config": "0.75.2",
+    "@react-native/typescript-config": "0.75.2",
     "@types/react": "^18.2.6",
     "@types/react-native-vector-icons": "^6.4.18",
     "@types/react-native-video": "^5.0.20",
@@ -54,10 +54,11 @@
     "eslint": "^8.19.0",
     "jest": "^29.6.3",
     "prettier": "2.8.8",
-    "react-test-renderer": "18.2.0",
+    "react-test-renderer": "18.3.1",
     "typescript": "5.0.4"
   },
   "engines": {
     "node": ">=18"
-  }
+  },
+  "packageManager": "yarn@3.6.4"
 }

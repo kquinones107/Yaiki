@@ -79,7 +79,7 @@ const getStyles = () => {
     },
     button: {
       flex: 1,
-      backgroundColor: theme.primary,
+      backgroundColor: theme.button,
       paddingVertical: 10,
       paddingHorizontal: 20,
       borderRadius: 5,
@@ -88,7 +88,7 @@ const getStyles = () => {
       marginBottom: 20,
     },
     buttonText: {
-      color: theme.secondary,
+      color: theme.text,
       fontSize: 24,
       fontFamily: 'Caveat-Bold',
       textAlign: 'center',

@@ -55,7 +55,7 @@ const getStyles = () => {
             fontFamily: 'Caveat-Bold'
         },
         button: {
-            backgroundColor: theme.logo,
+            backgroundColor: theme.button,
             padding: 10,
             margin: 10,
             borderRadius: 5,
@@ -63,7 +63,7 @@ const getStyles = () => {
             alignItems: 'center',
         },
         buttonText: {
-            color: theme.accent,
+            color: theme.text,
             textAlign: 'center',
             fontFamily: 'Exo2-Bold'
         },
