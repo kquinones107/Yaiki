@@ -9,7 +9,7 @@ app.use(cors());
 app.use(express.json()); // Para parsear JSON en las solicitudes
 
 // Conexión a la base de datos MongoDB (puedes cambiar por MySQL si prefieres)
-mongoose.connect('mongodb://localhost:27017/jewelrydb', {
+mongoose.connect('mongodb+srv://kquinones:P1Q7BmwyAsuji8hj@dimeloflow07.a7kja.mongodb.net/?retryWrites=true&w=majority&appName=DimeloFlow07', {
   useNewUrlParser: true,
   useUnifiedTopology: true
 }).then(() => {

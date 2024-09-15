@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { View, Text, Button, StyleSheet, TextInput, Alert } from 'react-native';
 import { Picker } from '@react-native-picker/picker';
 import { useTheme } from '../resources/assets/colors/ThemeContext';
 import Icon from 'react-native-vector-icons/Ionicons';
+import axios from 'axios';
 
 const CustomizationScreen = ({ navigation }) => {
   const { theme } = useTheme();
@@ -18,15 +19,27 @@ const CustomizationScreen = ({ navigation }) => {
   const materials = ['Oro', 'Plata', 'Cobre', 'Plástico', 'Madera'];
   const occasions = ['Casual', 'Formal', 'Fiesta', 'Trabajo', 'Deportivo'];
 
+  useEffect(() => {
+    // Obtener diseños de la API
+    axios.get('http://10.0.2.2:5000/designs')
+      .then(response => setDesigns(response.data))
+      .catch(error => console.error('Error al cargar los diseños', error));
+  }, []);
+
   const handleCreateDesign = () => {
     if (designName) {
-      setDesigns([...designs, { id: designs.length + 1, name: designName, type: designType, color: designColor, material: designMaterial, occasion: designOccasion }]);
-      setPoints(points + 20);
-      setDesignName('');
-      setDesignType('Collar');
-      setDesignColor('Rojo');
-      setDesignMaterial('Oro');
-      setDesignOccasion('Casual');
+      const newDesign = { name: designName, type: designType, color: designColor, material: designMaterial, occasion: designOccasion };
+      axios.post('http://10.0.2.2:5000/designs', newDesign)
+        .then(response => {
+          setDesigns([...designs, response.data]);
+          setPoints(points + 20);
+          setDesignName('');
+          setDesignType('Collar');
+          setDesignColor('Rojo');
+          setDesignMaterial('Oro');
+          setDesignOccasion('Casual');
+        })
+        .catch(error => console.error('Error al crear el diseño', error));
     } else {
       Alert.alert('Error', 'Por favor, ingrese un nombre para el diseño.');
     }

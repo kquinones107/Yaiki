@@ -23,6 +23,7 @@
     "@react-navigation/native": "^6.1.17",
     "@react-navigation/stack": "^6.3.29",
     "@types/type-name": "^1.0.32",
+    "axios": "^1.7.7",
     "expo": "^50.0.14",
     "react": "18.3.1",
     "react-native": "0.75.2",
