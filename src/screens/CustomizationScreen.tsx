@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { View, Text, Button, StyleSheet, TextInput, Alert } from 'react-native';
 import { Picker } from '@react-native-picker/picker';
 import { useTheme } from '../resources/assets/colors/ThemeContext';
-import AsyncStorage from '@react-native-async-storage/async-storage';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 const CustomizationScreen = ({ navigation }) => {
@@ -12,35 +11,22 @@ const CustomizationScreen = ({ navigation }) => {
   const [designName, setDesignName] = useState('');
   const [designType, setDesignType] = useState('Collar');
   const [designColor, setDesignColor] = useState('Rojo');
-  const [attempts, setAttempts] = useState(0);
-  const maxAttempts = 2;
+  const [designMaterial, setDesignMaterial] = useState('Oro');
+  const [designOccasion, setDesignOccasion] = useState('Casual');
 
-  useEffect(() => {
-    const loadAttempts = async () => {
-      const today = new Date().toISOString().split('T')[0];
-      const storedAttempts = await AsyncStorage.getItem(`attempts_${today}`);
-      setAttempts(storedAttempts ? parseInt(storedAttempts, 10) : 0);
-    };
+  const colors = ['Rojo', 'Azul', 'Verde', 'Amarillo', 'Negro', 'Blanco', 'Rosa', 'Morado', 'Naranja', 'Gris', 'Marrón', 'Turquesa'];
+  const materials = ['Oro', 'Plata', 'Cobre', 'Plástico', 'Madera'];
+  const occasions = ['Casual', 'Formal', 'Fiesta', 'Trabajo', 'Deportivo'];
 
-    loadAttempts();
-  }, []);
-
-  const handleCreateDesign = async () => {
-    if (attempts >= maxAttempts) {
-      Alert.alert('Límite alcanzado', 'Has alcanzado el límite de intentos para hoy.');
-      return;
-    }
-
+  const handleCreateDesign = () => {
     if (designName) {
-      setDesigns([...designs, { id: designs.length + 1, name: designName, type: designType, color: designColor }]);
+      setDesigns([...designs, { id: designs.length + 1, name: designName, type: designType, color: designColor, material: designMaterial, occasion: designOccasion }]);
       setPoints(points + 20);
       setDesignName('');
       setDesignType('Collar');
       setDesignColor('Rojo');
-      const today = new Date().toISOString().split('T')[0];
-      const newAttempts = attempts + 1;
-      await AsyncStorage.setItem(`attempts_${today}`, newAttempts.toString());
-      setAttempts(newAttempts);
+      setDesignMaterial('Oro');
+      setDesignOccasion('Casual');
     } else {
       Alert.alert('Error', 'Por favor, ingrese un nombre para el diseño.');
     }
@@ -67,20 +53,39 @@ const CustomizationScreen = ({ navigation }) => {
         <Picker.Item label="Collar" value="Collar" />
         <Picker.Item label="Pulsera" value="Pulsera" />
         <Picker.Item label="Anillo" value="Anillo" />
+        <Picker.Item label="Aretes" value="Aretes" />
       </Picker>
       <Picker
         selectedValue={designColor}
         style={[styles.picker, { color: theme.text }]}
         onValueChange={(itemValue) => setDesignColor(itemValue)}
       >
-        <Picker.Item label="Rojo" value="Rojo" />
-        <Picker.Item label="Azul" value="Azul" />
-        <Picker.Item label="Verde" value="Verde" />
+        {colors.map((color) => (
+          <Picker.Item key={color} label={color} value={color} />
+        ))}
+      </Picker>
+      <Picker
+        selectedValue={designMaterial}
+        style={[styles.picker, { color: theme.text }]}
+        onValueChange={(itemValue) => setDesignMaterial(itemValue)}
+      >
+        {materials.map((material) => (
+          <Picker.Item key={material} label={material} value={material} />
+        ))}
+      </Picker>
+      <Picker
+        selectedValue={designOccasion}
+        style={[styles.picker, { color: theme.text }]}
+        onValueChange={(itemValue) => setDesignOccasion(itemValue)}
+      >
+        {occasions.map((occasion) => (
+          <Picker.Item key={occasion} label={occasion} value={occasion} />
+        ))}
       </Picker>
       <Button title="Crear Nuevo Diseño" onPress={handleCreateDesign} />
       {designs.map((design) => (
         <Text key={design.id} style={[styles.design, { color: theme.text }]}>
-          {design.name} - {design.type} - {design.color}
+          {design.name} - {design.type} - {design.color} - {design.material} - {design.occasion}
         </Text>
       ))}
       <Text style={[styles.points, { color: theme.text }]}>Puntos: {points}</Text>

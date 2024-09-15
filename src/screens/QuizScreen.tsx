@@ -1,16 +1,15 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   View,
   Text,
   TouchableOpacity,
   StyleSheet,
   ActivityIndicator,
-  Alert,
 } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import {useTheme} from '../resources/assets/colors/ThemeContext';
+import { useTheme } from '../resources/assets/colors/ThemeContext';
 import questions from '../resources/assets/basesdatos/questions.json';
-import {useNavigation} from '@react-navigation/native';
+import { useNavigation } from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 const QuizScreen = () => {
@@ -20,34 +19,17 @@ const QuizScreen = () => {
   const [timeLeft, setTimeLeft] = useState(5);
   const [isLoading, setIsLoading] = useState(true);
   const [selectedQuestions, setSelectedQuestions] = useState([]);
-  const [attemptsLeft, setAttemptsLeft] = useState(2);
-  const {theme} = useTheme();
-  const styles: any = getStyles(theme);
+  const { theme } = useTheme();
+  const styles = getStyles(theme);
   const navigation = useNavigation();
 
   const totalQuestions = 7;
 
   useEffect(() => {
     const initializeQuiz = async () => {
-      const storedAttempts =
-        (await AsyncStorage.getItem('quizAttempts')) ?? '0';
-      const lastAttemptTime = await AsyncStorage.getItem('lastAttemptTime');
-      const currentTime = new Date().getTime();
-      console.log(currentTime - parseInt(lastAttemptTime));
-      if (
-        lastAttemptTime &&
-        currentTime - parseInt(lastAttemptTime) < 86400000
-      ) {
-        setAttemptsLeft(2 - parseInt(storedAttempts));
-      } else {
-        await AsyncStorage.setItem('quizAttempts', '0');
-        await AsyncStorage.setItem('lastAttemptTime', currentTime.toString());
-        setAttemptsLeft(2);
-      }
-
       const shuffledQuestions = shuffleArray(questions).slice(
         0,
-        totalQuestions,
+        totalQuestions
       );
       setSelectedQuestions(shuffledQuestions);
       setIsLoading(false);
@@ -67,17 +49,7 @@ const QuizScreen = () => {
     return () => clearTimeout(timer);
   }, [timeLeft]);
 
-  useEffect(() => {
-    console.log("🚀 ~ useEffect ~ attemptsLeft:", attemptsLeft)
-    if (attemptsLeft <= 0) {
-      Alert.alert(
-        'Límite alcanzado',
-        'Has alcanzado el límite de intentos para las próximas 24 horas.',
-      );
-    }
-  }, [attemptsLeft]);
-
-  const shuffleArray = array => {
+  const shuffleArray = (array) => {
     return array.sort(() => Math.random() - 0.5);
   };
 
@@ -87,55 +59,23 @@ const QuizScreen = () => {
       setTimeLeft(5);
     } else {
       setShowResults(true);
-      updateAttempts();
     }
   };
 
-  const handleAnswerPress = answer => {
+  const handleAnswerPress = (answer) => {
     if (answer.correct) {
       setScore(score + 10);
     }
     handleNextQuestion();
   };
 
-  const updateAttempts = async () => {
-    const storedAttempts = await AsyncStorage.getItem('quizAttempts');
-    const newAttempts = parseInt(storedAttempts) + 1;
-    await AsyncStorage.setItem('quizAttempts', newAttempts.toString());
-
-    if (newAttempts >= 2) {
-      Alert.alert(
-        'Límite alcanzado',
-        'Has alcanzado el límite de intentos para las próximas 24 horas.',
-      );
-    }
-  };
-
-  const handleRetryPress = async () => {
-    const storedAttempts = await AsyncStorage.getItem('quizAttempts');
-    const newAttempts = parseInt(storedAttempts) + 1;
-    console.log('🚀 ~ handleRetryPress ~ newAttempts:', newAttempts);
-
-    if (newAttempts > 2) {
-      Alert.alert(
-        'Límite alcanzado',
-        'Has alcanzado el límite de intentos para las próximas 24 horas.',
-      );
-    } else {
-      setCurrentQuestionIndex(0);
-      setShowResults(false);
-      setScore(0);
-      setTimeLeft(5);
-      const shuffledQuestions = shuffleArray(questions).slice(
-        0,
-        totalQuestions,
-      );
-      setSelectedQuestions(shuffledQuestions);
-      await AsyncStorage.setItem('quizAttempts', newAttempts.toString());
-      const currentTime = new Date().getTime();
-      await AsyncStorage.setItem('lastAttemptTime', currentTime.toString());
-      setAttemptsLeft(2 - newAttempts);
-    }
+  const handleRetryPress = () => {
+    setCurrentQuestionIndex(0);
+    setShowResults(false);
+    setScore(0);
+    setTimeLeft(5);
+    const shuffledQuestions = shuffleArray(questions).slice(0, totalQuestions);
+    setSelectedQuestions(shuffledQuestions);
   };
 
   if (isLoading) {
@@ -150,7 +90,8 @@ const QuizScreen = () => {
     <View style={styles.container}>
       <TouchableOpacity
         style={styles.backButton}
-        onPress={() => navigation.goBack()}>
+        onPress={() => navigation.goBack()}
+      >
         <Icon name="arrow-back" size={30} color={theme.text} />
       </TouchableOpacity>
       {!showResults ? (
@@ -164,19 +105,18 @@ const QuizScreen = () => {
               <TouchableOpacity
                 key={index}
                 style={styles.answerButton}
-                onPress={() => handleAnswerPress(answer)}>
+                onPress={() => handleAnswerPress(answer)}
+              >
                 <Text style={styles.answerButtonText}>{answer.text}</Text>
               </TouchableOpacity>
-            ),
+            )
           )}
         </View>
       ) : (
         <View>
           <Text style={styles.resultText}>¡Quiz completado!</Text>
           <Text style={styles.scoreText}>Puntuación Total: {score}</Text>
-          <TouchableOpacity
-            style={styles.retryButton}
-            onPress={handleRetryPress}>
+          <TouchableOpacity style={styles.retryButton} onPress={handleRetryPress}>
             <Text style={styles.retryButtonText}>Volver a Intentarlo</Text>
           </TouchableOpacity>
         </View>
@@ -185,7 +125,7 @@ const QuizScreen = () => {
   );
 };
 
-const getStyles = theme =>
+const getStyles = (theme) =>
   StyleSheet.create({
     container: {
       flex: 1,
