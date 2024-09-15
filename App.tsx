@@ -29,7 +29,7 @@ const HomeStack: React.FC = () => {
   const {theme} = useTheme();
   return (
     <Tab.Navigator initialRouteName="" screenOptions={({ route }) => ({
-      tabBarActiveTintColor: theme.accent,
+      tabBarActiveTintColor: theme.secondary,
       tabBarInactiveTintColor: theme.primary,
       tabBarStyle: {
         height: 90,

@@ -1,13 +1,14 @@
 export const themes = {
     light: {
         white: '#fff',
-        background: '#D0F4EA',
+        background: '#FFFCF2',
         text: '#333',
-        primary: '#4F6D7A',
-        secondary: '#E8FCC2',
+        primary: '#403D39',
+        secondary: '#CCC5B9',
         accent: '#7A5980',
         logo: '#d78cab',
         link: '#146CA7',
+        button: '#EB5E28',
     },
     dark: {
         white: '#fff',
@@ -18,6 +19,7 @@ export const themes = {
         accent: '#8D6E63', // A warm brown as the accent
         logo: '#d78cab', // A lighter pink to stand out on dark background
         link: '#80DEEA', // A lighter blue for links
+        button: '',
     }
 };
 
