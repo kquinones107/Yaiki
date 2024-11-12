@@ -36,8 +36,13 @@ const ProductSection = ({ title, products }) => {
   );
 };
 
+import { StackNavigationProp } from '@react-navigation/stack';
+import { RootStackParamList } from '../types'; // Adjust the path as necessary
+
+type HomeScreenNavigationProp = StackNavigationProp<RootStackParamList, 'Home'>;
+
 const Home = () => {
-  const navigation = useNavigation();
+  const navigation = useNavigation<HomeScreenNavigationProp>();
   const styles= getStyles();
 
   const handleFacebookPress = () => {
@@ -146,7 +151,7 @@ const Home = () => {
         pagingEnabled
         showsHorizontalScrollIndicator={false}
         renderItem={({ item, index }) => (
-          <TouchableOpacity onPress={() => navigation.navigate(item.title)}>
+          <TouchableOpacity onPress={() => navigation.navigate('Menu', { screen: item.title })}>
             <ProductSection
               key={index}
               title={item.title}
