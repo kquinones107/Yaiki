@@ -3301,14 +3301,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@react-native-async-storage/async-storage@npm:^1.23.1":
-  version: 1.24.0
-  resolution: "@react-native-async-storage/async-storage@npm:1.24.0"
+"@react-native-async-storage/async-storage@npm:^2.0.0":
+  version: 2.0.0
+  resolution: "@react-native-async-storage/async-storage@npm:2.0.0"
   dependencies:
     merge-options: ^3.0.4
   peerDependencies:
-    react-native: ^0.0.0-0 || >=0.60 <1.0
-  checksum: 7e56a2e97f48332f57c56ebf473b763c7ca2b1ef82f4b5f8e1c73350231ec91b8eafc4e4d1f972c4c1005da0d304816fa725dc6f07a8a7543e90f8bd16c22ab4
+    react-native: ^0.0.0-0 || >=0.65 <1.0
+  checksum: 7007a411f13988594a3f9b5ebb29f1554ab65ff2bd90814fa8b125fa68b69c431bdfcd38769ae2dcb6505aec2bad9296f0a0fa1ac8f123007eda49c826f2d138
   languageName: node
   linkType: hard
 
@@ -4138,7 +4138,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@react-navigation/native@npm:^6.1.17":
+"@react-navigation/native@npm:^6.0.8":
   version: 6.1.18
   resolution: "@react-navigation/native@npm:6.1.18"
   dependencies:
@@ -4162,7 +4162,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@react-navigation/stack@npm:^6.3.29":
+"@react-navigation/stack@npm:^6.3.21":
   version: 6.4.1
   resolution: "@react-navigation/stack@npm:6.4.1"
   dependencies:
@@ -4692,7 +4692,7 @@ __metadata:
     "@fortawesome/fontawesome-svg-core": ^6.5.2
     "@fortawesome/free-solid-svg-icons": ^6.5.2
     "@fortawesome/react-native-fontawesome": ^0.3.0
-    "@react-native-async-storage/async-storage": ^1.23.1
+    "@react-native-async-storage/async-storage": ^2.0.0
     "@react-native-firebase/analytics": ^20.0.0
     "@react-native-firebase/app": ^20.0.0
     "@react-native-picker/picker": ^2.7.6
@@ -4703,8 +4703,8 @@ __metadata:
     "@react-navigation/bottom-tabs": ^6.5.20
     "@react-navigation/drawer": ^6.6.15
     "@react-navigation/material-top-tabs": ^6.6.13
-    "@react-navigation/native": ^6.1.17
-    "@react-navigation/stack": ^6.3.29
+    "@react-navigation/native": ^6.0.8
+    "@react-navigation/stack": ^6.3.21
     "@types/react": ^18.2.6
     "@types/react-native-vector-icons": ^6.4.18
     "@types/react-native-video": ^5.0.20
@@ -4718,12 +4718,12 @@ __metadata:
     prettier: 2.8.8
     react: 18.3.1
     react-native: 0.75.4
-    react-native-gesture-handler: ^2.16.0
+    react-native-gesture-handler: ^2.18.1
     react-native-google-fonts: ^0.0.0
     react-native-pager-view: ^6.3.0
-    react-native-reanimated: ^3.8.1
-    react-native-safe-area-context: 4.8.2
-    react-native-screens: ~3.29.0
+    react-native-reanimated: ^3.15.0
+    react-native-safe-area-context: 4.10.4
+    react-native-screens: 3.34.0
     react-native-share: ^10.2.1
     react-native-tab-view: ^3.5.2
     react-native-toast-message: ^2.2.0
@@ -11553,7 +11553,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-native-gesture-handler@npm:^2.16.0":
+"react-native-gesture-handler@npm:^2.18.1":
   version: 2.20.2
   resolution: "react-native-gesture-handler@npm:2.20.2"
   dependencies:
@@ -11587,7 +11587,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-native-reanimated@npm:^3.8.1":
+"react-native-reanimated@npm:^3.15.0":
   version: 3.16.1
   resolution: "react-native-reanimated@npm:3.16.1"
   dependencies:
@@ -11610,26 +11610,26 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-native-safe-area-context@npm:4.8.2":
-  version: 4.8.2
-  resolution: "react-native-safe-area-context@npm:4.8.2"
+"react-native-safe-area-context@npm:4.10.4":
+  version: 4.10.4
+  resolution: "react-native-safe-area-context@npm:4.10.4"
   peerDependencies:
     react: "*"
     react-native: "*"
-  checksum: 929eaa5ee522f712e7bfabd0f22908f033918d030c932ddf6a83e4315bc781f7aa44e315806dc8130f75619f09951f3237082f720f4fa65a6670469886cf9735
+  checksum: cd87a10298e04f4d065d93effb40e043cd517fa946f79a23728049f6c5758c64fcedaabd2440503791eb5d313ecd92d6a403689cf980440642e77da151d96045
   languageName: node
   linkType: hard
 
-"react-native-screens@npm:~3.29.0":
-  version: 3.29.0
-  resolution: "react-native-screens@npm:3.29.0"
+"react-native-screens@npm:3.34.0":
+  version: 3.34.0
+  resolution: "react-native-screens@npm:3.34.0"
   dependencies:
     react-freeze: ^1.0.0
     warn-once: ^0.1.0
   peerDependencies:
     react: "*"
     react-native: "*"
-  checksum: c1879eea8386f32c2655fedd79d41d8e25d2f4e7f883abbcad2c747ea7ac859f4a7f469475a519948e7c5ea317a7ebd8df92c6365627f6a5da1e4a208cece7e1
+  checksum: 28c1f6e556c318ffcbd79d153b9612cc8a0b8d8b70f909d3cde2fd6d0586a7c151a449e57400d8996f4ee6c3b5140c5c4f643a427e974f6dc573b2bcd8eb7356
   languageName: node
   linkType: hard
 
